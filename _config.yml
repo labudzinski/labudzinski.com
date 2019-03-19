@@ -70,8 +70,8 @@ gems:
   - jekyll-feed
   - jekyll-pagination
 paginate: 10
-  paginate_files:
-    - index.html
+paginate_files:
+  - index.html
 
 exclude:
   - Gemfile
