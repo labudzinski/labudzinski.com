@@ -1,15 +1,7 @@
 ---
 layout: page
-title: About
+title: O mnie
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+Programista PHP z ponad 13 letnim doświadczeniem, jak również programista java, C#, JavaScript, python, perl.
