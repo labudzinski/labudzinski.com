@@ -18,3 +18,5 @@ Całość mechanizmy wygląda dość prosto:
 > Hasło → SHA512 → argon2(unique salt) → AES256(global salt)
 
 Oczywiście istnieje ryzyko, że podczas włamania na serwer utracimy klucz globalny, jak również unikalne klucze dla każdego użytkownika, co może skompromitować działanie mechanizmu, nie mniej jednak odtworzenie tak zaszyfrowanych haseł może być wyjątkowo trudne.
+
+Przykład: [https://github.com/Effiana/password-bundle/blob/master/src/Security/PasswordEncoder.php]
