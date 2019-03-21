@@ -1,6 +1,8 @@
 ---
 layout: post
+excerpt_separator: <!--more-->
 title: Przechowywanie haseł w bazie
+tags: [PHP, Symfony, Hasło, argon2]
 ---
 
 Od kilku lat obserwuje ciągłe wycieki haseł z baz danych różnych podmiotów, w tym tych największych. Nie ma w tym niczego dziwnego, bowiem złamanie zabezpieczeń w IT to tylko kwestia czasu i pieniędzy. 
