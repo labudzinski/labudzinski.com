@@ -8,7 +8,7 @@ tags: backup, kopia zapasowa, awaria
 Wyobraźmy sobie, że każdy robi regularnie kopię zapasową najważniejszych danych i przechowuje je w bezpiecznym miejscu.
 Oczywiście już pierwsze zdanie jest nie prawdziwe, Zwyczajnie nie jestem w stanie uwierzyć, że istnieją osoby, 
 które nie posiadają kopii zapasowych swoich najważniejszych danych i świadomie narażają się na ich utratę. 
-
+<!--more--> 
 Natomiast wracając do kopii zapasowych, każdy je ma, prawda? A czy kiedykolwiek kopie, które posiadamy były testowane?
 Czy mamy wiedzę o ich stanie, czy wiemy co w nich się zawiera, czy mamy pewność, że uda się je odzyskać?
 
