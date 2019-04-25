@@ -2,7 +2,7 @@
 layout: post
 excerpt_separator: <!--more-->
 title: Backup Schrödingera
-tags: backup, kopia zapasowa, awaria
+tags: backup kopia zapasowa awaria
 ---
 
 Wyobraźmy sobie, że każdy robi regularnie kopię zapasową najważniejszych danych i przechowuje je w bezpiecznym miejscu.
