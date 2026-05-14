@@ -9,7 +9,7 @@ theme = 'hermit'
   GitHubUser = 'Labudzinski'
   ListOfFoo = ['foo1', 'foo2']
   SidebarRecentLimit = 5
-  homeSubtitle = 'CTO / CSO / Senior Software Architect'
+  homeSubtitle = 'DevOps / Software Architect / Software Engineer / Software Developer / Database Architect / Security Engineer'
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
@@ -33,10 +33,10 @@ theme = 'hermit'
     url = "posts/"
     weight = 10
 
-  [[menu.main]]
-    name = "About"
-    url = "about/"
-    weight = 20
+  # [[menu.main]]
+  #   name = "About"
+  #   url = "about/"
+  #   weight = 20
     
 [sitemap]
   changefreq = 'weekly'
