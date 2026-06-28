@@ -3,6 +3,10 @@ languageCode = 'pl-pl'
 title = 'Dominik Labudzinski'
 enableRobotsTXT = true
 
+[services]
+  [services.disqus]
+    shortname = 'labudzinskicom'
+
 [module]
   [module.hugoVersion]
     min = '0.120.0'

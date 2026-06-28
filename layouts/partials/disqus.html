@@ -1,0 +1,37 @@
+{{- $shortname := "" -}}
+{{- with site.Config.Services.Disqus.Shortname -}}
+  {{- $shortname = . -}}
+{{- else -}}
+  {{- $shortname = site.Params.disqusShortname | default "" -}}
+{{- end -}}
+
+{{- if and $shortname (not .Params.disableComments) (not hugo.IsServer) -}}
+<section class="comments" aria-label="Comments">
+  <h2 class="section-head">Comments</h2>
+  <hr class="zine-rule">
+  <div
+    id="disqus_thread"
+    data-page-url="{{ .Permalink }}"
+    data-page-identifier="{{ .RelPermalink }}"
+    data-page-title="{{ .Title }}"
+  ></div>
+  <noscript>
+    <p class="comments__noscript">Enable JavaScript to view comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.</p>
+  </noscript>
+  <script>
+    var disqus_config = function () {
+      var el = document.getElementById('disqus_thread');
+      this.page.url = el.getAttribute('data-page-url');
+      this.page.identifier = el.getAttribute('data-page-identifier');
+      this.page.title = el.getAttribute('data-page-title');
+      this.language = 'pl';
+    };
+    (function () {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://{{ $shortname }}.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+</section>
+{{- end -}}
