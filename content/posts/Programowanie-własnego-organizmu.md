@@ -9,12 +9,28 @@ tags:
   - trening
 ---
 
-Po długiej przerwie wróciłem na rower, żeby zacząć traktować własny organizm jak system, który można ponownie zaprogramować.
-
-Początek był ciężki. Zwykła jazda potrafiła zajechać bardziej niż kiedyś mocny trening. Brak kondycji nie był abstrakcją, tylko czymś, co czułem na każdym kilometrze. Organizm szybko pokazał, ile zostało zaniedbane.
-
-Najtrudniejsze nie było samo wyjście na rower. Najtrudniejsze było utrzymanie regularności. Bo motywacja nie działa codziennie, a ciało bardzo szybko zaczyna szukać wymówek. Każdy trening był bardziej decyzją niż przyjemnością.
-
-To już drugi tydzień jazd. Jest wyraźnie lepiej niż na początku. Mniej walki, trochę więcej kontroli oddechu i tempa. Ale to nadal bardzo wczesny etap. Do realnego przeprogramowania organizmu zostało jeszcze dużo pracy i czasu.
-
-I właśnie w tym jest sedno. To nie jest powrót do formy. To jest proces odbudowy systemu od zera, krok po kroku, bez skrótów.
+Po długiej przerwie wróciłem na rower.
+Postanowiłem traktować własny organizm jak system, który można na nowo zaprogramować.
+Początek był surowy i bezlitosny.
+Zwykła jazda potrafiła wyczerpać bardziej niż niegdyś najmocniejszy trening.
+Brak kondycji nie był abstrakcyjnym pojęciem.
+Stał się konkretnym, palącym błędem odczuwanym na każdym kilometrze.
+Organizm szybko zdiagnozował wszystkie zaniedbane moduły.
+Najtrudniejsze nie było pierwsze uruchomienie.
+Najtrudniejsze było utrzymanie regularności cykli.
+Motywacja nie jest stałą zmienną.
+Ciało błyskawicznie zaczyna generować wyjątki i wymówki.
+Każdy trening stał się świadomą decyzją.
+Rzadziej czystą przyjemnością.
+To już drugi tydzień regularnych jazd.
+Jest wyraźnie lepiej niż na starcie.
+Mniej chaotycznej walki.
+Więcej kontroli nad oddechem i tempem.
+Nadal jednak jestem na bardzo wczesnym etapie kompilacji.
+Do prawdziwego przeprogramowania organizmu pozostało jeszcze wiele iteracji i czasu.
+I właśnie w tym tkwi sedno całego procesu.
+To nie jest zwykły powrót do starej formy.
+To głęboka refaktoryzacja systemu.
+Odbudowa od zera.
+Krok po kroku.
+Bez żadnych skrótów w kodzie.
