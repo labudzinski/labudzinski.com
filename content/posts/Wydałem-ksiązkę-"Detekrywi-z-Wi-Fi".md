@@ -5,6 +5,7 @@ draft: false
 toc: false
 images:
 tags:
+  - Książka
 ---
 To jest jeden z tych momentów, które z zewnątrz mogą wyglądać jak prosty krok, a w środku są sumą bardzo długiego procesu, który nie zawsze był uporządkowany ani oczywisty. Ta książka nie powstała w jednym ciągu pracy. Ona była składana z fragmentów, wracała, była odkładana, poprawiana, czasem pisana od nowa w głowie zanim trafiła na ekran.
 

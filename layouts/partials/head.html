@@ -28,6 +28,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
 <title>{{ $title }}</title>
 {{- with $desc -}}
 <meta name="description" content="{{ . }}">
@@ -62,5 +64,6 @@
 
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
 
 {{- partial "jsonld.html" . -}}

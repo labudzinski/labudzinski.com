@@ -20,7 +20,11 @@
           "show_more_text" $block.post_list.show_more_text
           "show_more_url" $block.post_list.show_more_url) }}
     {{- else if $block.tag_list -}}
-      {{ partial "tag_list.html" . }}
+      {{ partial "tag_list.html" (dict
+          "limit" $block.tag_list.limit
+          "show_more" $block.tag_list.show_more
+          "show_more_text" $block.tag_list.show_more_text
+          "show_more_url" $block.tag_list.show_more_url) }}
     {{- end -}}
   {{- end -}}
 {{ end }}

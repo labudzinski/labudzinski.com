@@ -31,4 +31,7 @@ url = "index.xml"
 title = "Tags"
 
   [entries.tag_list]
-    enabled = true
+  limit = 8
+  show_more = true
+  show_more_text = "all tags..."
+  show_more_url = "tags"

@@ -1,21 +1,28 @@
 {{ define "main" }}
-  {{ partial "masthead.html" . }}
-  <article>
-    <h1>{{ .Title }}</h1>
-    <p class="byline"><span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span></p>
-    <hr class="zine-rule zine-rule--solid">
-    {{- if .Params.tags -}}
-    <div class="meta">
-      {{- range $i, $term := (.GetTerms "tags") -}}
-        {{- if $i }}, {{ end -}}<a class="tag" href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-meta">
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</time>
+        {{- if gt .ReadingTime 0 -}}
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span class="reading-time">{{ .ReadingTime }} min read</span>
+        {{- end -}}
+      </div>
+      {{- if .Params.tags -}}
+      <div class="post-tags">
+        {{- range $i, $term := (.GetTerms "tags") -}}
+          {{- if $i }}, {{ end -}}<a class="tag" href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+        {{- end -}}
+      </div>
       {{- end -}}
-    </div>
-    {{- end -}}
+    </header>
     {{- if .Params.toc -}}
-    <aside class="toc">{{ .TableOfContents }}</aside>
+    <aside class="toc" aria-label="Table of contents">{{ .TableOfContents }}</aside>
     {{- end -}}
-    <div class="content">{{ .Content }}</div>
-    <hr class="zine-rule">
-    {{ partial "back_link.html" . }}
+    <div class="content post-body">{{ .Content }}</div>
+    <footer class="post-footer">
+      {{ partial "back_link.html" . }}
+    </footer>
   </article>
 {{ end }}

@@ -1,8 +1,7 @@
 {{ define "main" }}
-  {{ partial "masthead.html" . }}
   <h1>Tags</h1>
   <hr class="zine-rule zine-rule--solid">
-  {{ partial "tag_list.html" . }}
+  {{ partial "tag_list.html" (dict) }}
   <hr class="zine-rule">
   {{ partial "back_link.html" . }}
 {{ end }}

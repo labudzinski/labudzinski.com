@@ -1,7 +1,30 @@
-<ul class="menu-list">
-  {{- with site.GetPage "/tags" -}}
-    {{- range .Data.Terms.Alphabetical -}}
+{{- $limit := .limit -}}
+{{- $showMore := .show_more -}}
+{{- $showMoreText := .show_more_text | default "all tags..." -}}
+{{- $showMoreURL := .show_more_url | default "tags" -}}
+
+{{- $terms := slice -}}
+{{- with site.GetPage "/tags" -}}
+  {{- $terms = .Data.Terms.Alphabetical -}}
+{{- end -}}
+
+{{- $limitExceeded := false -}}
+{{- if and $limit (gt (len $terms) $limit) -}}
+  {{- $limitExceeded = true -}}
+{{- end -}}
+
+{{- if gt (len $terms) 0 -}}
+  {{- if $limit -}}
+    {{- $terms = first $limit $terms -}}
+  {{- end -}}
+  <ul class="menu-list">
+    {{- range $terms -}}
       <li><a href="{{ .Page.RelPermalink }}">Posts: {{ .Page.LinkTitle }}</a> <span class="meta">({{ .Count }})</span></li>
     {{- end -}}
-  {{- end -}}
-</ul>
+    {{- if and $showMore $limitExceeded -}}
+      <li><a href="{{ $showMoreURL | relURL }}">{{ $showMoreText }}</a></li>
+    {{- else if and $showMore (not $limit) -}}
+      <li><a href="{{ $showMoreURL | relURL }}">{{ $showMoreText }}</a></li>
+    {{- end -}}
+  </ul>
+{{- end -}}

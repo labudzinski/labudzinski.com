@@ -48,7 +48,7 @@ enableRobotsTXT = true
   copyright_start = 2019
   description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
   date_format = '2006-01-02'
-  back_home_text = 'spis tresci'
+  back_home_text = 'Back'
   github = 'https://github.com/labudzinski'
   linkedin = 'https://www.linkedin.com/in/dominik-l/'
 
