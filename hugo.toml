@@ -45,6 +45,7 @@ enableRobotsTXT = true
 
 [params]
   author = 'Dominik Labudzinski'
+  copyright_start = 2019
   description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
   date_format = '2006-01-02'
   back_home_text = 'spis tresci'
