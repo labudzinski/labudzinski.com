@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://labudzinski.com/sitemap.xml

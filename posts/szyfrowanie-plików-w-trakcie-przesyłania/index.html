@@ -1,103 +1,41 @@
-<!doctype html><html lang=pl-pl>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<meta itemprop=name content="Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+">
-<meta itemprop=description content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.
-Istnieje jednak wiele mechanizmów, które nie są widoczne dla użytkowników, a które odpowiadają za niezwykle ważny obszar — bezpieczeństwo. Tak jest m.in. z szyfrowaniem plików, które omówimy poniżej."><meta itemprop=datePublished content="2022-06-11T09:45:32+02:00">
-<meta itemprop=dateModified content="2022-06-11T09:45:32+02:00">
-<meta itemprop=wordCount content="1341">
-<meta itemprop=keywords content="BrandOriented,szyfrowanie,rsa,pliki,"><meta property="og:title" content="Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+">
-<meta property="og:description" content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.
-Istnieje jednak wiele mechanizmów, które nie są widoczne dla użytkowników, a które odpowiadają za niezwykle ważny obszar — bezpieczeństwo. Tak jest m.in. z szyfrowaniem plików, które omówimy poniżej.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://labudzinski.com/posts/szyfrowanie-plik%C3%B3w-w-trakcie-przesy%C5%82ania/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-06-11T09:45:32+02:00">
-<meta property="article:modified_time" content="2022-06-11T09:45:32+02:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+">
-<meta name=twitter:description content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.
-Istnieje jednak wiele mechanizmów, które nie są widoczne dla użytkowników, a które odpowiadają za niezwykle ważny obszar — bezpieczeństwo. Tak jest m.in. z szyfrowaniem plików, które omówimy poniżej.">
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/safari-pinned-tab.svg color>
-<link rel="shortcut icon" href=/favicon.ico>
-<title>Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+</title>
-<link rel=stylesheet href=https://labudzinski.com/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin=anonymous>
-</head>
-<body id=page>
-<header id=site-header class="animated slideInUp">
-<div class="hdr-wrapper section-inner">
-<div class=hdr-left>
-<div class=site-branding>
-<a href=https://labudzinski.com/>Dominik Labudzinski</a>
-</div>
-<nav class="site-nav hide-in-mobile">
-<a href=https://labudzinski.com/posts/>Posts</a>
-</nav>
-</div>
-<div class="hdr-right hdr-icons">
-<span class="hdr-social hide-in-mobile"><a href=https://github.com/labudzinski target=_blank rel="noopener me" title=Github><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://www.linkedin.com/in/dominik-l/ target=_blank rel="noopener me" title=Linkedin><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href=https://github.com/lemric target=_blank rel="noopener me" title=Github><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></span><button id=menu-btn class=hdr-btn title=Menu><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-</div>
-</div>
-</header>
-<div id=mobile-menu class="animated fast">
-<ul>
-<li><a href=https://labudzinski.com/posts/>Posts</a></li>
-</ul>
-</div>
-<main class="site-main section-inner animated fadeIn faster">
-<article class=thin>
-<header class=post-header>
-<div class=post-meta><span>Jun 11, 2022</span></div>
-<h1>Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+</h1>
-</header>
-<div class=content>
-<p>Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.
-Istnieje jednak wiele mechanizmów, które nie są widoczne dla użytkowników, a które odpowiadają za niezwykle ważny obszar — bezpieczeństwo. Tak jest m.in. z szyfrowaniem plików, które omówimy poniżej.</p>
-<p>Zanim zaczniemy przygotowywać się do szyfrowania plików, musimy zaplanować cały proces, a możliwości jest wyjątkowo dużo, zarówno jeżeli chodzi o algorytmy szyfrowania, jak i metody przetwarzania zaszyfrowanych plików. Na potrzeby tego materiału skupimy się na metodzie szyfrowania podobnej do tej, którą stosujemy w systemie Effiana, natomiast pokażemy ją oczywiście w dużym uproszczeniu. Przykłady mają na celu przybliżenie sposobu działania mechanizmu, a nie rzeczywistego kodu. Metoda ta zakłada, że pliki trafiają do serwera już w formie zaszyfrowanej, a dostęp do nich jest ograniczony do wybranych osób i nie wymaga ponownego szyfrowania na skutek zmiany odbiorców. Przykłady będą stanowiły pewnego rodzaju ideę, której sposoby implementacji mogą się znacznie różnić od siebie.
-Zacznijmy zatem od prostego kodu wysyłającego pliki do serwera z przeglądarki użytkownika:</p>
-<pre tabindex=0><code>function upload() {
-    const file = document.getElementById(&quot;file&quot;).files[0];
-    fetch('/upload', {
-        method: 'PUT',
+<!doctype html><html lang=pl-pl><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+ :: Dominik Labudzinski</title><meta name=description content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę …"><meta property="og:description" content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę …"><meta name=twitter:description content="Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę …"><meta name=author content="Dominik Labudzinski"><meta name=robots content="index, follow"><link rel=canonical href=https://labudzinski.com/posts/szyfrowanie-plik%C3%B3w-w-trakcie-przesy%C5%82ania/><meta property="og:title" content="Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+ :: Dominik Labudzinski"><meta property="og:url" content="https://labudzinski.com/posts/szyfrowanie-plik%C3%B3w-w-trakcie-przesy%C5%82ania/"><meta property="og:type" content="article"><meta property="og:site_name" content="Dominik Labudzinski"><meta property="og:locale" content="pl_pl"><meta name=twitter:card content="summary"><meta name=twitter:title content="Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+ :: Dominik Labudzinski"><meta property="article:published_time" content="2022-06-11T09:45:32+02:00"><meta property="article:modified_time" content="2022-06-11T09:45:32+02:00"><meta property="article:author" content="Dominik Labudzinski"><meta property="article:tag" content="BrandOriented"><meta property="article:tag" content="Szyfrowanie"><meta property="article:tag" content="Rsa"><meta property="article:tag" content="Pliki"><link rel=stylesheet href=/css/main.css><link rel=alternate type=application/rss+xml title="Dominik Labudzinski" href=https://labudzinski.com/index.xml><script type=application/ld+json>"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Dominik Labudzinski\",\"url\":\"https://labudzinski.com/\"},\"dateModified\":\"2022-06-11T09:45:32+02:00\",\"datePublished\":\"2022-06-11T09:45:32+02:00\",\"description\":\"Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę …\",\"headline\":\"Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+\",\"inLanguage\":\"pl-pl\",\"keywords\":[\"BrandOriented\",\"Szyfrowanie\",\"Rsa\",\"Pliki\"],\"mainEntityOfPage\":{\"@id\":\"https://labudzinski.com/posts/szyfrowanie-plik%C3%B3w-w-trakcie-przesy%C5%82ania/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Dominik Labudzinski\"},\"url\":\"https://labudzinski.com/posts/szyfrowanie-plik%C3%B3w-w-trakcie-przesy%C5%82ania/\"}"</script></head><body><div class=wrap><header class=masthead><p class=trail><a href=/>Dominik Labudzinski</a> >> Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+</p><hr class="zine-rule zine-rule--solid"></header><article><h1>Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+</h1><p class=byline><span class=post-date>2022-06-11</span></p><hr class="zine-rule zine-rule--solid"><div class=meta><a class=tag href=/tags/brandoriented/>BrandOriented</a>, <a class=tag href=/tags/szyfrowanie/>Szyfrowanie</a>, <a class=tag href=/tags/rsa/>Rsa</a>, <a class=tag href=/tags/pliki/>Pliki</a></div><div class=content><p>Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.
+Istnieje jednak wiele mechanizmów, które nie są widoczne dla użytkowników, a które odpowiadają za niezwykle ważny obszar — bezpieczeństwo. Tak jest m.in. z szyfrowaniem plików, które omówimy poniżej.</p><p>Zanim zaczniemy przygotowywać się do szyfrowania plików, musimy zaplanować cały proces, a możliwości jest wyjątkowo dużo, zarówno jeżeli chodzi o algorytmy szyfrowania, jak i metody przetwarzania zaszyfrowanych plików. Na potrzeby tego materiału skupimy się na metodzie szyfrowania podobnej do tej, którą stosujemy w systemie Effiana, natomiast pokażemy ją oczywiście w dużym uproszczeniu. Przykłady mają na celu przybliżenie sposobu działania mechanizmu, a nie rzeczywistego kodu. Metoda ta zakłada, że pliki trafiają do serwera już w formie zaszyfrowanej, a dostęp do nich jest ograniczony do wybranych osób i nie wymaga ponownego szyfrowania na skutek zmiany odbiorców. Przykłady będą stanowiły pewnego rodzaju ideę, której sposoby implementacji mogą się znacznie różnić od siebie.
+Zacznijmy zatem od prostego kodu wysyłającego pliki do serwera z przeglądarki użytkownika:</p><pre tabindex=0><code>function upload() {
+    const file = document.getElementById(&#34;file&#34;).files[0];
+    fetch(&#39;/upload&#39;, {
+        method: &#39;PUT&#39;,
         body: file
     });
 }
-</code></pre><p>Powyższy kod wysyła plik do serwera w najprostszy możliwy sposób bez szyfrowania. Naszym celem jest jednak przesyłanie zaszyfrowanego pliku, który nigdy nie trafi do serwera w postaci jawnej. Dodajmy zatem do funkcji zapisującej plik mechanizm szyfrowania, w tym celu użyjmy biblioteki cryptojs:</p>
-<pre tabindex=0><code>function upload() {
-    const file = document.getElementById(&quot;file&quot;).files[0];
+</code></pre><p>Powyższy kod wysyła plik do serwera w najprostszy możliwy sposób bez szyfrowania. Naszym celem jest jednak przesyłanie zaszyfrowanego pliku, który nigdy nie trafi do serwera w postaci jawnej. Dodajmy zatem do funkcji zapisującej plik mechanizm szyfrowania, w tym celu użyjmy biblioteki cryptojs:</p><pre tabindex=0><code>function upload() {
+    const file = document.getElementById(&#34;file&#34;).files[0];
     saveFile(file);
 }
 async function saveFile (file) {
   const reader = new FileReader();
-  reader.addEventListener(&quot;load&quot;, () =&gt; {
-        fetch('/upload', {
-            method: 'PUT',
-            body: CryptoJS.AES.encrypt(reader.result, &quot;&lt;pass&gt;&quot;)
+  reader.addEventListener(&#34;load&#34;, () =&gt; {
+        fetch(&#39;/upload&#39;, {
+            method: &#39;PUT&#39;,
+            body: CryptoJS.AES.encrypt(reader.result, &#34;&lt;pass&gt;&#34;)
         });
     }, false);
     if (file) {
        reader.readAsText(file);
     }
 }
-</code></pre><p>W takiej formie funkcja saveFile wyśle plik zaszyfrowany bezpośrednio do serwera. Powyższy przykład zawiera jednak poważny błąd. Kluczem szyfrującym jest zapisane w kodzie hasło. Oczywiście można użyć w tym miejscu różnych mechanizmów, tj. sesje, czy cookie, natomiast w dalszym ciągu będzie to mało bezpieczne, gdyż hasło, którym zaszyfrujemy nasz plik, będzie w dalszym ciągu jedynym zabezpieczeniem. W tym celu zastosujemy szyfrowanie asymetryczne RSA i użyjemy biblioteki cryptico, a na potrzeby tego artykułu zapiszemy klucz publiczny w kodzie — docelowo powinien on być zwracany z serwera, ale na tym etapie przyjmijmy, że tak jest.</p>
-<pre tabindex=0><code>const publicKeyString = 'MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGFxQyrqquJh+W/5wtrD3lrEWaCp
+</code></pre><p>W takiej formie funkcja saveFile wyśle plik zaszyfrowany bezpośrednio do serwera. Powyższy przykład zawiera jednak poważny błąd. Kluczem szyfrującym jest zapisane w kodzie hasło. Oczywiście można użyć w tym miejscu różnych mechanizmów, tj. sesje, czy cookie, natomiast w dalszym ciągu będzie to mało bezpieczne, gdyż hasło, którym zaszyfrujemy nasz plik, będzie w dalszym ciągu jedynym zabezpieczeniem. W tym celu zastosujemy szyfrowanie asymetryczne RSA i użyjemy biblioteki cryptico, a na potrzeby tego artykułu zapiszemy klucz publiczny w kodzie — docelowo powinien on być zwracany z serwera, ale na tym etapie przyjmijmy, że tak jest.</p><pre tabindex=0><code>const publicKeyString = &#39;MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGFxQyrqquJh+W/5wtrD3lrEWaCp
 EDjcHreBGU37v58GB2i3Vl/3VBP1KUqlVmkre/iAXSOKKKnS2k8cqftPZMGf8+r6
 BJKX7PJkKIEDkxBjReoaIZsibqGEKYF1ZLKmrvXlBO2+EyMvymv8A8QnJtHWdznw
-yitAM25LKNRnPVWbAgMBAAE=';
+yitAM25LKNRnPVWbAgMBAAE=&#39;;
 function upload() {
-    const file = document.getElementById(&quot;file&quot;).files[0];
+    const file = document.getElementById(&#34;file&#34;).files[0];
     saveFile(file);
 }
 async function saveFile (file) {
   const reader = new FileReader();
-  reader.addEventListener(&quot;load&quot;, () =&gt; {
-        fetch('/upload', {
-            method: 'PUT',
+  reader.addEventListener(&#34;load&#34;, () =&gt; {
+        fetch(&#39;/upload&#39;, {
+            method: &#39;PUT&#39;,
             body: cryptico.encrypt(
                    reader.result, publicKeyString
                ).cipher
@@ -113,22 +51,21 @@ Czy każdy przesyłany plik powinien być szyfrowany tym samym kluczem?
 Odpowiedź jest tylko teoretycznie prosta, gdyż w zależności od tego, jaka zostanie udzielona zależy to, czy wymagać będzie dodatkowego nakładu pracy i zasobów. Zespoły developerskie często starają się tworzyć rozwiązania jak najmniejszym nakładem pracy, co w przypadku tematyki bezpieczeństwa rzadko jest dobrym pomysłem. Wielokrotnie w ostatnich latach, a nawet miesiącach, słyszymy o wyciekach haseł, które po weryfikacji okazują się słabo albo wcale zabezpieczone.
 Moje podejście do tematyki bezpieczeństwa zawsze zakłada maksymalizację wysiłków i środków, aby osiągnąć zadowalający rezultat, tym bardziej w kwestii tak newralgicznej, jak przechowywanie plików, które nierzadko mogą być dokumentami poufnymi.
 Dlatego w dalszej części skupimy się na maksymalizacji efektu szyfrowania, a więc dla każdego pliku będzie generowana osobna para kluczy.
-Na początek poprawimy kod javascript, który będzie pobierał przed każdym wysłaniem pliku na serwer nowy klucz prywatny i identyfikator pliku, który pomoże przypisać odpowiednie klucze.</p>
-<pre tabindex=0><code>function upload() {
-    const file = document.getElementById(&quot;file&quot;).files[0];
-    fetch('/upload', {method: 'HEAD'}).then(function(response) {
+Na początek poprawimy kod javascript, który będzie pobierał przed każdym wysłaniem pliku na serwer nowy klucz prywatny i identyfikator pliku, który pomoże przypisać odpowiednie klucze.</p><pre tabindex=0><code>function upload() {
+    const file = document.getElementById(&#34;file&#34;).files[0];
+    fetch(&#39;/upload&#39;, {method: &#39;HEAD&#39;}).then(function(response) {
       saveFile(
           file,
-          response.headers.get(&quot;File-Public-Key&quot;),
-          response.headers.get(&quot;File-Id&quot;)
+          response.headers.get(&#34;File-Public-Key&#34;),
+          response.headers.get(&#34;File-Id&#34;)
       );
     });
 }
 async function saveFile (file, publicKeyString, fileId) {
   const reader = new FileReader();
-  reader.addEventListener(&quot;load&quot;, () =&gt; {
-        fetch('/upload', {
-            method: 'PUT',
+  reader.addEventListener(&#34;load&#34;, () =&gt; {
+        fetch(&#39;/upload&#39;, {
+            method: &#39;PUT&#39;,
             body: cryptico.encrypt(
                    reader.result, publicKeyString
                ).cipher
@@ -139,8 +76,7 @@ async function saveFile (file, publicKeyString, fileId) {
     }
 }
 </code></pre><p>Metoda “/upload” [HEAD] powinna zwrócić w nagłówku oba potrzebne elementy które, zanim prześlemy zostaną zapisane po stronie serwera aplikacji np. w bazie danych. W tej sytuacji metoda “/upload” [HEAD] generuje parę kluczy i zapisuje ją w bazie. Gdy chcemy, aby plik po zaszyfrowaniu nie mógł zostać podmieniony i ponownie zaszyfrowany, możemy nie zapisywać kompletnej pary kluczy i pozostawić jedynie klucz prywatny, który będzie służył do odszyfrowania pliku.
-Na potrzeby artykuły przyjmujemy, że przechowywane są tylko klucze prywatne, które są szyfrowane dodatkowo za pomocą algorytmu AES, dla którego klucz jest zapisany w pamięci serwera (plik, zapis w konfiguracji itp.). Ma to zabezpieczyć sam klucz prywatny przed dostępem osób nieuprawnionych, które mogą operować na bazie danych. W sytuacji, gdyby uzyskali dostęp do bazy danych, nie będą w stanie odszyfrować plików.</p>
-<pre tabindex=0><code>File-Public-Key: MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGFxQyrqquJh+W/5wtrD3lrEWaCp
+Na potrzeby artykuły przyjmujemy, że przechowywane są tylko klucze prywatne, które są szyfrowane dodatkowo za pomocą algorytmu AES, dla którego klucz jest zapisany w pamięci serwera (plik, zapis w konfiguracji itp.). Ma to zabezpieczyć sam klucz prywatny przed dostępem osób nieuprawnionych, które mogą operować na bazie danych. W sytuacji, gdyby uzyskali dostęp do bazy danych, nie będą w stanie odszyfrować plików.</p><pre tabindex=0><code>File-Public-Key: MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGFxQyrqquJh+W/5wtrD3lrEWaCp
 EDjcHreBGU37v58GB2i3Vl/3VBP1KUqlVmkre/iAXSOKKKnS2k8cqftPZMGf8+r6
 BJKX7PJkKIEDkxBjReoaIZsibqGEKYF1ZLKmrvXlBO2+EyMvymv8A8QnJtHWdznw
 yitAM25LKNRnPVWbAgMBAAE=
@@ -150,8 +86,7 @@ File-Id: 70ec0290-2768-42f4-af90-e378c524264d
 |------------|--------------------|--------------------| 
 </code></pre><p>Po wprowadzeniu tych zmian w kodzie na serwerze powinien znajdować się już zaszyfrowany plik oraz klucz prywatny, służący do odszyfrowania w formie zaszyfrowanej zapisany w bazie aplikacji.
 To jednak nie koniec samego procesu szyfrowania, ponieważ brakuje tu jeszcze danych pozwalających na odszyfrowanie. Co istotne w tym momencie żaden użytkownik nie może odszyfrować pliku. Aby funkcjonalność była kompletna, po załadowaniu pliku powinniśmy nadać odpowiednie “uprawnienia” dla właściciela pliku (osoby, która wgrywa plik na serwer), czyli najogólniej mówiąc, musimy zaszyfrować dla niego klucz prywatny pliku. W tym celu do zaszyfrowanego pliku dodamy wpis z kluczem prywatnym, który zostanie zaszyfrowany indywidualnym kluczem właściciela.
-Sam pomysł nie jest nowy, podobny mechanizm został użyty w PGP, natomiast zamiast ponownie szyfrować plik, do którego zostaną dodane klucze, do pliku zaszyfrowanego dodamy osobne wpisy z kluczami użytkowników. Pozwoli to uniknąć potrzeby odszyfrowywania i ponownego szyfrowania, zarówno w kontekście dużych plików, jak również w kontekście bezpieczeństwa, ponieważ plik nie będzie odszyfrowywany i zapisywany na serwerze. Nasz plik będzie wyglądał mniej więcej w taki sposób:</p>
-<pre tabindex=0><code>-----BEGIN EFFIANA KEY-----
+Sam pomysł nie jest nowy, podobny mechanizm został użyty w PGP, natomiast zamiast ponownie szyfrować plik, do którego zostaną dodane klucze, do pliku zaszyfrowanego dodamy osobne wpisy z kluczami użytkowników. Pozwoli to uniknąć potrzeby odszyfrowywania i ponownego szyfrowania, zarówno w kontekście dużych plików, jak również w kontekście bezpieczeństwa, ponieważ plik nie będzie odszyfrowywany i zapisywany na serwerze. Nasz plik będzie wyglądał mniej więcej w taki sposób:</p><pre tabindex=0><code>-----BEGIN EFFIANA KEY-----
 ID:24f1b2296b37c229789611a2293ef498bdde0787c0db3ae5ba216ac51a02c
 KEY:/Oc8eQ6SJ52zxlIceORE20ZBqP+u4DhmY5i8rCeTv3GHnktDQBKxfZhqp8oAJKX3hlOvBApt54hZY4FupsxTpyKVbonleDETZcjNENs3Tk4GQqKOd9swADEWyQWC1DTOE+h20pEWldHCp9PKPw5wvg==
 -----END EFFIANA KEY——
@@ -161,46 +96,9 @@ uAc6JIvkisAwvHXKjPuYmldoVC1sQWLY7J/Z0Ke1Dqy3yPHeMKzjyzzp8WSukWFCMG54A+9J/gdqDsA7
 </code></pre><p>Teraz plik jest kompletny, zawiera wszystkie potrzebne elementy, w tym identyfikator i klucz użytkownika, którymi będziemy się posługiwać przy odszyfrowywaniu pliku. Identyfikatorem może być adres email, unikalny numer użytkownika itp. W systemie Effiana używamy identyfikatora użytkownika, który przechowywany jest w postaci UUID, a dodatkowo jest on zapisany w postaci funkcji skrótu za pomocą algorytmu Keccak (SHA3).
 Jak zatem wygląda proces tworzenia “EFFIANA KEY”?
 Na samym początku generujemy parę kluczy dla użytkownika i pliku, gdyż na wstępie założyliśmy, że każdy plik będzie szyfrowany unikalnymi kluczami. Następnie dla zaszyfrowanego pliku pobieramy klucz prywatny, dokładnie ten sam, którego używamy do odszyfrowania. Teraz pozostało tylko odszyfrowanie klucza prywatnego za pomocą AES i zaszyfrowanie go za pomocą klucza publicznego wygenerowanego dla użytkownika. Dla bezpieczeństwa zapominamy o kluczu publicznym, a w bazie zapisujemy tylko klucz prywatny.
-W tym miejscu możemy zastosować różne techniki zabezpieczenia tych kluczy, w tym np. dodatkowe szyfrowanie np. AES za pomocą przypisanego do użytkownika unikalnego tokenu. Możliwości jest wiele, natomiast najważniejsze, aby żadne klucze nie znalazły się w tym samym miejscu (serwerze, dysku itp.), w którym znajdują się zaszyfrowane nimi pliki.</p>
-<blockquote>
-<p>UWAGA: pliki zaszyfrowane w ten sposób nie będą mogły zostać odszyfrowane bez odpowiedniego klucza, a w przypadku skasowania ich z bazy, pliki staną się bezużyteczne i nie będzie możliwości ich odzyskania.
+W tym miejscu możemy zastosować różne techniki zabezpieczenia tych kluczy, w tym np. dodatkowe szyfrowanie np. AES za pomocą przypisanego do użytkownika unikalnego tokenu. Możliwości jest wiele, natomiast najważniejsze, aby żadne klucze nie znalazły się w tym samym miejscu (serwerze, dysku itp.), w którym znajdują się zaszyfrowane nimi pliki.</p><blockquote><p>UWAGA: pliki zaszyfrowane w ten sposób nie będą mogły zostać odszyfrowane bez odpowiedniego klucza, a w przypadku skasowania ich z bazy, pliki staną się bezużyteczne i nie będzie możliwości ich odzyskania.
 Aby temu zapobiec, można dla każdego pliku szyfrować klucz publiczny i wysyłać go do zewnętrznego kontenera. W systemie Effiana stosujemy w tym celu dedykowaną bazę danych, która umożliwia tylko i wyłącznie dodanie do tabeli kluczy, ale nie pozwala na ich usuwanie, edycję i pobieranie, dodatkowo co określony czas wszystkie klucze są zapisywane w zaszyfrowanej kopii bezpieczeństwa, która jest rozsyłana do kilku miejsc docelowych.
 W przypadku bazy danych komenda może wyglądać tak:
-MySQL: &ldquo;GRANT INSERT ON table TO ‘username’@&lsquo;localhost’;&rdquo;
-PostgreSQL: &ldquo;GRANT INSERT ON table TO username;&rdquo;</p>
-</blockquote>
-<p>W następnych częściach zajmiemy się szyfrowaniem dużych plików (>1GB), pobieraniem odszyfrowanych plików i rozszerzaniem osób uprawnionych do ich odszyfrowania.
-Pierwotnie opublikowano na <a href=https://www.linkedin.com/posts/brandoriented_security-encryption-activity-6940972126568910849-P1GX/>LinkedIn</a></p>
-</div>
-<hr class=post-end>
-<footer class=post-info>
-<p>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=tag><a href=https://labudzinski.com/tags/brandoriented>BrandOriented</a></span><span class=tag><a href=https://labudzinski.com/tags/szyfrowanie>szyfrowanie</a></span><span class=tag><a href=https://labudzinski.com/tags/rsa>rsa</a></span><span class=tag><a href=https://labudzinski.com/tags/pliki>pliki</a></span>
-</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>1341 Words</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022-06-11 07:45 +0000</p>
-</footer>
-</article>
-<div class="post-nav thin">
-<a class=prev-post href=https://labudzinski.com/posts/backup-schr%C3%B6dingera/>
-<span class=post-nav-label>Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><br><span>Backup Schrödingera</span>
-</a>
-</div>
-<div id=comments class=thin>
-</div>
-</main><!doctype html>
-<html>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=content-style-type content="text/css">
-<title></title>
-<meta name=Generator content="Cocoa HTML Writer">
-<meta name=CocoaVersion content="2254.16">
-<style type=text/css></style>
-</head>
-<body>
-</body>
-</html>
-<script src=https://labudzinski.com/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin=anonymous></script>
-</body>
-</html>
+MySQL: &ldquo;GRANT INSERT ON table TO ‘username’@&rsquo;localhost’;&rdquo;
+PostgreSQL: &ldquo;GRANT INSERT ON table TO username;&rdquo;</p></blockquote><p>W następnych częściach zajmiemy się szyfrowaniem dużych plików (>1GB), pobieraniem odszyfrowanych plików i rozszerzaniem osób uprawnionych do ich odszyfrowania.
+Pierwotnie opublikowano na <a href=https://www.linkedin.com/posts/brandoriented_security-encryption-activity-6940972126568910849-P1GX/>LinkedIn</a></p></div><hr class=zine-rule><a class=back href=/>spis tresci</a></article></div></body></html>
