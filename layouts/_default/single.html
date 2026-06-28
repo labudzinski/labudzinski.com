@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "masthead.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <hr class="zine-rule">
+  {{ partial "back_link.html" . }}
+{{ end }}

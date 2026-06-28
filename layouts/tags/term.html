@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ partial "masthead.html" . }}
+  <h1>Posts: {{ .Title }}</h1>
+  <hr class="zine-rule zine-rule--solid">
+  <ul class="menu-list">
+    {{- range .Pages.ByDate.Reverse -}}
+      <li>
+        <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
+      </li>
+    {{- end -}}
+  </ul>
+  <hr class="zine-rule">
+  {{ partial "back_link.html" . }}
+{{ end }}

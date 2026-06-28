@@ -1,0 +1,63 @@
+baseURL = 'https://labudzinski.com/'
+languageCode = 'pl-pl'
+title = 'Dominik Labudzinski'
+enableRobotsTXT = true
+
+[module]
+  [module.hugoVersion]
+    min = '0.120.0'
+
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    lineNos = false
+    noClasses = true
+    style = 'monokai'
+    tabWidth = 4
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[params]
+  author = 'Dominik Labudzinski'
+  description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
+  date_format = '2006-01-02'
+  back_home_text = 'spis tresci'
+  github = 'https://github.com/labudzinski'
+  linkedin = 'https://www.linkedin.com/in/dominik-l/'
+
+[taxonomies]
+  tag = 'tags'
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ['HTML', 'RSS']

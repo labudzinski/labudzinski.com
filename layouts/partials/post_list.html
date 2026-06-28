@@ -1,0 +1,33 @@
+{{- $posts := "" -}}
+{{- $dateFormat := site.Params.date_format | default "2006-01-02" -}}
+
+{{- if .section -}}
+  {{- $posts = where site.RegularPages "Section" .section -}}
+{{- else if eq .context.Kind "taxonomy" -}}
+  {{- $posts = .context.Pages -}}
+{{- else if eq .context.Kind "term" -}}
+  {{- $posts = .context.Data.Pages -}}
+{{- else -}}
+  {{- $posts = site.RegularPages -}}
+{{- end -}}
+
+{{- $limitExceeded := false -}}
+{{- if and .limit (gt (len $posts) .limit) -}}
+  {{- $limitExceeded = true -}}
+{{- end -}}
+
+{{- if gt (len $posts) 0 -}}
+  {{- if .limit -}}
+    {{- $posts = first .limit $posts -}}
+  {{- end -}}
+  <ul class="menu-list">
+    {{- range $post := $posts -}}
+      <li>
+        <span class="post-date">{{ $post.Date | time.Format $dateFormat }}</span><a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
+      </li>
+    {{- end -}}
+    {{- if and .show_more $limitExceeded -}}
+      <li><a href="{{ .show_more_url | relURL }}">{{ .show_more_text | default "wiecej..." }}</a></li>
+    {{- end -}}
+  </ul>
+{{- end -}}

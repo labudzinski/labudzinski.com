@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "masthead.html" . }}
+  <p class="error-code">[!] 404 — tekst nie istnieje</p>
+  <p>Adres <code>{{ .Permalink }}</code> nie wystepuje w tym wydaniu zina.</p>
+  <hr class="zine-rule">
+  {{ partial "back_link.html" . }}
+{{ end }}

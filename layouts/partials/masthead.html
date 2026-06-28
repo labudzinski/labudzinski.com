@@ -1,0 +1,6 @@
+{{- if not .IsHome -}}
+<header class="masthead">
+  <p class="trail"><a href="{{ "" | relURL }}">{{ .Site.Title }}</a> &gt;&gt; {{- if eq .Kind "term" }} Posts: {{ .Title }}{{- else }} {{ .Title }}{{- end -}}</p>
+  <hr class="zine-rule zine-rule--solid">
+</header>
+{{- end -}}

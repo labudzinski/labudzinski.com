@@ -1,0 +1,7 @@
+<ul class="menu-list">
+  {{- with site.GetPage "/tags" -}}
+    {{- range .Data.Terms.Alphabetical -}}
+      <li><a href="{{ .Page.RelPermalink }}">Posts: {{ .Page.LinkTitle }}</a> <span class="meta">({{ .Count }})</span></li>
+    {{- end -}}
+  {{- end -}}
+</ul>

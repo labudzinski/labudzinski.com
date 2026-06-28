@@ -1,0 +1,258 @@
+/* labudzinski.com — e-zine, minimal palette */
+
+:root {
+  --bg: #000000;
+  --fg: #ffffff;
+  --link: #00cc00;
+  --dim: #777777;
+  --rule: #333333;
+  --code-bg: #0a0a0a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, "Liberation Mono", monospace;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+::selection {
+  background: #333333;
+  color: var(--fg);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link);
+}
+
+a:hover,
+a:focus {
+  color: var(--fg);
+  background: #1a1a1a;
+  outline: none;
+}
+
+.wrap {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 1rem 0.75rem 2rem;
+}
+
+.masthead {
+  margin: 0 0 1rem;
+}
+
+.trail {
+  margin: 0 0 0.5rem;
+  font-size: 0.9em;
+  color: var(--fg);
+}
+
+.zine-rule {
+  border: none;
+  border-top: 1px dashed var(--rule);
+  margin: 1rem 0;
+}
+
+.zine-rule--solid {
+  border-top-style: solid;
+}
+
+.lead {
+  margin: 0 0 1.25rem;
+}
+
+.section-head {
+  color: var(--fg);
+  font-size: 0.95em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin: 1.5rem 0 0.35rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--fg);
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+p {
+  margin: 0.7rem 0;
+}
+
+ul,
+ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.25rem 0;
+  color: var(--fg);
+}
+
+.menu-list {
+  list-style: square;
+  padding-left: 1.25rem;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.menu-list li {
+  margin: 0.35rem 0;
+}
+
+.post-date {
+  color: var(--dim);
+}
+
+.post-date::before {
+  content: "[";
+}
+
+.post-date::after {
+  content: "] ";
+}
+
+.byline {
+  color: var(--dim);
+  font-size: 0.9em;
+  margin: 0 0 1rem;
+}
+
+.byline em {
+  color: var(--dim);
+  font-style: normal;
+}
+
+.meta {
+  color: var(--dim);
+  font-size: 0.9em;
+  margin-bottom: 1rem;
+}
+
+.meta .label {
+  color: var(--dim);
+}
+
+.meta a.tag {
+  text-decoration: underline;
+}
+
+.back {
+  display: inline;
+  margin-top: 1.5rem;
+  font-size: 0.92em;
+}
+
+.back::before {
+  content: "<< ";
+  color: var(--fg);
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--rule);
+  margin: 1.25rem 0;
+}
+
+blockquote {
+  margin: 0.75rem 0;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--rule);
+}
+
+pre,
+code {
+  font-family: inherit;
+  font-size: 0.92em;
+  color: var(--fg);
+}
+
+pre {
+  background: var(--code-bg);
+  border-left: 2px solid var(--rule);
+  padding: 0.5rem 0.65rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+
+.highlight pre {
+  margin: 0.75rem 0;
+}
+
+.highlight pre,
+.highlight pre span {
+  color: var(--fg) !important;
+  background: transparent !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+th,
+td {
+  border: 1px dashed var(--rule);
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+}
+
+img {
+  max-width: 100%;
+}
+
+.toc {
+  border-left: 2px solid var(--rule);
+  padding: 0.35rem 0 0.35rem 0.75rem;
+  margin: 0.75rem 0 1rem;
+  font-size: 0.92em;
+}
+
+.toc ul {
+  margin: 0.25rem 0 0;
+}
+
+.error-code {
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  .wrap {
+    padding: 0.5rem;
+  }
+}

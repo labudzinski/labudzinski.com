@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{- with .Content -}}
+  <div class="lead">{{ . }}</div>
+  {{- end -}}
+  {{- range $block := .Site.Data.menu.entries -}}
+    <h2 class="section-head">{{ $block.title }}</h2>
+    <hr class="zine-rule">
+    {{- if $block.url -}}
+      <ul class="menu-list">
+        <li><a href="{{ $block.url | relURL }}">{{ $block.title }}</a></li>
+      </ul>
+    {{- else if $block.entries -}}
+      {{ partial "menu_item.html" (dict "context" $ "collection" $block.entries) }}
+    {{- else if $block.post_list -}}
+      {{ partial "post_list.html" (dict
+          "context" $
+          "section" $block.post_list.section
+          "limit" $block.post_list.limit
+          "show_more" $block.post_list.show_more
+          "show_more_text" $block.post_list.show_more_text
+          "show_more_url" $block.post_list.show_more_url) }}
+    {{- else if $block.tag_list -}}
+      {{ partial "tag_list.html" . }}
+    {{- end -}}
+  {{- end -}}
+{{ end }}
