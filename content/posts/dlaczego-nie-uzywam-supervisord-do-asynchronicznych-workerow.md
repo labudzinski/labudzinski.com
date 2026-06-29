@@ -1,5 +1,5 @@
 ---
-title: "Dlaczego nie używam supervisord do asynchronicznych workerów i zamiast tego ubijam je co godzinę"
+title: "Dlaczego nie używam supervisord do asynchronicznych workerów"
 date: 2026-06-29T10:00:00+02:00
 draft: false
 toc: false
