@@ -575,7 +575,7 @@ img {
 
   pre {
     padding: var(--space-2) var(--space-3);
-    font-size: 0.85em !important;
+    font-size: 0.65em !important;
   }
 }
 
