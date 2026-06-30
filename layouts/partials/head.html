@@ -44,7 +44,7 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ $ogType }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" }}">
+<meta property="og:locale" content="{{ replace (lower .Site.Language.LanguageCode) "-" "_" }}">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ $title }}">

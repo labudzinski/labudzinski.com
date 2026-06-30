@@ -2,7 +2,7 @@
   {{- with .Content -}}
   <div class="lead">{{ . }}</div>
   {{- end -}}
-  {{- range $block := .Site.Data.menu.entries -}}
+  {{- range $block := site.Data.menu.entries -}}
     <h2 class="section-head">{{ $block.title }}</h2>
     <hr class="zine-rule">
     {{- if $block.url -}}

@@ -27,7 +27,7 @@
       "publisher" (dict "@type" "Person" "name" $author)
       "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
       "url" .Permalink
-      "inLanguage" .Site.LanguageCode
+      "inLanguage" .Site.Language.Lang
       "keywords" $keywords
   -}}
 {{- else if .IsHome -}}
@@ -37,7 +37,7 @@
       "name" .Site.Title
       "description" $desc
       "url" .Site.BaseURL
-      "inLanguage" .Site.LanguageCode
+      "inLanguage" .Site.Language.Lang
       "author" (dict "@type" "Person" "name" $author)
   -}}
 {{- else if eq .Kind "term" -}}
@@ -47,7 +47,7 @@
       "name" (printf "Posts: %s" .Title)
       "url" .Permalink
       "description" (printf "Posts tagged %s." .Title)
-      "inLanguage" .Site.LanguageCode
+      "inLanguage" .Site.Language.Lang
   -}}
 {{- end -}}
 

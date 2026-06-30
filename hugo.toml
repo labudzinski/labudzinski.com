@@ -1,7 +1,12 @@
 baseURL = 'https://labudzinski.com/'
-languageCode = 'pl-pl'
+defaultContentLanguage = 'pl'
 title = 'Dominik Labudzinski'
 enableRobotsTXT = true
+
+[languages.pl]
+languageName = 'Polski'
+locale = 'pl-PL'
+weight = 1
 
 [services]
   [services.disqus]
