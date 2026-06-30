@@ -20,13 +20,11 @@
   {{- if .limit -}}
     {{- $posts = first .limit $posts -}}
   {{- end -}}
-  <ul class="menu-list post-list">
+  <ul class="menu-list">
     {{- range $post := $posts -}}
-      {{ partial "post_list_item.html" (dict
-          "date" ($post.Date | time.Format $dateFormat)
-          "datetime" ($post.Date.Format "2006-01-02T15:04:05Z07:00")
-          "url" $post.Permalink
-          "title" $post.Title) }}
+      <li>
+        <span class="post-date">{{ $post.Date | time.Format $dateFormat }}</span><a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
+      </li>
     {{- end -}}
     {{- if and .show_more $limitExceeded -}}
       <li><a href="{{ .show_more_url | relURL }}">{{ .show_more_text | default "wiecej..." }}</a></li>

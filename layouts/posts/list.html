@@ -1,13 +1,11 @@
 {{ define "main" }}
   <h1>{{ .Title | default "wpisy" }}</h1>
   <hr class="zine-rule zine-rule--solid">
-  <ul class="menu-list post-list">
+  <ul class="menu-list">
     {{- range .Pages.ByDate.Reverse -}}
-      {{ partial "post_list_item.html" (dict
-          "date" (.Date | time.Format (.Site.Params.date_format | default "2006-01-02"))
-          "datetime" (.Date.Format "2006-01-02T15:04:05Z07:00")
-          "url" .Permalink
-          "title" .Title) }}
+      <li>
+        <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
+      </li>
     {{- end -}}
   </ul>
   <hr class="zine-rule">

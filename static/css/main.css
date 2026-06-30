@@ -307,50 +307,14 @@ li::marker {
   padding: var(--space-2) 0 var(--space-2) var(--space-3);
   border-left: 2px solid var(--rule);
   transition: border-color var(--transition), padding-left var(--transition);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .menu-list li::before {
   content: "> ";
   color: var(--link);
   font-weight: 700;
-}
-
-.post-list {
-  margin-bottom: var(--space-5);
-}
-
-.post-list__item {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-2);
-  margin: 0;
-  padding: var(--space-2) 0 var(--space-2) var(--space-3);
-  border-left: 2px solid var(--rule);
-  transition: border-color var(--transition), padding-left var(--transition);
-}
-
-.menu-list .post-list__item::before {
-  content: none;
-  display: none;
-}
-
-.post-list__marker {
-  flex: 0 0 auto;
-  color: var(--link);
-  font-weight: 700;
-  line-height: 1.55;
-}
-
-.post-list__content {
-  flex: 1 1 auto;
-  min-width: 0;
-  line-height: 1.55;
-}
-
-.post-list__link {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  text-wrap: pretty;
 }
 
 .post-date {
@@ -897,10 +861,6 @@ img {
     font-size: 0.8125rem;
   }
 
-  .post-list__item {
-    padding: var(--space-3) 0 var(--space-3) var(--space-3);
-  }
-
   pre,
   .highlight pre {
     padding: var(--space-2) var(--space-3);
@@ -960,11 +920,6 @@ img {
 
 @media (hover: hover) and (pointer: fine) {
   .menu-list li:hover {
-    border-left-color: var(--link);
-    padding-left: calc(var(--space-3) + 2px);
-  }
-
-  .post-list__item:hover {
     border-left-color: var(--link);
     padding-left: calc(var(--space-3) + 2px);
   }
