@@ -463,6 +463,18 @@ pre code {
   border: none;
 }
 
+pre.signature {
+  margin-top: var(--space-8);
+  font-size: 0.85em;
+  color: var(--fg-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.site-footer__pgp {
+  margin-top: var(--space-3);
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

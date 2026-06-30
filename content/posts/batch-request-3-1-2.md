@@ -1,8 +1,24 @@
 ---
-title: "batch-request 3.1.2"
 date: 2026-05-28T10:00:00+02:00
 draft: false
-toc: false
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD1pMACgkQXN6UakFg
+  wimuSw//RbXLSfieGwVRBWM7Glyqz8uOvLqWWH6IWrhPcNgkuftwNDfXjYJbcIaD
+  RjWKpboT+rX0lNlOglpMUN8NeRxszhkQpVkmbPYDyThVdPTO/AI4bXa+2uWRPgqd
+  EBtzlhnOCnozS2KjMPMoIvoz+jAWTmODNjWPvLjc8JBGS1J7Yh4qmIvWvE9qex9c
+  zhehdpBmB+3CZ1AywtnVHkf1I13xPUFI0FLXdGrtgSlKEdHROyzWMdtIWj/7A3GE
+  B1nSWOXEyaQ5EkDbkbnCbt69z5RosJMlD/QXu20624lD9cqPjwwSFnf8eRshs9MO
+  41d46/K82fPARHlT1t2LKCU4/+/w5XwGy7t56S96xx7GXXnumxJZ7JJlKdRSf5fx
+  Nvni674BTR7GcM91xCC/rV3Qsqm47RqbBIIfZiqu9tYO4wRnATD8ProvvcswUMPX
+  95vsAXs6nELtjotKlkkC8r5+6WFZMWjRinzULCQXng90Mv9NvZBaWT4nb42ccJOg
+  E41mIsX4RlDNbcHoDiJEUeboX29TsMMfcToEAAU4eX8vED0DSI5RwsqS2/12itMD
+  ySRuEpxo4pVKfsjy2UpM+LPyqd8tWboScfJnfqdqkPFL7Ra2qr2EYOFbe2adnfZr
+  bEtSysL0231YcAvWGsuK21cdEewVjHM3P5neKzMY2LqI/ryCOZA=
+  =y4gI
+  -----END PGP SIGNATURE-----
 tags:
   - PHP
   - Symfony
@@ -10,6 +26,8 @@ tags:
   - OpenSource
   - API
   - BatchRequests
+title: batch-request 3.1.2
+toc: false
 ---
 
 I just released version 3.1.2 of [lemric/batch-request](https://github.com/lemric/batch-request), a PHP library that lets you send a single HTTP request containing multiple API calls, with independent operations processed in parallel.

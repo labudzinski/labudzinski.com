@@ -7,6 +7,7 @@ require (
 	github.com/charmbracelet/bubbletea v1.2.4
 	github.com/charmbracelet/lipgloss v1.0.0
 	golang.org/x/text v0.8.0
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (

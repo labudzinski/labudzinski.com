@@ -52,6 +52,7 @@ enableRobotsTXT = true
 
 [params]
   author = 'Dominik Labudzinski'
+  pgp_author = 'Dominik Łabudziński'
   copyright_start = 2019
   description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
   date_format = '2006-01-02'

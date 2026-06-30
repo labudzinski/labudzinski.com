@@ -1,14 +1,32 @@
 ---
-title: "Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+"
 date: 2022-06-11T09:45:32+02:00
 draft: false
-toc: false
-images:
-tags: 
+images: null
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD1pMACgkQXN6UakFg
+  wimLfg/+KDa2bc1L0TCVP6aCADBN0OjezIGLOKQsYz9gTyhWFrMN14wLvhLxY9F+
+  mxM19A/1kvpESqsku39Pf+YN1mWo5DZa13FNcw4jliThooZAGrwycDP+h9jK7mQd
+  gdailmGdVa5tbkFs6QZpKKxNqN3CJsNrf3f4bal+g6bH6SovbyFx6oXhGTURjKMD
+  1/I1WZy7rMPL7perCFicT6L2EehVjFjXqCwpO57eLrsdF+fl5Iz6tyZlU706oi3T
+  K66ioOGhWgUR/mcHxhyx3pSXapWm8eVbeRTRomiYG89agNVw6Z6ODNEUJBpEfILg
+  vJkX3BD+wyfT107j8glD84QCu15kgG38wibWXdtxqMcX6xvr7lAuSomeTNbd4O02
+  ILnTht6Em2iCe5JyuBVELWN7NWkmW73uDJ2Zj6FFxTsCa6n+2EEkHl1VN88Ujega
+  BlnLnUT/4lt0VNFIOzEWQTD2asOE5nz1nVU9Eqa/tAORTmtLuZnXbftOQFkOnVcT
+  nG8p1C5X7ff/sxpYidqN/RyiaRii7oXWEJ3u03PJBzgZVjJ3jDkVQ+IaR+HwnYij
+  izSPJtIxCmAU7VyDvWqsyZQZHBJxKW+iC8rO9YOnYrYyF4G+xQhla3f8OX0G80QM
+  /XiferhjUmZ43/2MWO0H+HiWi4lNA5t5n5OHzV8bgpOCe9euMkQ=
+  =OWTp
+  -----END PGP SIGNATURE-----
+tags:
   - BrandOriented
   - szyfrowanie
   - rsa
   - pliki
+title: Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+
+toc: false
 ---
 
 Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.

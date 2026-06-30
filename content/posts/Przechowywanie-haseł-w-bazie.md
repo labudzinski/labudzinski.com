@@ -1,14 +1,32 @@
 ---
-title: "Przechowywanie haseł w bazie"
 date: 2019-03-19T09:45:32+02:00
 draft: false
-toc: false
-images:
-tags: 
-  - PHP 
-  - Symfony 
-  - Hasło 
+images: null
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD1pMACgkQXN6UakFg
+  winBQQ//Z4j7Cda+iY1FNt6vO+yN+b3S/dGgdEVJDITwCZ9KqJrwQohmAen9WUmi
+  SGJ+dzAgBbiN4WmR7jeXiXRkwWYo+cPDzRC1Xa0r+SVnYiHZZnvV3R4RcEDk7yfj
+  +w80eCOrg7MrotFpYtVFGjx1pmn6SVD4USf80bLDmrZz4UR0YAlUsdFzXiOvuF8M
+  qjE5Besqw5TU08j5Vhh5lcHtdIEZDiSMiph8k/HvyjGQo+IzWk32QcKsrm/yRhaN
+  FWdVWjQPA+OiUJ804Sy/I5CqfTfGQ7KnR/Pk+3haB6xYfv3S98MXDnAidOHhe+Fx
+  KfXSf6r1KtL/dLZ9Wq9U4livXXZ6PfeXVvYILy7IMOKk0spvSdMF2nFHy8IyQ6bq
+  IuRk19j3cp9aQuTYhP/ycU8IeS119FSoar5zYvb4QZdS71E19ROVbww64EtHRUGc
+  nJPpc1nXSlmkBJpjsd/fy3URThE3LpnTkP+gB2nURofLCHs9lAQ5MwXYTC09dgjg
+  n/zJSxaDKPMSBvDTkV5zUl7r2jMJKPPShqZnMCwJja+RyKyPw+zncJ1Ilgze+Bv1
+  GAOhvKKQgb8KoWvJE/PpT8tYoOhhTTi9VXfFTKrANlmGqqR8UQvG43sL91zLf9ph
+  Hm/2iU/y73KIaUVm0b+tcLuNazLjb4lURoxVGkNuYsI0KCKsU7I=
+  =pJKX
+  -----END PGP SIGNATURE-----
+tags:
+  - PHP
+  - Symfony
+  - Hasło
   - argon2
+title: Przechowywanie haseł w bazie
+toc: false
 ---
 
 Od kilku lat obserwuje ciągłe wycieki haseł z baz danych różnych podmiotów, w tym tych największych. Nie ma w tym niczego dziwnego, bowiem złamanie zabezpieczeń w IT to tylko kwestia czasu i pieniędzy. 

@@ -7,3 +7,4 @@
 # Go CLI
 /blogpost
 /cmd/blogpost/blogpost
+private-key.asc

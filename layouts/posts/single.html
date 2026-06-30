@@ -21,6 +21,14 @@
     <aside class="toc" aria-label="Table of contents">{{ .TableOfContents }}</aside>
     {{- end -}}
     <div class="content post-body">{{ .Content }}</div>
+    {{- if .Params.pgp_signature -}}
+    <pre class="signature">─── PGP SIGNATURE ───
+Author: {{ .Site.Params.pgp_author | default "Dominik Łabudziński" }}
+Key: {{ .Params.pgp_key_fingerprint }}
+{{ .Params.pgp_signature }}
+Integrity: verified via OpenPGP
+</pre>
+    {{- end -}}
 <!--     {{ partial "disqus.html" . }} -->
     <footer class="post-footer">
       {{ partial "back_link.html" . }}

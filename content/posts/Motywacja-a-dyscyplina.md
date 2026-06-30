@@ -1,14 +1,32 @@
 ---
-title: "Motywacja a dyscyplina"
 date: 2026-06-30T11:00:00+02:00
 draft: false
-toc: false
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD1pMACgkQXN6UakFg
+  wilafg//dzmDmpN5DIIBYNqNkKaKVOGa2Y2H9laM3UEOl34FfJx8TwIeUO3q3CYk
+  g6iKMRGkbWovY0IkNtetdqr9ID39mvnm7XplqtosMzhvhRh4dZs0MchBxw2duX7i
+  VyK+ikSXecPJaFjwKcnMsW254DJaXWJAS3H9GgGi6bH/MZUUjDz6c6vl7+WRb8yL
+  y9+pm3UItlVg0DSlO+pVWq6tlgEysKxeU2jjDvwcFzZbOuYImk5dezM/JeW3kNBw
+  YYV+lhcQBMuxrVdsQQC/iCfl9gWpwKx2kq561VfUJkXGE74rkdNylpSFJgnbCjfl
+  as7nNd76YXByct9gfLtVRKmz1EaqDa++Kx260FNgn2SUYO8UO/iTF7lsQrdT0IOp
+  iByNAl2uG5XH8jxJ/3zI0CcqBuilGI0kBHFBQkxAvqPLAxm75qgA2Up4pkZUw1zh
+  mjG/mde8UkbTE0eEa9NzCtdGSGAjo4kja5IBuXk0h7j+mnA5DZcrzAI8/r0lWxFR
+  UMS+8cssXoAKWfXKjXtq9UyKjyh2mnF2vgQB8t6yfSnb23TpEAfwexz7S8lnIdJp
+  IvqZwu7216sCXWLltWjMQlXz2y5YPG67KR/fsp26GXdJQ3yXk8RT1p+rMoswQLO9
+  2AelVEYfS6RvEMtX7jTeM5pI6AxnPPWN3I8pWA+h5qFgEV3cpKI=
+  =vDvp
+  -----END PGP SIGNATURE-----
 tags:
   - rower
   - kondycja
   - trening
   - motywacja
   - dyscyplina
+title: Motywacja a dyscyplina
+toc: false
 ---
 
 Zacząłem znowu jeździć na rowerze po ponad dziesięciu latach przerwy. Kiedy patrzę wstecz, widzę, jak bardzo się zmieniłem. Dawniej potrzebowałem silnego impulsu, ekscytacji, wielkich planów. Teraz tego prawie nie ma. Jest za to zdrowie i codzienne postanowienie.

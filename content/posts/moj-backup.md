@@ -1,13 +1,31 @@
 ---
-title: "Mój backup"
 date: 2026-06-30T13:30:59+02:00
 draft: false
-toc: false
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD1pMACgkQXN6UakFg
+  winfmQ/9HfhGHoifwcHCkzU9PnlNfvn0rSvd40Eh7jtQMjFhRSvRAwZMUOyBD86D
+  zZMWtKyOxy1oE63chxzgBZA+Vp1YMAAYPOji4DY3us4E/dsIVIXslDz3KCb38TxF
+  M1JSCIUm2IXmxtNzijzqhZDoG9G3KkOX3+Qn5h2JXdq1GMT6JpF28moD5k5cJJ5m
+  tuMdKojS8k7aU8sa3e3LmH3mzMuAN9kf/ubdhgnUh6ld0bcQ7f5ukUuonh0FKt8s
+  G3LRbTXm3r2fWfHcDw+hhU1wlv0umxtpy4/DcYZ03r3p5cDK3Ie4uXkIc1QG6v9Q
+  njqshvMe5eicXAE47aL72PT5K9ktqRyRr3ABcjw6lIua5aVdWUoFAWrhFxj5Bwr6
+  nvDGvvV0f81x72Uz4gmlKrSu3FEHuxvVvLX1jC8ppenOwRU6Y5DBBHey2tVSAYWd
+  3kMfPjlhE02haPjDlC0XhCIRoQqpeaTSRlMOR2Jjc6+rJLCesJzIk1XQTQfMghoG
+  QbQcboe3nrGygfcOwclpUY2d4QjHeGQ0hqDP7hNIUFXok5leK8ijV6MhmK/KpiEv
+  nGeeeJMqWUcWqNfs2QZyajQzq0B8a7QRA2oy/rMExmirNVUgdejzA+xVMVq2zqqb
+  N4Trgg8cfcRMO70etteFbFKHRkdLv419r80zEMEYut9Ov5AaBA4=
+  =QziR
+  -----END PGP SIGNATURE-----
 tags:
   - backup
   - restic
   - macOS
   - hetzner
+title: Mój backup
+toc: false
 ---
 
 Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę prywatnych plików, trochę rzeczy rozrzuconych po różnych katalogach i zawsze zakładałem, że „jakoś to będzie”. W praktyce oznaczało to brak spójnego systemu i poleganie na tym, że nic się nie stanie.
