@@ -463,8 +463,44 @@ pre code {
   border: none;
 }
 
-pre.signature {
+.pgp-signature {
   margin-top: var(--space-8);
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--link);
+}
+
+.pgp-signature summary {
+  cursor: pointer;
+  padding: var(--space-3) var(--space-4);
+  color: var(--fg-muted);
+  font-size: 0.85em;
+  list-style: none;
+  user-select: none;
+}
+
+.pgp-signature summary::-webkit-details-marker {
+  display: none;
+}
+
+.pgp-signature summary::before {
+  content: "▸ ";
+  color: var(--link);
+}
+
+.pgp-signature[open] summary::before {
+  content: "▾ ";
+}
+
+.pgp-signature[open] summary {
+  border-bottom: 1px solid var(--rule);
+}
+
+.pgp-signature pre.signature {
+  margin: 0;
+  border: none;
+  border-left: none;
+  padding: var(--space-3) var(--space-4);
   font-size: 0.85em;
   color: var(--fg-muted);
   white-space: pre-wrap;
