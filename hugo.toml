@@ -39,7 +39,7 @@ enableRobotsTXT = true
     codeFences = true
     guessSyntax = false
     lineNos = false
-    noClasses = true
+    noClasses = false
     style = 'monokai'
     tabWidth = 4
   [markup.tableOfContents]

@@ -10,6 +10,8 @@
   --rule: #3a3a3a;
   --rule-strong: #555555;
   --code-bg: #080808;
+  --nvim-fg: #d0d0d0;
+  --nvim-string: #98fb98;
   --select-bg: #ffffff;
   --select-fg: #000000;
   --space-1: 0.25rem;
@@ -420,6 +422,11 @@ code {
 code {
   padding: 0.1em 0.25em;
   background: var(--code-bg);
+  color: var(--nvim-string);
+}
+
+:not(pre) > code {
+  border: 1px solid var(--rule);
 }
 
 pre {
@@ -437,24 +444,32 @@ pre code {
   background: none;
 }
 
-.highlight pre {
+.highlight {
   margin: var(--space-5) 0;
 }
 
-.highlight pre,
-.highlight pre span {
-  color: var(--fg) !important;
-  background: transparent !important;
-  font-style: normal !important;
-  font-weight: normal !important;
+.highlight pre.chroma {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--link);
+  padding: var(--space-3) var(--space-4);
+  overflow-x: auto;
+  margin: 0;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  tab-size: 4;
 }
 
-.highlight pre ::selection,
-.highlight pre ::-moz-selection,
-.highlight pre span::selection,
-.highlight pre span::-moz-selection {
-  background: var(--select-bg) !important;
-  color: var(--select-fg) !important;
+.highlight .chroma code {
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.highlight ::selection,
+.highlight ::-moz-selection {
+  background: var(--select-bg);
+  color: var(--select-fg);
 }
 
 table {

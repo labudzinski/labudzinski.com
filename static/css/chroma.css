@@ -1,0 +1,159 @@
+/* Neovim default (dark terminal) — Chroma / Pygments token colors */
+
+.highlight pre.chroma {
+  background: var(--code-bg);
+  color: var(--nvim-fg, #d0d0d0);
+}
+
+.chroma .lnt,
+.chroma .ln {
+  color: #565656;
+}
+
+/* Comment */
+.chroma .c,
+.chroma .c1,
+.chroma .ch,
+.chroma .cm,
+.chroma .cpf,
+.chroma .cs {
+  color: #878787;
+  font-style: italic;
+}
+
+/* Comment preproc (shebang, #if) */
+.chroma .cp {
+  color: #878787;
+  font-style: italic;
+}
+
+/* Keyword / Statement */
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kr {
+  color: #ffff00;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.chroma .kp {
+  color: #ffff00;
+  font-style: normal;
+}
+
+.chroma .kt {
+  color: #00ff00;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* String */
+.chroma .s,
+.chroma .s1,
+.chroma .s2,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .se,
+.chroma .sh,
+.chroma .si,
+.chroma .sr,
+.chroma .ss,
+.chroma .sx {
+  color: #98fb98;
+  font-style: normal;
+}
+
+/* Number / Constant */
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo {
+  color: #ffa0a0;
+  font-style: normal;
+}
+
+/* Identifier / Variable */
+.chroma .n,
+.chroma .na,
+.chroma .nc,
+.chroma .nd,
+.chroma .ne,
+.chroma .ni,
+.chroma .nl,
+.chroma .nn,
+.chroma .nx,
+.chroma .py,
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm {
+  color: #40e0d0;
+  font-style: normal;
+}
+
+/* Function */
+.chroma .nf,
+.chroma .fm {
+  color: #ffffff;
+  font-style: normal;
+}
+
+/* Builtin / Type */
+.chroma .nb,
+.chroma .bp,
+.chroma .no,
+.chroma .nt {
+  color: #00ff00;
+  font-style: normal;
+}
+
+/* Operator / Punctuation */
+.chroma .o,
+.chroma .ow,
+.chroma .p {
+  color: #d0d0d0;
+  font-style: normal;
+}
+
+/* PreProc / diff markers */
+.chroma .gd,
+.chroma .ge,
+.chroma .gh,
+.chroma .gi,
+.chroma .go,
+.chroma .gp,
+.chroma .gr,
+.chroma .gs,
+.chroma .gu,
+.chroma .gt {
+  font-style: normal;
+}
+
+.chroma .gh,
+.chroma .gp,
+.chroma .gu {
+  color: #40e0d0;
+  font-weight: 700;
+}
+
+/* Special */
+.chroma .err {
+  color: #ff0000;
+  font-weight: 700;
+}
+
+.chroma .x,
+.chroma .l,
+.chroma .ld {
+  color: #d0d0d0;
+  font-style: normal;
+}
