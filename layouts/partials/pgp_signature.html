@@ -1,9 +1,11 @@
 <details class="pgp-panel">
   <summary class="pgp-panel__toggle">
-    <span class="pgp-panel__prompt" aria-hidden="true">&gt;&gt;</span>
-    <span class="pgp-panel__title">PGP SIGNATURE</span>
-    <span class="pgp-panel__key">{{ .Params.pgp_key_fingerprint }}</span>
+    <span class="pgp-panel__head">
+      <span class="pgp-panel__prompt" aria-hidden="true">&gt;&gt;</span>
+      <span class="pgp-panel__title">PGP SIGNATURE</span>
+    </span>
     <span class="pgp-panel__indicator" aria-hidden="true"></span>
+    <span class="pgp-panel__key">{{ .Params.pgp_key_fingerprint }}</span>
   </summary>
   <div class="pgp-panel__drawer">
     <div class="pgp-panel__inner">
