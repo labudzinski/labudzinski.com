@@ -422,11 +422,11 @@ code {
 code {
   padding: 0.1em 0.25em;
   background: var(--code-bg);
-  color: var(--nvim-string);
 }
 
 :not(pre) > code {
   border: 1px solid var(--rule);
+  color: var(--nvim-string);
 }
 
 pre {
@@ -448,28 +448,19 @@ pre code {
   margin: var(--space-5) 0;
 }
 
-.highlight pre.chroma {
+.highlight pre {
   border: 1px solid var(--rule);
   border-left: 3px solid var(--link);
   padding: var(--space-3) var(--space-4);
   overflow-x: auto;
   margin: 0;
   line-height: 1.5;
-  -moz-tab-size: 4;
-  tab-size: 4;
 }
 
-.highlight .chroma code {
+.highlight pre code {
   padding: 0;
   background: none;
   border: none;
-  color: inherit;
-}
-
-.highlight ::selection,
-.highlight ::-moz-selection {
-  background: var(--select-bg);
-  color: var(--select-fg);
 }
 
 table {
