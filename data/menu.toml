@@ -24,10 +24,6 @@ title = "about me"
   url = "https://www.linkedin.com/in/dominik-l/"
 
 [[entries]]
-title = "rss/xml"
-url = "index.xml"
-
-[[entries]]
 title = "Tags"
 
   [entries.tag_list]
@@ -35,3 +31,7 @@ title = "Tags"
   show_more = true
   show_more_text = "all tags..."
   show_more_url = "tags"
+
+[[entries]]
+title = "rss/xml"
+url = "index.xml"

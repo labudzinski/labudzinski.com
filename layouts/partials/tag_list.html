@@ -5,7 +5,7 @@
 
 {{- $terms := slice -}}
 {{- with site.GetPage "/tags" -}}
-  {{- $terms = .Data.Terms.Alphabetical -}}
+  {{- $terms = .Data.Terms.ByCount -}}
 {{- end -}}
 
 {{- $limitExceeded := false -}}

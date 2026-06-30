@@ -10,12 +10,13 @@
   {{- end -}}
 {{- end -}}
 
-{{- if eq .Section "posts" -}}
+{{- $schema := false -}}
+{{- if and (eq .Section "posts") .IsPage -}}
   {{- $keywords := slice -}}
   {{- range .GetTerms "tags" -}}
     {{- $keywords = $keywords | append .LinkTitle -}}
   {{- end -}}
-  {{- $schema := dict
+  {{- $schema = dict
       "@context" "https://schema.org"
       "@type" "BlogPosting"
       "headline" .Title
@@ -29,9 +30,8 @@
       "inLanguage" .Site.LanguageCode
       "keywords" $keywords
   -}}
-<script type="application/ld+json">{{ $schema | jsonify }}</script>
 {{- else if .IsHome -}}
-  {{- $schema := dict
+  {{- $schema = dict
       "@context" "https://schema.org"
       "@type" "WebSite"
       "name" .Site.Title
@@ -40,9 +40,8 @@
       "inLanguage" .Site.LanguageCode
       "author" (dict "@type" "Person" "name" $author)
   -}}
-<script type="application/ld+json">{{ $schema | jsonify }}</script>
 {{- else if eq .Kind "term" -}}
-  {{- $schema := dict
+  {{- $schema = dict
       "@context" "https://schema.org"
       "@type" "CollectionPage"
       "name" (printf "Posts: %s" .Title)
@@ -50,5 +49,8 @@
       "description" (printf "Posts tagged %s." .Title)
       "inLanguage" .Site.LanguageCode
   -}}
-<script type="application/ld+json">{{ $schema | jsonify }}</script>
+{{- end -}}
+
+{{- with $schema -}}
+{{- printf `<script type="application/ld+json">%s</script>` (. | jsonify) | safeHTML -}}
 {{- end -}}

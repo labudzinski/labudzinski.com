@@ -1,6 +1,7 @@
 <header class="masthead" aria-label="Site header">
   {{ partial "ascii_logo.html" . }}
-  {{- if not .IsHome -}}
+  {{- $showTrail := and (not .IsHome) (ne .Section "posts") -}}
+  {{- if $showTrail -}}
   <nav class="trail" aria-label="Breadcrumb">
     <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
     <span class="trail__current" aria-current="page">
