@@ -23,7 +23,7 @@
     <div class="content post-body">{{ .Content }}</div>
     {{- if .Params.pgp_signature -}}
     <pre class="signature">─── PGP SIGNATURE ───
-Author: {{ .Site.Params.pgp_author | default "Dominik Łabudziński" }}
+Author: {{ .Site.Params.pgp_author | default "Dominik Labudzinski" }}
 Key: {{ .Params.pgp_key_fingerprint }}
 {{ .Params.pgp_signature }}
 Integrity: verified via OpenPGP

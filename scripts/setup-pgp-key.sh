@@ -12,7 +12,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 EMAIL="dominik@labudzinski.com"
-NAME="Dominik Łabudziński"
+NAME="Dominik Labudzinski"
 BATCH_FILE="$(mktemp)"
 PRIVATE_EXPORT="${ROOT}/private-key.asc"
 PUBLIC_EXPORT="${ROOT}/static/public-key.asc"
