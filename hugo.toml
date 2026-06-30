@@ -7,6 +7,9 @@ enableRobotsTXT = true
   [services.disqus]
     shortname = 'labudzinskicom'
 
+  [services.googleAnalytics]
+    id = 'G-2YG1GB25SM'
+
 [module]
   [module.hugoVersion]
     min = '0.120.0'
