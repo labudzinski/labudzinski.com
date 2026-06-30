@@ -22,14 +22,7 @@
     {{- end -}}
     <div class="content post-body">{{ .Content }}</div>
     {{- if .Params.pgp_signature -}}
-    <details class="pgp-signature">
-      <summary>─── PGP SIGNATURE ───</summary>
-      <pre class="signature">Author: {{ .Site.Params.pgp_author | default "Dominik Łabudziński" }}
-Key: {{ .Params.pgp_key_fingerprint }}
-{{ .Params.pgp_signature }}
-Integrity: verified via OpenPGP
-</pre>
-    </details>
+    {{ partial "pgp_signature.html" . }}
     {{- end -}}
 <!--     {{ partial "disqus.html" . }} -->
     <footer class="post-footer">
