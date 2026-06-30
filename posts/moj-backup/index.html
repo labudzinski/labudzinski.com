@@ -1,4 +1,4 @@
-<!doctype html><html lang=pl-pl><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="dark"><meta name=theme-color content="#000000"><title>Mój backup :: Dominik Labudzinski</title><meta name=description content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta property="og:description" content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta name=twitter:description content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta name=author content="Dominik Labudzinski"><meta name=robots content="index, follow"><link rel=canonical href=https://labudzinski.com/posts/moj-backup/><meta property="og:title" content="Mój backup :: Dominik Labudzinski"><meta property="og:url" content="https://labudzinski.com/posts/moj-backup/"><meta property="og:type" content="article"><meta property="og:site_name" content="Dominik Labudzinski"><meta property="og:locale" content="pl_pl"><meta name=twitter:card content="summary"><meta name=twitter:title content="Mój backup :: Dominik Labudzinski"><meta property="article:published_time" content="2026-06-30T13:30:59+02:00"><meta property="article:modified_time" content="2026-06-30T13:30:59+02:00"><meta property="article:author" content="Dominik Labudzinski"><meta property="article:tag" content="Backup"><meta property="article:tag" content="Restic"><meta property="article:tag" content="MacOS"><meta property="article:tag" content="Hetzner"><link rel=stylesheet href=/css/main.css><link rel=alternate type=application/rss+xml title="Dominik Labudzinski" href=https://labudzinski.com/index.xml><link rel=sitemap type=application/xml href=https://labudzinski.com/sitemap.xml><script async src="https://www.googletagmanager.com/gtag/js?id=G-2YG1GB25SM"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-2YG1GB25SM")</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dominik Labudzinski","url":"https://labudzinski.com/"},"dateModified":"2026-06-30T13:30:59+02:00","datePublished":"2026-06-30T13:30:59+02:00","description":"Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …","headline":"Mój backup","inLanguage":"pl-pl","keywords":["Backup","Restic","MacOS","Hetzner"],"mainEntityOfPage":{"@id":"https://labudzinski.com/posts/moj-backup/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Dominik Labudzinski"},"url":"https://labudzinski.com/posts/moj-backup/"}</script></head><body><a class=skip-link href=#main>Skip to content</a><main id=main class=wrap><header class=masthead aria-label="Site header"><div class=ascii-logo><pre>
+<!doctype html><html lang=pl><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="dark"><meta name=theme-color content="#000000"><title>Mój backup :: Dominik Labudzinski</title><meta name=description content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta property="og:description" content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta name=twitter:description content="Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …"><meta name=author content="Dominik Labudzinski"><meta name=robots content="index, follow"><link rel=canonical href=https://labudzinski.com/posts/moj-backup/><meta property="og:title" content="Mój backup :: Dominik Labudzinski"><meta property="og:url" content="https://labudzinski.com/posts/moj-backup/"><meta property="og:type" content="article"><meta property="og:site_name" content="Dominik Labudzinski"><meta property="og:locale" content="pl_pl"><meta name=twitter:card content="summary"><meta name=twitter:title content="Mój backup :: Dominik Labudzinski"><meta property="article:published_time" content="2026-06-30T13:30:59+02:00"><meta property="article:modified_time" content="2026-06-30T13:30:59+02:00"><meta property="article:author" content="Dominik Labudzinski"><meta property="article:tag" content="Backup"><meta property="article:tag" content="Restic"><meta property="article:tag" content="MacOS"><meta property="article:tag" content="Hetzner"><link rel=stylesheet href=/css/main.css><link rel=alternate type=application/rss+xml title="Dominik Labudzinski" href=https://labudzinski.com/index.xml><link rel=sitemap type=application/xml href=https://labudzinski.com/sitemap.xml><script async src="https://www.googletagmanager.com/gtag/js?id=G-2YG1GB25SM"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-2YG1GB25SM")</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dominik Labudzinski","url":"https://labudzinski.com/"},"dateModified":"2026-06-30T13:30:59+02:00","datePublished":"2026-06-30T13:30:59+02:00","description":"Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę …","headline":"Mój backup","inLanguage":"pl","keywords":["Backup","Restic","MacOS","Hetzner"],"mainEntityOfPage":{"@id":"https://labudzinski.com/posts/moj-backup/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Dominik Labudzinski"},"url":"https://labudzinski.com/posts/moj-backup/"}</script></head><body><a class=skip-link href=#main>Skip to content</a><main id=main class=wrap><header class=masthead aria-label="Site header"><div class=ascii-logo><pre>
      _           _                   _         _                 _      _
     | |         | |                 | |       (_)               | |    (_)                               
     | |   __ _  | |__    _   _    __| |  ____  _   _ __    ___  | | __  _        ___    ___    _ __ ___  
@@ -305,28 +305,28 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>main <span style=color:#ed9d13>&#34;</span><span style=color:#40ffff>$@</span><span style=color:#ed9d13>&#34;</span>
 </span></span></code></pre></div><p>Nie traktuję tego jako rozwiązania idealnego. Raczej jako coś, co wreszcie daje mi spokój w tle. Kopie zapasowe przestały być tematem, o którym muszę pamiętać, a stały się procesem, który po prostu działa.
-Być może jest ktoś, kto potrafiłby napisać lepszy skrypt, ale na razie ten mi wystarcza.</p></div><details class=pgp-signature><summary>─── PGP SIGNATURE ───</summary><pre class=signature>Author: Dominik Labudzinski
-Key: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
------BEGIN PGP SIGNATURE-----
+Być może jest ktoś, kto potrafiłby napisać lepszy skrypt, ale na razie ten mi wystarcza.</p></div><details class=pgp-panel><summary class=pgp-panel__toggle><span class=pgp-panel__prompt aria-hidden=true>>></span>
+<span class=pgp-panel__title>PGP SIGNATURE</span>
+<span class=pgp-panel__key>9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229</span>
+<span class=pgp-panel__indicator aria-hidden=true></span></summary><div class=pgp-panel__drawer><div class=pgp-panel__inner><dl class=pgp-panel__meta><div class=pgp-panel__row><dt>author</dt><dd>Dominik Labudzinski</dd></div><div class=pgp-panel__row><dt>key</dt><dd>9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229</dd></div></dl><pre class=pgp-panel__sig>-----BEGIN PGP SIGNATURE-----
 
-iQJMBAABCgA2FiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD2RoYHGRvbWluaWtA
-bGFidWR6aW5za2kuY29tAAoJEFzelGpBYMIpJj8P/3pEsDwDoajS6K0aJ2gt9CCG
-B6OY9gblJXSnMOEa8t&#43;n/Ami&#43;lxYniq1zshCE90VcC711jllVb/9HsWDKXV5SRtk
-DeWrLQQqXwVkTITGikhpw7VUVM5Vg&#43;ko9ifGEcDXm0EHQxeNmDau6HPuxSlRKfmj
-NXK5D31103a7UuXiY8uVhejmdKq99n3BVhZo5W5i3zNH&#43;4kPbwIG9lHBkF2DEku8
-mjAmxUGVn0O6p6DBYqoNbKQ4ctF9fP2bKSXwDKamFFK8B/ACFQJWM54o/AQcUbnV
-PJ1X0y&#43;HGD5BOMjxKLpNkkqbHlk6oAhYUJew9kahZRPtrHL9GGVVUlVJ60eQ/ZZu
-VyJA4JBdcKM2Ke/mOti9ofvwndTyxe&#43;FOE3FaZ1qBglAplBMmQLt5HX8DuSeIQ4&#43;
-Fs2ERqMHeSI1ZVMZcHErP&#43;lrQIsk0TcduHQEZBGBxOiCfqlLsgu8v1OBQ82khTaG
-iiev7uXow3GPxKW5W7ABHOu23FHjj2&#43;qXFYnrsWYBt/0OQd6cs2qExauBbNORtQY
-&#43;pUZUormmjMR6WOvFZmWOXS4Qc17Epdn7MWmW0rs1Snr4W9L&#43;eLonMpooU6kju22
-6K5AVQy9&#43;bhmoAlkJcfxMIsdY91brvPMX6XIICkgbbjdH3/alzlKwLEfUc7VrGsq
-3Z/WoNEQqTDNBwiOtdo&#43;
-=hOSI
+iQJMBAABCgA2FiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD29YYHGRvbWluaWtA
+bGFidWR6aW5za2kuY29tAAoJEFzelGpBYMIppWQP/A7tHjaWg0UJme8GQrNGTOmj
+5/IaZ0lo&#43;qAD5F8a09&#43;H&#43;zgIoHmQP6VVGgqmVOfTEOf1/pvyskb96612oZW4l1QB
+rV7zZxUPUW1WXK1Dxjd7f99uhYT80EgDEcdPYFuYAWwt5RoZKd/Q0N9l&#43;GYgiEoH
+Hsr&#43;D2IPI0yIYLqXRhahn/LJ4wpVFp3n/xzraq0unjZw8AWW0GBhrUyVxxejvoQk
+uJaY9kgGh0SAxhZisoI78AqBG8MgnRF8r2z2N88yyEaFL7YV0qXTuxSy9HjI9LYz
+ShDZ099FngtqWwj4uQmvXZhZecFtFCXYSDpu3gd9fOgjYQJCpcgh16b0FLSaPR&#43;C
+SQlsvU18rqsiEAACpLCNBSzszO2XFmyJKFeOoKCBGy4Q/B1hZ5KNR8HdQs4ijmNv
+6WY7Nv5iegA/pbjbGbcGZKCNZhSqBhE762rhRqIGlcjDRO57YGzETDXdfbtOxxQM
+iL6HTGE7bh5U47I0suoUyyXVOyaMP1NGZmGgYGDqCPZr5f8lKRooKKd7XuiU83/7
+X5Qlr83KfnCs6oQUp/wgc40C/tbdCTZ3KY/eqp5EBL0bm6QZLmwJxI500NIiB/E3
+pX7IkFClWdG&#43;UAJiBflHf5eclqtCX6u&#43;bb8JjEOM8hZTDtYHRZLGS5tJb5WpHBpi
+EUWgwSCGK0VAGCpPOXw3
+=bms9
 -----END PGP SIGNATURE-----
-
-Integrity: verified via OpenPGP
-</pre></details><footer class=post-footer><a class=back href=/>Back</a></footer></article><footer class=site-footer><p class=site-footer__copy>&copy; 2019&ndash;2026
+</pre><p class=pgp-panel__status><span class=pgp-panel__ok>OK</span>
+integrity verified via OpenPGP</p></div></div></details><footer class=post-footer><a class=back href=/>Back</a></footer></article><footer class=site-footer><p class=site-footer__copy>&copy; 2019&ndash;2026
 Dominik Labudzinski.
 Wszelkie prawa zastrzeżone.</p><p class=site-footer__legal>Treści niniejszej strony internetowej stanowią utwory chronione na podstawie
 ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych.
