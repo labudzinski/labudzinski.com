@@ -6,29 +6,28 @@
     | | | (_| | | |_) | | |_| | | (_| |  / /  | | | | | | \__ \ |   &lt;  | |  _  | (__  | (_) | | | | | | |
     |_|  \__,_| |_.__/   \__,_|  \__,_| /___| |_| |_| |_| |___/ |_|\_\ |_| (_)  \___|  \___/  |_| |_| |_|
 </pre></div><hr class="zine-rule zine-rule--solid"></header><article class=post><header class=post-header><h1 class=post-title>Dlaczego nie używam supervisord do asynchronicznych workerów</h1><div class=post-meta><time class=post-date datetime=2026-06-29T10:00:00+02:00>2026-06-29</time><span class=meta-sep aria-hidden=true>·</span>
-<span class=reading-time>2 min read</span></div><div class=post-tags><a class=tag href=/tags/php/>PHP</a>, <a class=tag href=/tags/kubernetes/>Kubernetes</a>, <a class=tag href=/tags/workery/>Workery</a></div></header><div class="content post-body"><p>W projektach PHP, w których ostatnio pracuję, asynchroniczne workery obsługuję w sposób, który na papierze może wydać się dziwny. Zamiast supervisord lub podobnych narzędzi do zarządzania procesami wewnątrz kontenera - co godzinę po prostu ubijam cały pod. Nowy startuje automatycznie i kontynuuje pracę.</p><p>PHP nigdy nie był językiem stworzonym do długotrwałych procesów. Nawet przy czystym kodzie z czasem rośnie zużycie pamięci. Obiekty, cache, biblioteki, połączenia zewnętrzne, wszystko powoli się akumuluje. Po kilkunastu godzinach worker potrafi zużywać wyraźnie więcej RAM-u niż na starcie. Restart poda resetuje stan i utrzymuje zużycie zasobów na przewidywalnym poziomie.</p><p>W Kubernetes takie podejście wydaje mi się naturalne. Nie dokładam do obrazu dodatkowego procesu nadzorującego, restart leży po stronie orchestratora, co jest spójne z filozofią K8s. Mogę zrobić graceful shutdown przed zabiciem poda, zalogować stan i wystartować od nowa ze świeżym kontekstem.</p><p>Największą wartość widzę w przewidywalności. Dokładnie wiem, kiedy dochodzi do restartu. Unikam sytuacji, w której subtelne wycieki kumulują się przez wiele godzin bez mojej wiedzy. Mniej warstw oznacza mniej rzeczy do debugowania.</p><p>Zdaję sobie sprawę, że to nie jest rozwiązanie uniwersalne. Przy bardzo długich zadaniach lub przy ogromnej skali workerów pewnie wybrałbym inne podejście. Ale w projektach, z którymi mam ostatnio do czynienia, ten schemat działa i to właśnie za tę prostotę go trzymam.</p><p>Czasem prostota wygrywa z bardziej zaawansowanymi narzędziami. Nie dlatego, że te narzędzia są złe, tylko dlatego, że nie zawsze są potrzebne.</p></div><pre class=signature>─── PGP SIGNATURE ───
-Author: Dominik Łabudziński
+<span class=reading-time>2 min read</span></div><div class=post-tags><a class=tag href=/tags/php/>PHP</a>, <a class=tag href=/tags/kubernetes/>Kubernetes</a>, <a class=tag href=/tags/workery/>Workery</a></div></header><div class="content post-body"><p>W projektach PHP, w których ostatnio pracuję, asynchroniczne workery obsługuję w sposób, który na papierze może wydać się dziwny. Zamiast supervisord lub podobnych narzędzi do zarządzania procesami wewnątrz kontenera - co godzinę po prostu ubijam cały pod. Nowy startuje automatycznie i kontynuuje pracę.</p><p>PHP nigdy nie był językiem stworzonym do długotrwałych procesów. Nawet przy czystym kodzie z czasem rośnie zużycie pamięci. Obiekty, cache, biblioteki, połączenia zewnętrzne, wszystko powoli się akumuluje. Po kilkunastu godzinach worker potrafi zużywać wyraźnie więcej RAM-u niż na starcie. Restart poda resetuje stan i utrzymuje zużycie zasobów na przewidywalnym poziomie.</p><p>W Kubernetes takie podejście wydaje mi się naturalne. Nie dokładam do obrazu dodatkowego procesu nadzorującego, restart leży po stronie orchestratora, co jest spójne z filozofią K8s. Mogę zrobić graceful shutdown przed zabiciem poda, zalogować stan i wystartować od nowa ze świeżym kontekstem.</p><p>Największą wartość widzę w przewidywalności. Dokładnie wiem, kiedy dochodzi do restartu. Unikam sytuacji, w której subtelne wycieki kumulują się przez wiele godzin bez mojej wiedzy. Mniej warstw oznacza mniej rzeczy do debugowania.</p><p>Zdaję sobie sprawę, że to nie jest rozwiązanie uniwersalne. Przy bardzo długich zadaniach lub przy ogromnej skali workerów pewnie wybrałbym inne podejście. Ale w projektach, z którymi mam ostatnio do czynienia, ten schemat działa i to właśnie za tę prostotę go trzymam.</p><p>Czasem prostota wygrywa z bardziej zaawansowanymi narzędziami. Nie dlatego, że te narzędzia są złe, tylko dlatego, że nie zawsze są potrzebne.</p></div><details class=pgp-signature><summary>─── PGP SIGNATURE ───</summary><pre class=signature>Author: Dominik Labudzinski
 Key: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
 -----BEGIN PGP SIGNATURE-----
 
-iQJMBAABCgA2FiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD2CMYHGRvbWluaWtA
-bGFidWR6aW5za2kuY29tAAoJEFzelGpBYMIp1vIP/R2Ln/vdMiI4uTU2PXGm72Qr
-tWNveE/ddYO4GOxLDkVqY6VpcykVM1mCe2b0AuvG/TYPcBkriG&#43;UTQGONOZHGnSo
-a04ZTcVtQG59s3OEr1MVs3JBPgbXRnsbYqzW0sxYS7qbWMLvxz0LfV2aMoZbkD&#43;7
-NcZlEJgSkZdn4ujMcWNtY2EoswHaRM/tyNKpoNlNU0JfVbg&#43;N6sDtXEjCFTQBM1t
-N3bPoRY5Hl2kqycURCdQAln&#43;SsCgMagw1IhrsgWAWYnTmPb7wCbDWKe5yVuWDe4g
-tAwDuUwM2MyLBWJQUyIKdZDQ9R7YepZY&#43;a0/PR7NQ3ooZgry387A0stVA1EGPnZh
-dW2npXm7hfxuIWQw5JbPkaQiA8qhlvuHoajlCaUg1AP9aB52Y9sDpUU56dhJarkL
-DOnHTAEnu1yF8567&#43;WJVdYi4qy/m5HOM3mGoqmcjbGIwKkmG2zLK3xkbgsg8GZcd
-QYVmoR0opdu89aE1kTV3d/qDw&#43;hfFoSedPd8s7oJYWcyMqFm8p5LLLhxw8DgGjC9
-yZreapj4GxfnkHoxK5rKSDT6CVlzvIkGZso3LLMEzBiqThBHQV89Pq7GgShBocP1
-emoeIfXIDM71/aE1sZq9suSrgeIWz5fBp1hDppyzmOU30Cd6mstTnt7wVVnrphil
-V3GeOFL4P7M7D9UZI00g
-=evbA
+iQJMBAABCgA2FiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpD2RoYHGRvbWluaWtA
+bGFidWR6aW5za2kuY29tAAoJEFzelGpBYMIp31YQAJyX5DEenOihEe1aTXYrTxu2
+ut3xBhrf/jBvxNZ4qqjG/bq7LU1AESPUoETOAIZW3MPe0GZVmiyFa5ndvap/tLUQ
+4Qe/uAI31mu2XOSqpMHjR&#43;uzQ3SKqvdOSoZ1ciuwkF1BBXoIwsNsXGyLI/05mRZE
+8SWlxlldlUJSMYjkUeBCJI0qK9DEyhMbCJ&#43;YxhJWuvmwRvvxyIyzZsKMaq&#43;TZzEK
+vx60p1AwABNZcILcMj33y7z6IxV&#43;waaXIp7OvZgOlfmaJXxzU/ir9T88R4plxyWw
+f6JOFDIUTcnE0MDA9&#43;3gIryBbQooC8Mv&#43;kVaBDekNKyPwswqKot6OpsXPiIyP9/t
+XMcEINgG4WEbMB5BcMgwuiJHFObOA0SWQSzvHTnZ9do9WJUn1APx0VBZgeFKgAiQ
+t1efX&#43;OL2hIg4hoazN30FTt6424lfupVDtQ4NXMpDP7VZGSwaVbbcLp5MXAqUPBn
+5P9hg6joLeDkArCpUBOF73rivcGoGFfmyMhqFSUPNNVTbZnHUOao2uHYDLGyrBGT
+LmHjyEnf0C/lGbNE/4lQ5WtJ3HcjZV3DCeJfqAhgq0SmxYCQqDGPntumTWR5qihM
+203hiMV1FW68ys39K5Ktpb5fD9iaqmblcyMi&#43;XQ7XwXofBZyHkA/qERaTpb9X7bd
+L8QZJ3G7fQThmJFw7JZO
+=B0ds
 -----END PGP SIGNATURE-----
 
 Integrity: verified via OpenPGP
-</pre><footer class=post-footer><a class=back href=/>Back</a></footer></article><footer class=site-footer><p class=site-footer__copy>&copy; 2019&ndash;2026
+</pre></details><footer class=post-footer><a class=back href=/>Back</a></footer></article><footer class=site-footer><p class=site-footer__copy>&copy; 2019&ndash;2026
 Dominik Labudzinski.
 Wszelkie prawa zastrzeżone.</p><p class=site-footer__legal>Treści niniejszej strony internetowej stanowią utwory chronione na podstawie
 ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych.
