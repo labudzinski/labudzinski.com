@@ -146,7 +146,7 @@ func signPostFile(path string, opts SignOptions, fingerprint string) (bool, erro
 		return false, err
 	}
 
-	fm, body, err := splitFrontMatter(raw, true)
+	fm, body, err := splitFrontMatter(raw, false)
 	if err != nil {
 		return false, err
 	}
@@ -155,12 +155,14 @@ func signPostFile(path string, opts SignOptions, fingerprint string) (bool, erro
 		return false, nil
 	}
 
-	canonical := canonicalBody(body)
-	ascPath := path + ".asc"
-
-	if signatureMatches(fm, fingerprint, canonical, ascPath, opts) {
+	if isPostSigned(path, fm) {
 		return false, nil
 	}
+
+	delete(fm, "pgp_key_fingerprint")
+	delete(fm, "pgp_signature")
+
+	canonical := canonicalBody(body)
 
 	signature, err := gpgDetachSign(canonical, opts.Email, opts.Passphrase)
 	if err != nil {
@@ -182,6 +184,7 @@ func signPostFile(path string, opts SignOptions, fingerprint string) (bool, erro
 	if err := os.WriteFile(path, updated, 0o644); err != nil {
 		return false, err
 	}
+	ascPath := path + ".asc"
 	if err := os.WriteFile(ascPath, []byte(signature), 0o644); err != nil {
 		return false, err
 	}
@@ -199,25 +202,14 @@ func isDraft(fm map[string]interface{}) bool {
 	}
 }
 
-func signatureMatches(fm map[string]interface{}, fingerprint, body, ascPath string, opts SignOptions) bool {
-	existingFP, _ := fm["pgp_key_fingerprint"].(string)
-	existingSig, _ := fm["pgp_signature"].(string)
-	if strings.TrimSpace(existingFP) == "" || strings.TrimSpace(existingSig) == "" {
+func isPostSigned(path string, fm map[string]interface{}) bool {
+	fingerprint, _ := fm["pgp_key_fingerprint"].(string)
+	signature, _ := fm["pgp_signature"].(string)
+	if strings.TrimSpace(fingerprint) == "" || strings.TrimSpace(signature) == "" {
 		return false
 	}
-	if strings.TrimSpace(existingFP) != strings.TrimSpace(fingerprint) {
-		return false
-	}
-
-	ascData, err := os.ReadFile(ascPath)
-	if err != nil {
-		return false
-	}
-	if strings.TrimSpace(string(ascData)) != strings.TrimSpace(existingSig) {
-		return false
-	}
-
-	return gpgVerify(body, ascData, opts.Passphrase)
+	_, err := os.Stat(path + ".asc")
+	return err == nil
 }
 
 func splitFrontMatter(raw []byte, stripPGP bool) (map[string]interface{}, string, error) {

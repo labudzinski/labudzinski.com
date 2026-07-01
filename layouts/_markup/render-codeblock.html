@@ -1,0 +1,31 @@
+{{- $lang := .Type -}}
+{{- with .Attributes.lang -}}
+  {{- $lang = . -}}
+{{- end -}}
+
+{{- if eq $lang "" -}}
+  {{- $inner := .Inner -}}
+  {{- $trim := strings.TrimSpace $inner -}}
+  {{- if strings.HasPrefix $trim "#!" -}}
+    {{- $lang = "bash" -}}
+  {{- else if strings.Contains $inner "<?php" -}}
+    {{- $lang = "php" -}}
+  {{- else if strings.Contains $inner "package main" -}}
+    {{- $lang = "go" -}}
+  {{- else if strings.Contains $inner "def " -}}
+    {{- $lang = "python" -}}
+  {{- else if or (strings.Contains $inner "function ") (strings.Contains $inner "const ") (strings.Contains $inner "fetch(") (strings.Contains $inner "async ") (strings.Contains $inner "=>") -}}
+    {{- $lang = "javascript" -}}
+  {{- else if or (strings.HasPrefix $trim "-----BEGIN") (strings.HasPrefix $trim "|") (strings.Contains $trim "File-Public-Key:") -}}
+    {{- $lang = "text" -}}
+  {{- else if strings.Contains $inner "SELECT " -}}
+    {{- $lang = "sql" -}}
+  {{- else if or (strings.Contains $inner "echo ") (strings.Contains $inner "export ") (strings.Contains $inner "readonly ") -}}
+    {{- $lang = "bash" -}}
+  {{- else -}}
+    {{- $lang = "text" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $opts := dict "linenos" false "hl_lines" "" "linenostart" 1 -}}
+{{- highlight .Inner $lang $opts -}}

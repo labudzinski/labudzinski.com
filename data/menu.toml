@@ -9,7 +9,7 @@ title = "Blog"
   show_more_url = "posts"
 
 [[entries]]
-title = "about me"
+title = "about_me"
 
   [[entries.entries]]
   title = "github.com"
@@ -33,5 +33,5 @@ title = "Tags"
   show_more_url = "tags"
 
 [[entries]]
-title = "rss/xml"
+title = "rss"
 url = "index.xml"

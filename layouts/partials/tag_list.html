@@ -19,7 +19,7 @@
   {{- end -}}
   <ul class="menu-list">
     {{- range $terms -}}
-      <li><a href="{{ .Page.RelPermalink }}">Posts: {{ .Page.LinkTitle }}</a> <span class="meta">({{ .Count }})</span></li>
+      <li><a href="{{ .Page.RelPermalink }}">posts: {{ .Page.LinkTitle }}</a> <span class="meta">({{ .Count }})</span></li>
     {{- end -}}
     {{- if and $showMore $limitExceeded -}}
       <li><a href="{{ $showMoreURL | relURL }}">{{ $showMoreText }}</a></li>

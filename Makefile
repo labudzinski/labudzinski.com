@@ -9,6 +9,10 @@ dev:
 	$(HUGO) server -D --disableFastRender
 
 build:
+	@if [ -n "$$PGP_PRIVATE_KEY" ]; then \
+		echo "$$PGP_PRIVATE_KEY" | gpg --batch --import 2>/dev/null || true; \
+		$(SIGNPOSTS) --repo .; \
+	fi
 	$(HUGO) --minify --gc
 
 preview: build

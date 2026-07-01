@@ -1,10 +1,10 @@
 +++
 title = ""
+tagline = "Dominik Labudzinski"
+career_start = 2002
 date = 2026-06-28T00:00:00+02:00
 draft = false
 +++
-
-Dominik Labudzinski's Personal Website
 
 I’m a self-taught enthusiast and sometimes a bit of a madman who spends my free time programming, designing and building systems and algorithms. For over 20 years I have worked as a software engineer, DevOps specialist, systems architect and security engineer.
 

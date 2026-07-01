@@ -45,10 +45,10 @@ weight = 1
       unsafe = false
   [markup.highlight]
     codeFences = true
-    guessSyntax = false
+    guessSyntax = true
     lineNos = false
-    noClasses = true
-    style = 'native'
+    noClasses = false
+    style = 'monokai'
     tabWidth = 4
   [markup.tableOfContents]
     startLevel = 2
@@ -61,7 +61,7 @@ weight = 1
   copyright_start = 2019
   description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
   date_format = '2006-01-02'
-  back_home_text = 'Back'
+  back_home_text = 'back'
   github = 'https://github.com/labudzinski'
   linkedin = 'https://www.linkedin.com/in/dominik-l/'
 

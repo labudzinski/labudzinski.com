@@ -1,0 +1,195 @@
+/* Y2K Linux terminal — RHEL / Debian console palette */
+
+.highlight pre.chroma {
+  background: var(--term-bg) !important;
+  color: var(--term-fg) !important;
+}
+
+/* Plaintext / PEM / tables — green phosphor dump */
+.highlight pre.chroma code.language-text .cl,
+.highlight pre.chroma code.language-text .line {
+  color: var(--term-green) !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+.highlight pre.chroma code.language-fallback .cl,
+.highlight pre.chroma code.language-fallback .line {
+  color: var(--term-green) !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* Default token (unclassified) */
+.highlight pre.chroma .cl {
+  color: var(--term-fg);
+}
+
+/* Comment */
+.highlight pre.chroma span.c,
+.highlight pre.chroma span.c1,
+.highlight pre.chroma span.ch,
+.highlight pre.chroma span.cm,
+.highlight pre.chroma span.cpf,
+.highlight pre.chroma span.cs,
+.highlight pre.chroma span.cp {
+  color: var(--term-gray) !important;
+  font-style: italic !important;
+  font-weight: normal !important;
+}
+
+/* Keyword */
+.highlight pre.chroma span.k,
+.highlight pre.chroma span.kc,
+.highlight pre.chroma span.kd,
+.highlight pre.chroma span.kn,
+.highlight pre.chroma span.kr,
+.highlight pre.chroma span.kp {
+  color: var(--term-yellow) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+/* Type / class (ls directories) */
+.highlight pre.chroma span.kt,
+.highlight pre.chroma span.nc,
+.highlight pre.chroma span.no,
+.highlight pre.chroma span.nn {
+  color: var(--term-blue) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+/* String */
+.highlight pre.chroma span.s,
+.highlight pre.chroma span.s1,
+.highlight pre.chroma span.s2,
+.highlight pre.chroma span.sa,
+.highlight pre.chroma span.sb,
+.highlight pre.chroma span.sc,
+.highlight pre.chroma span.dl,
+.highlight pre.chroma span.sd,
+.highlight pre.chroma span.se,
+.highlight pre.chroma span.sh,
+.highlight pre.chroma span.si,
+.highlight pre.chroma span.sr,
+.highlight pre.chroma span.ss,
+.highlight pre.chroma span.sx {
+  color: var(--term-green) !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* Number / constant */
+.highlight pre.chroma span.m,
+.highlight pre.chroma span.mb,
+.highlight pre.chroma span.mf,
+.highlight pre.chroma span.mh,
+.highlight pre.chroma span.mi,
+.highlight pre.chroma span.il,
+.highlight pre.chroma span.mo {
+  color: var(--term-magenta) !important;
+  font-style: normal !important;
+}
+
+/* Name / identifier */
+.highlight pre.chroma span.n,
+.highlight pre.chroma span.nf,
+.highlight pre.chroma span.fm,
+.highlight pre.chroma span.nd,
+.highlight pre.chroma span.ne,
+.highlight pre.chroma span.ni,
+.highlight pre.chroma span.nl {
+  color: var(--term-fg) !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* Variable / attribute (symlinks, env vars) */
+.highlight pre.chroma span.na,
+.highlight pre.chroma span.nv,
+.highlight pre.chroma span.vc,
+.highlight pre.chroma span.vg,
+.highlight pre.chroma span.vi,
+.highlight pre.chroma span.vm,
+.highlight pre.chroma span.nx,
+.highlight pre.chroma span.py {
+  color: var(--term-cyan) !important;
+  font-style: normal !important;
+}
+
+/* Builtin / executable */
+.highlight pre.chroma span.nb,
+.highlight pre.chroma span.bp {
+  color: var(--term-green) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+/* Tag / preprocessor / special */
+.highlight pre.chroma span.nt,
+.highlight pre.chroma span.gd,
+.highlight pre.chroma span.gh,
+.highlight pre.chroma span.gp,
+.highlight pre.chroma span.gu {
+  color: var(--term-red) !important;
+  font-style: normal !important;
+}
+
+.highlight pre.chroma span.gi {
+  color: var(--term-green) !important;
+  font-style: normal !important;
+}
+
+/* Operator / punctuation */
+.highlight pre.chroma span.o,
+.highlight pre.chroma span.ow,
+.highlight pre.chroma span.p {
+  color: var(--term-fg) !important;
+  font-style: normal !important;
+}
+
+/* Diff / misc */
+.highlight pre.chroma span.x,
+.highlight pre.chroma span.l,
+.highlight pre.chroma span.ld,
+.highlight pre.chroma span.ge,
+.highlight pre.chroma span.go,
+.highlight pre.chroma span.gr,
+.highlight pre.chroma span.gt,
+.highlight pre.chroma span.gs {
+  color: var(--term-dim) !important;
+  font-style: normal !important;
+}
+
+.highlight pre.chroma span.err {
+  color: var(--term-red) !important;
+  font-weight: 700 !important;
+}
+
+.highlight pre.chroma span.lnt,
+.highlight pre.chroma span.ln,
+.highlight pre.chroma span.hl {
+  color: var(--term-gray) !important;
+}
+
+.highlight pre.chroma span.w {
+  color: var(--term-fg) !important;
+}
+
+.highlight pre.chroma span.ss {
+  color: var(--term-cyan) !important;
+}
+
+.highlight pre.chroma span.sb {
+  color: var(--term-green) !important;
+}
+
+.highlight pre.chroma span.sd {
+  color: var(--term-gray) !important;
+  font-style: italic !important;
+}
+
+.highlight pre.chroma span.sr {
+  color: var(--term-magenta) !important;
+}

@@ -1,9 +1,10 @@
 {{ define "main" }}
+  {{ partial "lead_cmd.html" . }}
   {{- with .Content -}}
   <div class="lead">{{ . }}</div>
   {{- end -}}
   {{- range $block := site.Data.menu.entries -}}
-    <h2 class="section-head">{{ $block.title }}</h2>
+    <h2 class="section-head">{{ $block.title | lower }}</h2>
     <hr class="zine-rule">
     {{- if $block.url -}}
       <ul class="menu-list">

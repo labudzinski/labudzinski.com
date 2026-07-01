@@ -35,6 +35,16 @@ Body line one.
 	}
 }
 
+func TestIsPostSigned(t *testing.T) {
+	fm := map[string]interface{}{
+		"pgp_key_fingerprint": "A1B2",
+		"pgp_signature":       "sig",
+	}
+	if isPostSigned("missing.md", fm) {
+		t.Fatal("expected unsigned without .asc file")
+	}
+}
+
 func TestJoinFrontMatterIncludesSignature(t *testing.T) {
 	fm := map[string]interface{}{
 		"title":               "Backup strategy",

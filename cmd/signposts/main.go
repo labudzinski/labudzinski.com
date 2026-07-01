@@ -41,5 +41,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("signed: %d, unchanged: %d\n", result.Signed, result.Skipped)
+	fmt.Printf("signed: %d, already signed: %d\n", result.Signed, result.Skipped)
 }

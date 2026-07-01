@@ -1,18 +1,27 @@
-/* labudzinski.com — private enterprise-grade terminal blog */
+/* labudzinski.com — Y2K Linux terminal (RHEL / Debian console) */
 
 :root {
   --bg: #000000;
-  --fg: #f2f2f2;
-  --fg-muted: #b3b3b3;
+  --fg: #ffffff;
+  --fg-muted: #a0a0a0;
   --link: #33ff33;
   --link-hover-fg: #000000;
-  --dim: #7a7a7a;
-  --rule: #3a3a3a;
-  --rule-strong: #555555;
-  --code-bg: #080808;
-  --nvim-fg: #d0d0d0;
-  --nvim-string: #98fb98;
-  --select-bg: #ffffff;
+  --dim: #888888;
+  --rule: #333333;
+  --rule-strong: #33ff33;
+  --code-bg: #000000;
+  --term-bg: #000000;
+  --term-fg: #ffffff;
+  --term-green: #33ff33;
+  --term-blue: #5555ff;
+  --term-yellow: #ffff00;
+  --term-cyan: #55ffff;
+  --term-red: #ff5555;
+  --term-magenta: #ff55ff;
+  --term-gray: #888888;
+  --term-dim: #a0a0a0;
+  --nvim-string: #33ff33;
+  --select-bg: #33ff33;
   --select-fg: #000000;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -74,6 +83,8 @@ body {
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 ::selection,
@@ -104,26 +115,19 @@ a::-moz-selection {
   top: var(--space-4);
 }
 
-a {
-  color: var(--link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  transition: color var(--transition), background var(--transition);
-}
-
-a:visited {
-  color: var(--link);
-}
-
-a:hover {
-  color: var(--link-hover-fg);
-  background: var(--link);
+a,
+a:visited,
+a:hover,
+a:visited:hover,
+a:active {
+  color: var(--term-cyan);
+  background: transparent;
   text-decoration: none;
+  transition: opacity var(--transition);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--link);
+  outline: 2px solid var(--term-cyan);
   outline-offset: 3px;
 }
 
@@ -196,7 +200,7 @@ a:focus-visible {
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -204,12 +208,13 @@ a:focus-visible {
 }
 
 .trail__sep {
-  color: var(--dim);
+  color: var(--link);
   margin: 0;
 }
 
 .trail__current {
-  color: var(--fg-muted);
+  color: var(--term-yellow);
+  font-weight: 700;
 }
 
 .zine-rule {
@@ -219,8 +224,9 @@ a:focus-visible {
 }
 
 .zine-rule--solid {
-  border-top-color: var(--rule-strong);
-  border-top-width: 2px;
+  border-top-color: var(--link);
+  border-top-width: 1px;
+  opacity: 0.55;
 }
 
 .lead {
@@ -238,24 +244,89 @@ a:focus-visible {
 }
 
 .section-head {
-  color: var(--fg);
+  color: var(--term-yellow);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.04em;
   margin: var(--space-8) 0 var(--space-3);
-  text-transform: uppercase;
+  text-transform: lowercase;
+  overflow-wrap: anywhere;
 }
 
 .section-head::before {
-  content: ">> ";
+  content: "[dominik@labudzinski ~]# ls /";
   color: var(--link);
+  letter-spacing: 0;
+  text-transform: lowercase;
+  font-weight: 700;
+}
+
+.section-head--ls-tags::before {
+  content: "[dominik@labudzinski ~]# ls /tags/";
+}
+
+.terminal-cmd {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--term-gray);
+  overflow-wrap: anywhere;
+}
+
+.terminal-cmd--lead {
+  margin-bottom: var(--space-3);
+}
+
+.terminal-cmd-group--lead {
+  margin: 0 0 var(--space-3);
+}
+
+.terminal-cmd-group--lead .terminal-cmd {
+  margin: 0;
+  line-height: 1.3;
+}
+
+.terminal-cmd-block + .terminal-cmd-block {
+  margin-top: var(--space-3);
+}
+
+.terminal-cmd__output {
+  margin: 0.125rem 0 0;
+  padding: 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+.terminal-cmd-group--lead h1.terminal-cmd__output {
+  margin: 0.125rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.terminal-cmd__host {
+  color: var(--term-cyan);
+}
+
+.terminal-cmd__prompt {
+  color: var(--link);
+  font-weight: 700;
+}
+
+.terminal-cmd__arg {
+  color: var(--term-yellow);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: var(--fg);
+  color: var(--term-yellow);
   font-weight: 700;
   line-height: 1.35;
   margin: var(--space-5) 0 var(--space-3);
@@ -266,6 +337,30 @@ h3,
 h4 {
   font-size: 0.9375rem;
   letter-spacing: 0.04em;
+  color: var(--term-cyan);
+}
+
+.content h2,
+.content h3,
+.content h4,
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  color: var(--term-cyan);
+}
+
+.content h2::before,
+.post-body h2::before {
+  content: "## ";
+  color: var(--link);
+  font-weight: 700;
+}
+
+.content h3::before,
+.post-body h3::before {
+  content: "### ";
+  color: var(--dim);
+  font-weight: 700;
 }
 
 p {
@@ -293,7 +388,19 @@ li {
 }
 
 li::marker {
-  color: var(--link);
+  color: var(--term-green);
+}
+
+strong,
+b {
+  color: var(--term-yellow);
+  font-weight: 700;
+}
+
+em,
+i {
+  color: var(--term-gray);
+  font-style: italic;
 }
 
 .menu-list {
@@ -304,21 +411,33 @@ li::marker {
 
 .menu-list li {
   margin: 0;
-  padding: var(--space-2) 0 var(--space-2) var(--space-3);
+  padding: 0 0 0 var(--space-3);
+  line-height: 1.3;
   border-left: 2px solid var(--rule);
-  transition: border-color var(--transition), padding-left var(--transition);
+  transition: border-color var(--transition);
   overflow-wrap: anywhere;
   word-break: break-word;
+  color: var(--fg);
 }
 
 .menu-list li::before {
-  content: "> ";
-  color: var(--link);
+  content: "-rw-r--r-- ";
+  color: var(--term-green);
+  font-weight: 400;
+}
+
+.menu-list li:has(.meta)::before {
+  content: "drwxr-xr-x ";
+  color: var(--term-blue);
   font-weight: 700;
 }
 
+.menu-list .meta {
+  color: var(--term-gray);
+}
+
 .post-date {
-  color: var(--dim);
+  color: var(--term-gray);
   font-variant-numeric: tabular-nums;
 }
 
@@ -333,18 +452,19 @@ li::marker {
 .post-header {
   margin-bottom: var(--space-6);
   padding-bottom: var(--space-4);
-  border-bottom: 2px solid var(--rule-strong);
+  border-bottom: 1px solid var(--link);
 }
 
 .post-title {
   margin: 0 0 var(--space-3);
   font-size: 1.35rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
   line-height: 1.25;
   overflow-wrap: anywhere;
   word-break: break-word;
   text-wrap: pretty;
+  color: var(--term-yellow);
 }
 
 .post-meta {
@@ -352,25 +472,44 @@ li::marker {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
-  color: var(--dim);
+  color: var(--term-gray);
   font-size: 0.875rem;
   margin-bottom: var(--space-3);
 }
 
+.post-meta::before {
+  content: "stat ";
+  color: var(--link);
+  font-weight: 700;
+}
+
 .meta-sep {
-  color: var(--rule-strong);
+  color: var(--term-gray);
 }
 
 .reading-time {
   font-variant-numeric: tabular-nums;
+  color: var(--term-gray);
+}
+
+.reading-time::before {
+  content: "atime ";
+  color: var(--link);
 }
 
 .post-tags {
   font-size: 0.875rem;
-  color: var(--dim);
+  color: var(--term-gray);
 }
 
-.post-tags .tag {
+.post-tags::before {
+  content: "tags: ";
+  color: var(--link);
+  font-weight: 700;
+}
+
+.post-tags .tag,
+.meta a.tag {
   white-space: nowrap;
 }
 
@@ -382,15 +521,42 @@ li::marker {
 
 .post-footer {
   margin-top: var(--space-8);
+  margin-bottom: var(--space-10);
   padding-top: var(--space-4);
+  padding-bottom: var(--space-6);
   border-top: 1px solid var(--rule);
+}
+
+.page-footer {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-10);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-6);
+  border-top: 1px solid var(--rule);
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  margin-bottom: var(--space-2);
+}
+
+.back::before {
+  content: "cd .. ";
+  color: var(--link);
+  font-weight: 700;
+  text-transform: lowercase;
 }
 
 .comments {
   margin-top: var(--space-8);
   padding-top: var(--space-5);
-  border-top: 2px solid var(--rule-strong);
+  border-top: 1px solid var(--link);
   max-width: var(--content-max);
+  opacity: 0.95;
 }
 
 .comments .section-head {
@@ -398,7 +564,7 @@ li::marker {
 }
 
 .comments__noscript {
-  color: var(--fg-muted);
+  color: var(--term-gray);
   font-size: 0.875rem;
   margin: var(--space-4) 0 0;
 }
@@ -409,31 +575,12 @@ li::marker {
   min-height: 4rem;
 }
 
-#disqus_thread a {
-  color: var(--link) !important;
-}
-
+#disqus_thread a,
+#disqus_thread a:visited,
 #disqus_thread a:hover {
-  background: var(--link) !important;
-  color: var(--link-hover-fg) !important;
-}
-
-.meta a.tag {
-  text-decoration: underline;
-}
-
-.back {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.back::before {
-  content: "<< ";
-  color: var(--link);
-  font-weight: 700;
+  color: var(--term-cyan) !important;
+  background: transparent !important;
+  text-decoration: none !important;
 }
 
 hr {
@@ -445,8 +592,9 @@ hr {
 blockquote {
   margin: var(--space-5) 0;
   padding: var(--space-2) 0 var(--space-2) var(--space-4);
-  border-left: 3px solid var(--link);
-  color: var(--fg-muted);
+  border-left: 3px solid var(--term-green);
+  color: var(--term-gray);
+  font-style: italic;
 }
 
 pre,
@@ -466,13 +614,14 @@ code {
 }
 
 pre {
-  background: var(--code-bg);
+  background: var(--term-bg);
   border: 1px solid var(--rule);
   border-left: 3px solid var(--link);
   padding: var(--space-3) var(--space-4);
   overflow-x: auto;
   margin: var(--space-5) 0;
   line-height: 1.5;
+  color: var(--term-green);
 }
 
 pre code {
@@ -484,19 +633,22 @@ pre code {
   margin: var(--space-5) 0;
 }
 
-.highlight pre {
+.highlight pre.chroma {
   border: 1px solid var(--rule);
   border-left: 3px solid var(--link);
   padding: var(--space-3) var(--space-4);
   overflow-x: auto;
   margin: 0;
   line-height: 1.5;
+  -moz-tab-size: 4;
+  tab-size: 4;
 }
 
-.highlight pre code {
+.highlight pre.chroma code {
   padding: 0;
   background: none;
   border: none;
+  color: inherit;
 }
 
 .pgp-panel {
@@ -679,7 +831,7 @@ pre code {
 
 .pgp-panel__meta dd {
   margin: 0;
-  color: var(--nvim-fg);
+  color: var(--term-fg);
   font-size: 0.8125rem;
   font-variant-numeric: tabular-nums;
   word-break: break-word;
@@ -758,8 +910,13 @@ td {
 }
 
 th {
+  color: var(--term-blue);
+  font-weight: 700;
+  border-bottom-color: var(--link);
+}
+
+td {
   color: var(--fg);
-  border-bottom-color: var(--rule-strong);
 }
 
 img {
@@ -784,19 +941,33 @@ img {
 .error-code {
   font-weight: 700;
   letter-spacing: 0.04em;
+  color: var(--term-red);
+}
+
+.error-code::before {
+  content: "bash: ";
+  color: var(--term-green);
 }
 
 .site-footer {
-  border-top: 2px solid var(--rule-strong);
-  color: var(--dim);
+  border-top: 1px solid var(--link);
+  color: var(--term-gray);
   font-size: 0.8125rem;
   line-height: 1.55;
   text-align: center;
+  opacity: 0.85;
+  margin-top: var(--space-2);
+  padding-top: var(--space-6);
 }
 
 .site-footer__copy {
   margin: 0 0 var(--space-3);
-  color: var(--fg-muted);
+  color: var(--term-dim);
+}
+
+.site-footer__copy::before {
+  content: "# ";
+  color: var(--link);
 }
 
 .site-footer__legal {
@@ -854,7 +1025,16 @@ img {
   }
 
   .section-head {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.03em;
+  }
+
+  .section-head::before {
+    content: "[dominik@labudzinski ~]# ls /";
+    letter-spacing: 0;
+  }
+
+  .section-head--ls-tags::before {
+    content: "[dominik@labudzinski ~]# ls /tags/";
   }
 
   .trail {
@@ -921,7 +1101,6 @@ img {
 @media (hover: hover) and (pointer: fine) {
   .menu-list li:hover {
     border-left-color: var(--link);
-    padding-left: calc(var(--space-3) + 2px);
   }
 }
 

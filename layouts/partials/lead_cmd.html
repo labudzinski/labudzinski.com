@@ -1,0 +1,27 @@
+{{- $tagline := .Params.tagline | default "Dominik Labudzinski" -}}
+{{- $startYear := .Params.career_start | default 2002 -}}
+{{- $start := time (printf "%d-01-01T00:00:00Z" $startYear) -}}
+{{- $days := div (sub now.Unix $start.Unix) 86400 -}}
+{{- $years := div $days 365 -}}
+{{- $remDays := mod $days 365 -}}
+{{- $uptime := printf "up %d %s" $years (cond (eq $years 1) "year" "years") -}}
+{{- if gt $remDays 0 -}}
+  {{- $uptime = printf "%s, %d %s" $uptime $remDays (cond (eq $remDays 1) "day" "days") -}}
+{{- end -}}
+<div class="terminal-cmd-group terminal-cmd-group--lead">
+  <div class="terminal-cmd-block">
+    <p class="terminal-cmd" aria-hidden="true">
+      <span class="terminal-cmd__prompt">[dominik@labudzinski ~]$</span>
+      uptime
+    </p>
+    <h1 class="terminal-cmd__output terminal-cmd__output--uptime">
+      <span class="terminal-cmd__host">{{ $tagline }}</span>: {{ now.Format "15:04:05" }} {{ $uptime }},  1 user,  load average: 0.42, 0.38, 0.35
+    </h1>
+  </div>
+  <div class="terminal-cmd-block">
+    <p class="terminal-cmd" aria-hidden="true">
+      <span class="terminal-cmd__prompt">[dominik@labudzinski ~]$</span>
+      whoami
+    </p>
+  </div>
+</div>

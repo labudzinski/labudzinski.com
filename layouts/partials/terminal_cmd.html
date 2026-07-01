@@ -1,0 +1,8 @@
+{{- $path := "" -}}
+{{- with .File -}}
+  {{- $path = .Path | strings.TrimPrefix "content/" -}}
+{{- end -}}
+<p class="terminal-cmd" aria-hidden="true">
+  <span class="terminal-cmd__prompt">[dominik@labudzinski ~]$</span>
+  less <span class="terminal-cmd__arg">{{ $path }}</span>
+</p>

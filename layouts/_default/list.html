@@ -1,10 +1,10 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1 class="section-head">{{ .Title | lower }}</h1>
+  <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
     {{- range .Pages -}}
       <li><a href="{{ .Permalink | relURL }}">{{ .Title }}</a></li>
     {{- end -}}
   </ul>
-  <hr class="zine-rule">
-  {{ partial "back_link.html" . }}
+  {{ partial "page_footer.html" . }}
 {{ end }}

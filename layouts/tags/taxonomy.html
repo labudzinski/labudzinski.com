@@ -1,7 +1,6 @@
 {{ define "main" }}
-  <h1>Tags</h1>
+  <h1 class="section-head">tags</h1>
   <hr class="zine-rule zine-rule--solid">
   {{ partial "tag_list.html" (dict) }}
-  <hr class="zine-rule">
-  {{ partial "back_link.html" . }}
+  {{ partial "page_footer.html" . }}
 {{ end }}

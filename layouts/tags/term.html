@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1>Posts: {{ .Title }}</h1>
+  <h1 class="section-head section-head--ls-tags">{{ .Title | lower }}</h1>
   <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
     {{- range .Pages.ByDate.Reverse -}}
@@ -8,6 +8,5 @@
       </li>
     {{- end -}}
   </ul>
-  <hr class="zine-rule">
-  {{ partial "back_link.html" . }}
+  {{ partial "page_footer.html" . }}
 {{ end }}
