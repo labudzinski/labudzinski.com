@@ -15,7 +15,8 @@
       uptime
     </p>
     <h1 class="terminal-cmd__output terminal-cmd__output--uptime">
-      <span class="terminal-cmd__host">{{ $tagline }}</span>: {{ now.Format "15:04:05" }} {{ $uptime }},  1 user,  load average: 0.42, 0.38, 0.35
+      <span class="terminal-cmd__host">{{ $tagline }}</span>:
+      <span class="lead-uptime__rest" data-lead-uptime data-career-start="{{ $startYear }}">{{ now.Format "15:04:05" }} {{ $uptime }},  1 user,  load average: 0.42, 0.38, 0.35</span>
     </h1>
   </div>
   <div class="terminal-cmd-block">
@@ -25,3 +26,4 @@
     </p>
   </div>
 </div>
+<script src="{{ "js/lead-uptime.js" | relURL }}"></script>
