@@ -1,29 +1,26 @@
+{{- $asc := "" -}}
+{{- with .File -}}
+  {{- $asc = printf "%s.asc" (.Path | strings.TrimPrefix "content/") -}}
+{{- end -}}
 <details class="pgp-panel">
   <summary class="pgp-panel__toggle">
-    <span class="pgp-panel__head">
-      <span class="pgp-panel__prompt" aria-hidden="true">&gt;&gt;</span>
-      <span class="pgp-panel__title">PGP SIGNATURE</span>
+    <span class="pgp-panel__cmd">
+      <span class="terminal-cmd__prompt">[dominik@labudzinski ~]$</span>
+      gpg --verify
+      {{- with $asc -}}
+      <span class="terminal-cmd__arg"> {{ . }}</span>
+      {{- end -}}
     </span>
     <span class="pgp-panel__indicator" aria-hidden="true"></span>
     <span class="pgp-panel__key">{{ .Params.pgp_key_fingerprint }}</span>
   </summary>
   <div class="pgp-panel__drawer">
     <div class="pgp-panel__inner">
-      <dl class="pgp-panel__meta">
-        <div class="pgp-panel__row">
-          <dt>author</dt>
-          <dd>{{ .Site.Params.pgp_author | default "Dominik Łabudziński" }}</dd>
-        </div>
-        <div class="pgp-panel__row">
-          <dt>key</dt>
-          <dd>{{ .Params.pgp_key_fingerprint }}</dd>
-        </div>
-      </dl>
-      <pre class="pgp-panel__sig">{{ .Params.pgp_signature }}</pre>
-      <p class="pgp-panel__status">
-        <span class="pgp-panel__ok">OK</span>
-        integrity verified via OpenPGP
+      <p class="pgp-panel__out">
+        gpg: <span class="pgp-panel__good">Good signature</span> from &quot;{{ .Site.Params.pgp_author | default "Dominik Labudzinski" }}&quot;
       </p>
+      <p class="pgp-panel__out pgp-panel__out--key">gpg: using RSA key {{ .Params.pgp_key_fingerprint }}</p>
+      <pre class="pgp-panel__sig">{{ .Params.pgp_signature }}</pre>
     </div>
   </div>
 </details>
