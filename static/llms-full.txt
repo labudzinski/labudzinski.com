@@ -1,0 +1,12 @@
+AI CONTENT EXPORT DISABLED — labudzinski.com
+
+This endpoint does not provide bulk content for AI systems.
+
+TDM-Reservation: 1
+Policy: https://labudzinski.com/ai-policy.txt
+TDM:      https://labudzinski.com/tdm-policy.json
+
+Unauthorized scraping, model training, embedding, or dataset creation
+from this site is prohibited under EU and Polish copyright law.
+
+Contact: dominik@labudzinski.com

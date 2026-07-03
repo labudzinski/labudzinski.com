@@ -1,0 +1,22 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Site.BaseURL }}</link>
+    <description>{{ .Site.Params.description }}</description>
+    <copyright>Copyright {{ .Site.Params.copyright_start | default 2019 }}-{{ now.Year }} {{ .Site.Params.author }}. AI training prohibited. {{ "ai-policy.txt" | absURL }}</copyright>
+    <language>{{ .Site.Language.LanguageCode }}</language>
+    <atom:link href="{{ "index.xml" | absURL }}" rel="self" type="application/rss+xml"/>
+    <ttl>60</ttl>
+    {{- range where site.RegularPages "Section" "posts" | first 20 }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <description>{{ .Summary | plainify | truncate 200 }}</description>
+      <author>{{ .Site.Params.author }}</author>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

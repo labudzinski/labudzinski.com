@@ -1,49 +1,22 @@
-{{- partial "seo/description.html" . -}}
-{{- $desc := .Scratch.Get "seoDesc" -}}
+# {{ .Site.Title }} — machine-readable notice
 
-# {{ .Site.Title }}
+> AI TRAINING PROHIBITED. TDM RESERVATION ACTIVE (EU 2019/790 Art. 4(3)).
 
-> {{ $desc }}
+This file intentionally does NOT contain article text.
+Full content is available only to human readers at {{ .Site.BaseURL }}
 
-## AI Policy
+## Legal
 
-This site explicitly prohibits AI model training, dataset extraction, embedding
-creation, and vector database ingestion. See {{ "ai-policy.txt" | absURL }}.
+- AI policy: {{ "ai-policy.txt" | absURL }}
+- TDM policy: {{ "tdm-policy.json" | absURL }}
+- robots.txt: {{ "robots.txt" | absURL }}
 
-## Author
+## Permitted automated access
 
-- **Name:** {{ .Site.Params.author }}
-- **Role:** {{ .Site.Params.job_title | default "Software Engineer" }}
-- **Site:** {{ .Site.BaseURL }}
-{{- with .Site.Params.github }}
-- **GitHub:** {{ . }}
-{{- end }}
-{{- with .Site.Params.linkedin }}
-- **LinkedIn:** {{ . }}
-{{- end }}
+- Search engine indexing (Googlebot, Bingbot) for link discovery only.
+- All other automated access, including LLM crawlers, dataset builders,
+  embedding pipelines, and RAG indexes, is prohibited without written consent.
 
-## Sections
+## Contact
 
-- [Home]({{ .Site.BaseURL }}): Personal site and blog index
-- [Blog archive]({{ "posts/" | absURL }}): Technical articles on software engineering, DevOps, security, and systems architecture
-- [Tags]({{ "tags/" | absURL }}): Topic index
-- [RSS]({{ "index.xml" | absURL }}): Feed for new posts
-- [PGP key]({{ "public-key.asc" | absURL }}): OpenPGP public key
-
-## Recent Posts
-
-{{- range first 15 (where site.RegularPages "Section" "posts").ByDate.Reverse }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | strings.TrimSpace | truncate 120 }}
-{{- end }}
-
-## Topics
-
-{{- with site.GetPage "/tags" }}
-{{- range .Data.Terms.ByCount | first 20 }}
-- [{{ .Page.LinkTitle }}]({{ .Page.Permalink }}): {{ .Count }} post(s)
-{{- end }}
-{{- end }}
-
-## Full Content Export
-
-For a complete machine-readable export, see {{ "llms-full.txt" | absURL }}.
+{{ .Site.Params.author }} — dominik@labudzinski.com

@@ -1,5 +1,7 @@
 {{ define "main" }}
-  <article class="post">
+  <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="license" content="{{ "ai-policy.txt" | absURL }}">
+    <meta itemprop="copyrightNotice" content="© {{ .Site.Params.author }}. AI training and TDM prohibited.">
     {{ partial "terminal_cmd.html" . }}
     <header class="post-header">
       <div class="post-meta">
@@ -21,7 +23,7 @@
     {{- if .Params.toc -}}
     <aside class="toc" aria-label="Table of contents">{{ .TableOfContents }}</aside>
     {{- end -}}
-    <div class="content post-body">{{ .Content }}</div>
+    <div class="content post-body" data-nosnippet translate="no" itemprop="articleBody">{{ .Content }}</div>
     {{- if .Params.pgp_signature -}}
     {{ partial "pgp_signature.html" . }}
     {{- end -}}

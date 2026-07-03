@@ -3,6 +3,21 @@ Last-Updated: 2026-07-03
 Contact: dominik@labudzinski.com
 
 ================================================================================
+EU / PL LEGAL BASIS
+================================================================================
+
+This policy implements an express opt-out under:
+- EU Directive 2019/790 (DSM), Article 4(3) — Text and Data Mining reservation
+- W3C Community Group Specification: TDM Reservation Protocol (TDMRep)
+- Polish Act on Copyright and Related Rights (4 Feb 1994)
+
+Machine-readable TDM opt-out:
+  https://labudzinski.com/tdm-policy.json
+
+Ignoring this opt-out for commercial TDM may constitute copyright infringement
+in the EU/EEA and Poland.
+
+================================================================================
 COPYRIGHT AND OWNERSHIP
 ================================================================================
 
@@ -68,5 +83,5 @@ For licensing inquiries: dominik@labudzinski.com
 RELATED FILES
 ================================================================================
 
-robots.txt: https://labudzinski.com/robots.txt
-llms.txt:   https://labudzinski.com/llms.txt
+robots.txt:      https://labudzinski.com/robots.txt
+tdm-policy.json: https://labudzinski.com/tdm-policy.json

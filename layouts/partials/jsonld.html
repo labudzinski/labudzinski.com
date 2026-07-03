@@ -66,6 +66,8 @@
       "wordCount" .WordCount
       "keywords" $keywords
       "isPartOf" (dict "@id" (printf "%s#website" .Site.BaseURL))
+      "license" (printf "%sai-policy.txt" .Site.BaseURL)
+      "copyrightNotice" (printf "© %s. AI training and TDM prohibited." $author)
   -}}
   {{- $graph = $graph | append $post -}}
 {{- else if eq .Kind "term" -}}

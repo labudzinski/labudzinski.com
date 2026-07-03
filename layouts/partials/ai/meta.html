@@ -1,4 +1,14 @@
 {{- if not (.Site.Params.ai_training_allowed | default false) -}}
+<link rel="tdm-reservation" href="{{ "tdm-policy.json" | absURL }}">
+<link rel="tdm-policy" href="{{ "ai-policy.txt" | absURL }}">
+<link rel="license" href="{{ "ai-policy.txt" | absURL }}">
+<meta name="tdm-reservation" content="1">
+<meta name="tdm-policy" content="{{ "tdm-policy.json" | absURL }}">
+<meta name="GPTBot" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<meta name="ClaudeBot" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<meta name="PerplexityBot" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<meta name="anthropic-ai" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<meta name="Google-Extended" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<link rel="alternate" type="application/json" title="TDM Policy" href="{{ "tdm-policy.json" | absURL }}">
 <link rel="alternate" type="text/plain" title="AI Policy" href="{{ "ai-policy.txt" | absURL }}">
-<link rel="alternate" type="text/plain" title="LLMs" href="{{ "llms.txt" | absURL }}">
 {{- end -}}

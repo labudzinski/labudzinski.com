@@ -1,0 +1,9 @@
+{
+  "@context": {
+    "tdm": "https://www.w3.org/2022/tdmrep#"
+  },
+  "@type": "tdm:Policy",
+  "tdm:reservation": 1,
+  "tdm:policy": "https://labudzinski.com/ai-policy.txt",
+  "tdm:contact": "dominik@labudzinski.com"
+}
