@@ -5,7 +5,7 @@
   <nav class="trail" aria-label="Breadcrumb">
     <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
     <span class="trail__current" aria-current="page">
-      {{- if eq .Kind "term" -}}posts: {{ .Title | lower }}{{- else -}}{{ .Title | lower }}{{- end -}}
+      {{- if eq .Kind "term" -}} {{ .Title | lower }}{{- else -}}{{ .Title | lower }}{{- end -}}
     </span>
   </nav>
   <hr class="zine-rule zine-rule--solid">
