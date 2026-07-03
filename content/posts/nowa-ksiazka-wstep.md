@@ -1,23 +1,26 @@
 ---
 date: 2026-07-03T18:22:00+02:00
-draft: false
+draft: |-
+  false
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpH4eAACgkQXN6UakFg wilZjg//SQSeOT6b5vbPW289o1dCWlN3u6stm+oTOq/MHVKUAKGgxZiKW0sO3RkD ktC3DLF1Vo51TJlmJr2Dy0okV5ZrTsWBCgdRGItH6s/GNO4qGHqDO0prbuacNtWL WPKmVpmkhuLqzNd/KgnmXoP7aJzymMnIpQyDAQ4V8/5X+ziE2Wc4HQIFxWUC8Rdb U7DRPYC11t6VcxHhG2WU+xtWqea289t986/AMVIclE82y32zN7iqHDdfWT4Cjume oihhv2wonrAUEvXSviXPxduKnURWUSv4Vu6r7y7illAL+/NHgYEYM50kejahEaGo iLw7qX2oL+fLp1AO3gaPYyOOZGm6sSBpmbDKGoTFTCr3FhW5HBtXOwwLz0tMTY1F 29bjnI0W6ScxNpDzMZuetVJWJg8LFInvdZ7+IywK/plMD/QkPGF+FOIpGVEy56iG ZEBg/CCyCHVaCRUkL8zd9W/J3Cvtmg+++VU5XEN/MdW2JSZQG6f30RCFABghNONm Evv3WzymvefiIrRUmQgLKgVWRYR5VtwA74QZv6/oMUwZ1F3PuNrlp4Kiocq+oZ6i Ux1c34ckU5zCIhjvKm+Cfsuzz8Xyr7mx8rANICZLfRIA5xCQ/ju2sKE/F9sptduN MWKGWiR8Iolc0t/+sXPVDpcRToYk5Rk3/WMmjHjb0iyY5E8Ua4M= =dJxn -----END PGP SIGNATURE-----
+og_image: /images/posts/nowa-ksiazka-wstep.png
 pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
 pgp_signature: |
   -----BEGIN PGP SIGNATURE-----
 
-  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpH4eAACgkQXN6UakFg
-  wilZjg//SQSeOT6b5vbPW289o1dCWlN3u6stm+oTOq/MHVKUAKGgxZiKW0sO3RkD
-  ktC3DLF1Vo51TJlmJr2Dy0okV5ZrTsWBCgdRGItH6s/GNO4qGHqDO0prbuacNtWL
-  WPKmVpmkhuLqzNd/KgnmXoP7aJzymMnIpQyDAQ4V8/5X+ziE2Wc4HQIFxWUC8Rdb
-  U7DRPYC11t6VcxHhG2WU+xtWqea289t986/AMVIclE82y32zN7iqHDdfWT4Cjume
-  oihhv2wonrAUEvXSviXPxduKnURWUSv4Vu6r7y7illAL+/NHgYEYM50kejahEaGo
-  iLw7qX2oL+fLp1AO3gaPYyOOZGm6sSBpmbDKGoTFTCr3FhW5HBtXOwwLz0tMTY1F
-  29bjnI0W6ScxNpDzMZuetVJWJg8LFInvdZ7+IywK/plMD/QkPGF+FOIpGVEy56iG
-  ZEBg/CCyCHVaCRUkL8zd9W/J3Cvtmg+++VU5XEN/MdW2JSZQG6f30RCFABghNONm
-  Evv3WzymvefiIrRUmQgLKgVWRYR5VtwA74QZv6/oMUwZ1F3PuNrlp4Kiocq+oZ6i
-  Ux1c34ckU5zCIhjvKm+Cfsuzz8Xyr7mx8rANICZLfRIA5xCQ/ju2sKE/F9sptduN
-  MWKGWiR8Iolc0t/+sXPVDpcRToYk5Rk3/WMmjHjb0iyY5E8Ua4M=
-  =dJxn
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpH48oACgkQXN6UakFg
+  wilhGQ//Ym/leXiDcIIEg0m21Y+RLLx8rHAisvzwSUUkyTr60umxqxdJPwseohJ1
+  gW/NCTBJZC/wB6tmKzVXhDpyaRdkhljDVhlButKNovaRFJDgr78O4rB1xiWgYHjI
+  zZcW781JXNFe1JsaTiqghdd12BLuSzGZchEV5kJFmzs2cVpYvOodMqqHo1VbSdGx
+  sQ1Ce+3EVS+qo+Y64TUUw0i1x1pY6kXFxnqVKO4tsLTMR1It0sfFeh+p6JD2/Ez2
+  uHizA+FCBN0pJHiwE5Ag+ubvoYf+Sa4RJiBGBkktabC58yapx61Fn8R+EP/lLbDh
+  +KAMxIQgWKSuxP9fOlITGsCoPfZYOBp2EmSyKLq/KUUvRtNf4+INs/c4NHL4oxH0
+  PbsOblBvuIA4t3WFuVHLGnq5nrroR4keqh9KkogmV4Q5J/Su+V47JemuYVutO6Ee
+  CXVGmTsMyJQi1D0qWLflbV90LjE1odW9XszEKtzt78i4tUvzBobo4gwN/4Z28Sqw
+  k8r9KOSqN0oxuTyi2E8cuTnGM5Uz4TXpUOq+gX/x9OI4UjE1ayBx60RrRtwzf2Ac
+  cTIqJai5Zp76Q/h//cPnIKHGzVooe6YpM0jdd7vGHVaIN8jsTtYqlXgIvUgQ/wWs
+  DknLYHoU1L0LQ4F9nvWfdmC2/9ALxRNaNOu5nejv5ki5LoapEik=
+  =ufsh
   -----END PGP SIGNATURE-----
 tags:
   - Książka
@@ -56,3 +59,5 @@ Mówili na nich terroryści, anarchiści, przestępcy, margines społeczeństwa.
 Czytasz tę książkę…, czyli jeszcze żyjesz, a skoro przeczytałeś aż dotąd, to oznacza, że umiesz jeszcze być skupiony dłużej niż minutę, a to dzisiaj rzadkość u takich jak ty.
 
 Zostało więc jedno pytanie, zanim przejdziemy dalej. Jedno jedyne pytanie i odpowiedz sobie szczerze. Co zrobisz z tym, o czym za chwilę się dowiesz?
+
+![Okładka książki Raport 2039–2047](/images/posts/nowa-ksiazka-wstep.png)
