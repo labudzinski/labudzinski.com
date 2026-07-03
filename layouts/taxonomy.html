@@ -1,5 +1,12 @@
 {{ define "main" }}
-  <h1 class="section-head">tags</h1>
+  <div class="terminal-cmd-group terminal-cmd-group--lead">
+    <div class="terminal-cmd-block">
+      <p class="terminal-cmd" aria-hidden="true">
+        <span class="terminal-cmd__prompt" aria-hidden="true"></span>
+        ls <h1 class="terminal-cmd__output">tags</h1>
+      </p>
+    </div>
+  </div>
   <hr class="zine-rule zine-rule--solid">
   {{ partial "tag_list.html" (dict) }}
   {{ partial "page_footer.html" . }}
