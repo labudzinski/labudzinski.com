@@ -27,10 +27,9 @@
         "show_more_text" $block.tag_list.show_more_text
         "show_more_url" $block.tag_list.show_more_url -}}
   {{- else if $block.url -}}
-    {{- $cmd = "cat" -}}
-    {{- $arg = $block.url -}}
+    {{- $arg = "/rss/" -}}
     {{- $partial = "rss_link.html" -}}
-    {{- $ctx = dict "url" $block.url "title" $block.title -}}
+    {{- $ctx = dict "url" $block.url "title" $block.url -}}
   {{- else if $block.entries -}}
     {{- $partial = "menu_item.html" -}}
     {{- $ctx = dict "context" $ "collection" $block.entries -}}
