@@ -1,0 +1,8 @@
+{{- if hugo.IsMultilingual -}}
+  {{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}">
+{{- else -}}
+<link rel="alternate" hreflang="{{ .Site.Language.Params.locale | default .Site.Language.LanguageCode | default "pl-PL" }}" href="{{ .Permalink }}">
+{{- end -}}

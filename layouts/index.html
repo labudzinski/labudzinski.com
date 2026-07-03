@@ -4,7 +4,8 @@
   <div class="lead">{{ . }}</div>
   {{- end -}}
   {{- range $block := site.Data.menu.entries -}}
-    <h2 class="section-head">{{ $block.title | lower }}</h2>
+  <section class="home-section" aria-labelledby="section-{{ $block.title | urlize }}">
+    <h2 class="section-head" id="section-{{ $block.title | urlize }}">{{ $block.title | lower }}</h2>
     <hr class="zine-rule">
     {{- if $block.url -}}
       <ul class="menu-list">
@@ -27,5 +28,6 @@
           "show_more_text" $block.tag_list.show_more_text
           "show_more_url" $block.tag_list.show_more_url) }}
     {{- end -}}
+  </section>
   {{- end -}}
 {{ end }}

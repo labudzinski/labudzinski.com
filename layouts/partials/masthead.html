@@ -1,13 +1,7 @@
-<header class="masthead" aria-label="Site header">
+<header class="masthead" role="banner">
   {{ partial "ascii_logo.html" . }}
-  {{- $showTrail := and (not .IsHome) (ne .Section "posts") -}}
-  {{- if $showTrail -}}
-  <nav class="trail" aria-label="Breadcrumb">
-    <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
-    <span class="trail__current" aria-current="page">
-      {{- if eq .Kind "term" -}} {{ .Title | lower }}{{- else -}}{{ .Title | lower }}{{- end -}}
-    </span>
-  </nav>
+  {{- if not .IsHome -}}
+  {{ partial "breadcrumbs.html" . }}
   <hr class="zine-rule zine-rule--solid">
   {{- else -}}
   <hr class="zine-rule zine-rule--solid">

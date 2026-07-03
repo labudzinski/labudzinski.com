@@ -1,0 +1,11 @@
+{{- $needsChroma := false -}}
+{{- if .IsPage -}}
+  {{- if findRE `<pre class="chroma">` .Content -}}
+    {{- $needsChroma = true -}}
+  {{- end -}}
+{{- end -}}
+
+<link rel="stylesheet" href="/css/main.css">
+{{- if $needsChroma -}}
+<link rel="stylesheet" href="/css/chroma.css">
+{{- end -}}

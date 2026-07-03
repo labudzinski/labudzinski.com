@@ -1,0 +1,10 @@
+{{- $image := .Site.Params.og_image | default "/images/og-default.svg" -}}
+{{- if .Params.og_image -}}
+  {{- $image = .Params.og_image -}}
+{{- else if .Params.images -}}
+  {{- $image = index .Params.images 0 -}}
+{{- end -}}
+{{- if not (hasPrefix $image "http") -}}
+  {{- $image = $image | absURL -}}
+{{- end -}}
+{{- .Scratch.Set "seoImage" $image -}}

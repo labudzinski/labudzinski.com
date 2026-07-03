@@ -1,30 +1,10 @@
-{{- $title := .Site.Title -}}
-{{- if eq .Kind "term" -}}
-  {{- $title = printf "Posts: %s :: %s" .Title .Site.Title -}}
-{{- else if not .IsHome -}}
-  {{- $title = printf "%s :: %s" .Title .Site.Title -}}
-{{- end -}}
-
-{{- $desc := .Site.Params.description -}}
-{{- if .Description -}}
-  {{- $desc = .Description -}}
-{{- else if and .IsPage (ne .Summary "") -}}
-  {{- $desc = .Summary | plainify | strings.TrimSpace | truncate 160 -}}
-{{- else if .IsHome -}}
-  {{- with .Content -}}
-    {{- $desc = . | plainify | strings.TrimSpace | truncate 160 -}}
-  {{- end -}}
-{{- else if eq .Kind "term" -}}
-  {{- $desc = printf "Posts tagged %s." .Title -}}
-{{- else if eq .Kind "taxonomy" -}}
-  {{- $desc = "All tags." -}}
-{{- end -}}
-
+{{- partial "seo/title.html" . -}}
+{{- partial "seo/description.html" . -}}
+{{- partial "seo/og-image.html" . -}}
+{{- $title := .Scratch.Get "seoTitle" -}}
+{{- $desc := .Scratch.Get "seoDesc" -}}
+{{- $image := .Scratch.Get "seoImage" -}}
 {{- $author := .Site.Params.author | default .Site.Title -}}
-{{- $ogType := "website" -}}
-{{- if eq .Section "posts" -}}
-  {{- $ogType = "article" -}}
-{{- end -}}
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -33,39 +13,25 @@
 <title>{{ $title }}</title>
 {{- with $desc -}}
 <meta name="description" content="{{ . }}">
-<meta property="og:description" content="{{ . }}">
-<meta name="twitter:description" content="{{ . }}">
 {{- end -}}
 <meta name="author" content="{{ $author }}">
-<meta name="robots" content="{{ if eq .Kind "404" }}noindex, follow{{ else }}index, follow{{ end }}">
+{{- partial "seo/robots.html" . -}}
 <link rel="canonical" href="{{ .Permalink }}">
-
-<meta property="og:title" content="{{ $title }}">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:type" content="{{ $ogType }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:locale" content="{{ replace (lower .Site.Language.LanguageCode) "-" "_" }}">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{ $title }}">
-{{- with .Site.Params.twitter -}}
-<meta name="twitter:site" content="{{ . }}">
-<meta name="twitter:creator" content="{{ . }}">
-{{- end -}}
-
-{{- if eq .Section "posts" -}}
-<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
-<meta property="article:author" content="{{ $author }}">
-{{- range .GetTerms "tags" -}}
-<meta property="article:tag" content="{{ .LinkTitle }}">
-{{- end -}}
-{{- end -}}
-
-<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}">
+{{- partial "seo/hreflang.html" . -}}
+{{- partial "seo/pagination.html" . -}}
+{{- partial "social/og.html" (dict "ctx" . "title" $title "desc" $desc "image" $image) -}}
+{{- partial "social/twitter.html" (dict "ctx" . "title" $title "desc" $desc "image" $image) -}}
+{{- partial "head/assets.html" . -}}
+{{- partial "security/headers.html" . -}}
+{{- partial "ai/meta.html" . -}}
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
-<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
-
+<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "sitemap.xml" | absURL }}">
+<link rel="author" href="{{ .Site.BaseURL }}">
+{{- with .Site.Params.github -}}
+<link rel="me" href="{{ . }}">
+{{- end -}}
+{{- with .Site.Params.linkedin -}}
+<link rel="me" href="{{ . }}">
+{{- end -}}
 {{- partial "google_analytics.html" . -}}
 {{- partial "jsonld.html" . -}}

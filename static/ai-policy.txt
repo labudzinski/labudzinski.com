@@ -1,0 +1,72 @@
+AI POLICY — labudzinski.com
+Last-Updated: 2026-07-03
+Contact: dominik@labudzinski.com
+
+================================================================================
+COPYRIGHT AND OWNERSHIP
+================================================================================
+
+All content on https://labudzinski.com/ is the intellectual property of
+Dominik Labudzinski and is protected under applicable copyright law, including
+the Polish Act on Copyright and Related Rights (ustawa z dnia 4 lutego 1994 r.
+o prawie autorskim i prawach pokrewnych).
+
+================================================================================
+EXPLICIT PROHIBITIONS — AI / ML / DATASET USE
+================================================================================
+
+The following activities are EXPRESSLY PROHIBITED without prior written
+permission from the copyright holder:
+
+1. MODEL TRAINING
+   No permission is granted to use any content from this site for training,
+   fine-tuning, distillation, or evaluation of machine learning models,
+   large language models (LLMs), generative AI systems, or any automated
+   learning systems.
+
+2. DATASET EXTRACTION
+   No permission is granted to extract, scrape, harvest, download, mirror,
+   or compile content from this site into datasets, corpora, training sets,
+   or any structured or unstructured data collections.
+
+3. DERIVATIVE DATASETS
+   No permission is granted to create derivative datasets, synthetic datasets,
+   or augmented datasets based on content from this site.
+
+4. EMBEDDING CREATION
+   No permission is granted to create vector embeddings, semantic
+   representations, or latent-space encodings of any content from this site.
+
+5. VECTOR DATABASE INGESTION
+   No permission is granted to ingest, index, store, or retrieve content
+   from this site in vector databases, RAG systems, knowledge bases, or
+   semantic search indexes for AI/ML purposes.
+
+6. AUTOMATED SCRAPING
+   No permission is granted for automated, bulk, or systematic scraping,
+   crawling, or downloading of site content beyond normal web browsing.
+
+================================================================================
+ALLOWED USE
+================================================================================
+
+- Standard search engine indexing for the purpose of displaying links and
+  snippets in search results (subject to robots.txt directives).
+- Individual human reading and personal reference.
+- Linking to pages with proper attribution.
+
+================================================================================
+ENFORCEMENT
+================================================================================
+
+Unauthorized use may result in legal action under applicable copyright,
+database rights, and unfair competition laws.
+
+For licensing inquiries: dominik@labudzinski.com
+
+================================================================================
+RELATED FILES
+================================================================================
+
+robots.txt: https://labudzinski.com/robots.txt
+llms.txt:   https://labudzinski.com/llms.txt

@@ -1,0 +1,4 @@
+{{- if not (.Site.Params.ai_training_allowed | default false) -}}
+<link rel="alternate" type="text/plain" title="AI Policy" href="{{ "ai-policy.txt" | absURL }}">
+<link rel="alternate" type="text/plain" title="LLMs" href="{{ "llms.txt" | absURL }}">
+{{- end -}}

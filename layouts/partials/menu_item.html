@@ -2,7 +2,8 @@
   {{- range $item := .collection -}}
     <li>
       {{- with $item.url -}}
-        <a href="{{ $item.url | relURL }}">{{ safeHTML $item.title }}</a>
+        {{- $external := hasPrefix . "http" -}}
+        <a href="{{ $item.url | relURL }}"{{ if $external }} rel="noopener noreferrer" target="_blank"{{ end }}>{{ safeHTML $item.title }}</a>
       {{- else -}}
         {{ safeHTML $item.title }}
       {{- end -}}

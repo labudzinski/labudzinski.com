@@ -1,0 +1,19 @@
+{{- $desc := .Site.Params.description -}}
+{{- if .Params.description -}}
+  {{- $desc = .Params.description -}}
+{{- else if .Description -}}
+  {{- $desc = .Description -}}
+{{- else if and .IsPage (ne .Summary "") -}}
+  {{- $desc = .Summary | plainify | strings.TrimSpace | truncate 160 -}}
+{{- else if .IsHome -}}
+  {{- with .Content -}}
+    {{- $desc = . | plainify | strings.TrimSpace | truncate 160 -}}
+  {{- end -}}
+{{- else if eq .Kind "term" -}}
+  {{- $desc = printf "Artykuły oznaczone tagiem „%s” na blogu %s." .Title .Site.Params.author -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $desc = printf "Wszystkie tagi na blogu %s." .Site.Params.author -}}
+{{- else if eq .Section "posts" -}}
+  {{- $desc = printf "Archiwum wpisów na blogu %s." .Site.Params.author -}}
+{{- end -}}
+{{- .Scratch.Set "seoDesc" $desc -}}

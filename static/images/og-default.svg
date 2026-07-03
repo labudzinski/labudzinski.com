@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="og-title og-desc">
+  <title id="og-title">Dominik Labudzinski</title>
+  <desc id="og-desc">DevOps / Software Architect / Software Engineer</desc>
+  <rect width="1200" height="630" fill="#000000"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#33ff33" stroke-width="2"/>
+  <text x="80" y="140" fill="#33ff33" font-family="monospace" font-size="28">labudzinski.com</text>
+  <text x="80" y="220" fill="#ffffff" font-family="monospace" font-size="56" font-weight="bold">Dominik Labudzinski</text>
+  <text x="80" y="300" fill="#55ffff" font-family="monospace" font-size="32">DevOps / Software Architect</text>
+  <text x="80" y="360" fill="#a0a0a0" font-family="monospace" font-size="24">Software Engineer / Security / Database Architect</text>
+  <text x="80" y="520" fill="#888888" font-family="monospace" font-size="20">$ uptime  systems, performance, simplicity</text>
+</svg>

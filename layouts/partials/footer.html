@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <p class="site-footer__copy">
     &copy; {{ .Site.Params.copyright_start | default 2019 }}&ndash;{{ now.Year }}
     {{ .Site.Params.author | default .Site.Title }}.
@@ -9,8 +9,9 @@
     ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych.
     Kopiowanie, rozpowszechnianie, udostępnianie publiczne oraz inne formy
     wykorzystywania treści bez uprzedniej zgody autora są zabronione.
+    <a href="{{ "ai-policy.txt" | relURL }}">Polityka AI</a>.
   </p>
   <p class="site-footer__pgp">
-    <a href="/public-key.asc">PGP Public Key</a>
+    <a href="{{ "public-key.asc" | relURL }}">PGP Public Key</a>
   </p>
 </footer>

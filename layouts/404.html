@@ -1,5 +1,6 @@
 {{ define "main" }}
-  <p class="error-code">[!] 404 — tekst nie istnieje</p>
+  <h1 class="visually-hidden">404 — Not Found</h1>
+  <p class="error-code" role="alert">[!] 404 — tekst nie istnieje</p>
   <p>Adres <code>{{ .Permalink }}</code> nie wystepuje w tym wydaniu zina.</p>
   <hr class="zine-rule">
   {{ partial "back_link.html" . }}

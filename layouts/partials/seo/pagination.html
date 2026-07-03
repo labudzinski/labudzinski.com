@@ -1,0 +1,10 @@
+{{- if in (slice "section" "taxonomy" "term") .Kind -}}
+  {{- with .Paginator -}}
+    {{- if .HasPrev -}}
+<link rel="prev" href="{{ .Prev.URL | absURL }}">
+    {{- end -}}
+    {{- if .HasNext -}}
+<link rel="next" href="{{ .Next.URL | absURL }}">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

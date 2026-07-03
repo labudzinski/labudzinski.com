@@ -1,12 +1,14 @@
 {{ define "main" }}
+  {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
   <h1 class="section-head">{{ .Title | default "posts" | lower }}</h1>
   <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
-    {{- range .Pages.ByDate.Reverse -}}
+    {{- range $paginator.Pages -}}
       <li>
         <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
       </li>
     {{- end -}}
   </ul>
+  {{ partial "pagination.html" . }}
   {{ partial "page_footer.html" . }}
 {{ end }}

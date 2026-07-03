@@ -1,0 +1,52 @@
+<nav class="trail" aria-label="Breadcrumb">
+  <ol class="trail__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a class="trail__link" href="{{ .Site.Home.RelPermalink }}" itemprop="item"><span itemprop="name">home</span></a>
+      <meta itemprop="position" content="1">
+    </li>
+    {{- $position := 2 -}}
+    {{- if and .IsPage (eq .Section "posts") -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <a class="trail__link" href="{{ "posts/" | relURL }}" itemprop="item"><span itemprop="name">posts</span></a>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- $position = add $position 1 -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <span class="trail__current" itemprop="name" aria-current="page">{{ .Title | lower }}</span>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- else if eq .Kind "term" -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <a class="trail__link" href="{{ "tags/" | relURL }}" itemprop="item"><span itemprop="name">tags</span></a>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- $position = add $position 1 -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <span class="trail__current" itemprop="name" aria-current="page">{{ .Title | lower }}</span>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- else if eq .Kind "taxonomy" -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <span class="trail__current" itemprop="name" aria-current="page">tags</span>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- else if eq .Section "posts" -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <span class="trail__current" itemprop="name" aria-current="page">{{ .Title | default "posts" | lower }}</span>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- else if not .IsHome -}}
+    <li class="trail__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="trail__sep" aria-hidden="true">&gt;&gt;</span>
+      <span class="trail__current" itemprop="name" aria-current="page">{{ .Title | lower }}</span>
+      <meta itemprop="position" content="{{ $position }}">
+    </li>
+    {{- end -}}
+  </ol>
+</nav>

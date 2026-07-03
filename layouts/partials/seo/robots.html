@@ -1,0 +1,23 @@
+{{- $directives := slice -}}
+{{- if or (eq .Kind "404") (.Params.noindex) -}}
+  {{- $directives = $directives | append "noindex" -}}
+{{- else -}}
+  {{- $directives = $directives | append "index" -}}
+{{- end -}}
+{{- $directives = $directives | append "follow" -}}
+{{- if not (.Site.Params.ai_training_allowed | default false) -}}
+  {{- $directives = $directives | append "noai" | append "noimageai" -}}
+{{- end -}}
+{{- if .Params.noarchive -}}
+  {{- $directives = $directives | append "noarchive" -}}
+{{- end -}}
+{{- if .Params.nosnippet -}}
+  {{- $directives = $directives | append "nosnippet" -}}
+{{- end -}}
+{{- if .Params.maxsnippet -}}
+  {{- $directives = $directives | append (printf "max-snippet:%v" .Params.maxsnippet) -}}
+{{- end -}}
+<meta name="robots" content="{{ delimit $directives ", " }}">
+{{- if not (or (eq .Kind "404") (.Params.noindex)) -}}
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{- end -}}

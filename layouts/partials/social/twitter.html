@@ -1,0 +1,16 @@
+{{- $ctx := .ctx -}}
+{{- $title := .title -}}
+{{- $desc := .desc -}}
+{{- $image := .image -}}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+{{- with $desc -}}
+<meta name="twitter:description" content="{{ . }}">
+{{- end -}}
+<meta name="twitter:image" content="{{ $image }}">
+<meta name="twitter:image:alt" content="{{ $ctx.Title | default $ctx.Site.Title }}">
+{{- with $ctx.Site.Params.twitter -}}
+<meta name="twitter:site" content="{{ . }}">
+<meta name="twitter:creator" content="{{ . }}">
+{{- end -}}

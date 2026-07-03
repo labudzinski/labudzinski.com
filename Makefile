@@ -6,7 +6,8 @@ VERIFYPOSTS ?= go run ./cmd/verifyposts
 .PHONY: dev build preview clean install-cli cli post sign-posts verify-posts
 
 dev:
-	$(HUGO) server -D --disableFastRender
+	@echo "Open: http://localhost:1313/  (use http, not https)"
+	$(HUGO) server -D --disableFastRender -b http://localhost:1313/ --appendPort=false
 
 build:
 	@if [ -n "$$PGP_PRIVATE_KEY" ]; then \

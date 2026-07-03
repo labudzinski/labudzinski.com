@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ .Site.Language.Lang }}" dir="ltr">
 <head>
   {{- partial "head.html" . -}}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <main id="main" class="wrap">
+  <div class="wrap">
     {{ partial "masthead.html" . }}
-    {{- block "main" . }}{{- end }}
+    <main id="main" tabindex="-1">
+      {{- block "main" . }}{{- end }}
+    </main>
     {{ partial "footer.html" . }}
-  </main>
+  </div>
 </body>
 </html>
