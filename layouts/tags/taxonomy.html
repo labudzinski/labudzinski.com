@@ -1,6 +1,11 @@
 {{ define "main" }}
-  {{ partial "section_cmd.html" (dict "title" "tags" "cmd" "ls" "arg" "/tags/" "level" "h1") }}
+  <h1 class="visually-hidden">tags</h1>
+  {{ partial "terminal_section.html" (dict
+      "cmd" "ls"
+      "arg" "/tags/"
+      "label" "tags"
+      "partial" "tag_list.html"
+      "ctx" dict) }}
   <hr class="zine-rule zine-rule--solid">
-  {{ partial "tag_list.html" (dict) }}
   {{ partial "page_footer.html" . }}
 {{ end }}

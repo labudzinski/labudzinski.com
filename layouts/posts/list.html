@@ -1,14 +1,13 @@
 {{ define "main" }}
   {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
-  {{ partial "section_cmd.html" (dict "title" (.Title | default "posts" | lower) "cmd" "ls" "arg" "/posts/" "level" "h1") }}
+  <h1 class="visually-hidden">{{ .Title | default "posts" }}</h1>
+  {{ partial "terminal_section.html" (dict
+      "cmd" "ls"
+      "arg" "/posts/"
+      "label" "posts"
+      "partial" "post_list_paginator.html"
+      "ctx" .) }}
   <hr class="zine-rule zine-rule--solid">
-  <ul class="menu-list">
-    {{- range $paginator.Pages -}}
-      <li>
-        <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
-      </li>
-    {{- end -}}
-  </ul>
   {{ partial "pagination.html" . }}
   {{ partial "page_footer.html" . }}
 {{ end }}

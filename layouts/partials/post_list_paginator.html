@@ -1,0 +1,7 @@
+<ul class="menu-list">
+  {{- range .Paginator.Pages -}}
+    <li>
+      <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
+    </li>
+  {{- end -}}
+</ul>

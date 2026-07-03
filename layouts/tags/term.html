@@ -1,12 +1,11 @@
 {{ define "main" }}
-  {{ partial "section_cmd.html" (dict "title" (.Title | lower) "cmd" "ls" "arg" (printf "/tags/%s/" (.Title | urlize)) "level" "h1") }}
+  <h1 class="visually-hidden">{{ .Title }}</h1>
+  {{ partial "terminal_section.html" (dict
+      "cmd" "ls"
+      "arg" (printf "/tags/%s/" (.Title | urlize))
+      "label" .Title
+      "partial" "post_list_term.html"
+      "ctx" .) }}
   <hr class="zine-rule zine-rule--solid">
-  <ul class="menu-list">
-    {{- range .Pages.ByDate.Reverse -}}
-      <li>
-        <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
-      </li>
-    {{- end -}}
-  </ul>
   {{ partial "page_footer.html" . }}
 {{ end }}

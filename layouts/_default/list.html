@@ -1,10 +1,11 @@
 {{ define "main" }}
-  {{ partial "section_cmd.html" (dict "title" (.Title | lower) "cmd" "ls" "arg" (printf "/%s/" (.Title | urlize)) "level" "h1") }}
+  <h1 class="visually-hidden">{{ .Title }}</h1>
+  {{ partial "terminal_section.html" (dict
+      "cmd" "ls"
+      "arg" (printf "/%s/" (.Title | urlize))
+      "label" .Title
+      "partial" "page_list.html"
+      "ctx" .) }}
   <hr class="zine-rule zine-rule--solid">
-  <ul class="menu-list">
-    {{- range .Pages -}}
-      <li><a href="{{ .Permalink | relURL }}">{{ .Title }}</a></li>
-    {{- end -}}
-  </ul>
   {{ partial "page_footer.html" . }}
 {{ end }}
