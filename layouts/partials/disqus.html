@@ -6,8 +6,8 @@
 {{- end -}}
 
 {{- if and $shortname (not .Params.disableComments) (not hugo.IsServer) -}}
-<section class="comments" aria-label="Comments">
-  <h2 class="section-head">comments</h2>
+  <section class="comments" aria-label="Comments">
+  {{ partial "section_cmd.html" (dict "title" "comments" "cmd" "ls" "arg" "/comments/" "level" "h2") }}
   <hr class="zine-rule">
   <div
     id="disqus_thread"

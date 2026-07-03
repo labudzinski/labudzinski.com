@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
-  <h1 class="section-head">{{ .Title | default "posts" | lower }}</h1>
+  {{ partial "section_cmd.html" (dict "title" (.Title | default "posts" | lower) "cmd" "ls" "arg" "/posts/" "level" "h1") }}
   <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
     {{- range $paginator.Pages -}}

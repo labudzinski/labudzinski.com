@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1 class="section-head section-head--ls-tags">{{ .Title | lower }}</h1>
+  {{ partial "section_cmd.html" (dict "title" (.Title | lower) "cmd" "ls" "arg" (printf "/tags/%s/" (.Title | urlize)) "level" "h1") }}
   <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
     {{- range .Pages.ByDate.Reverse -}}

@@ -4,8 +4,24 @@
   <div class="lead">{{ . }}</div>
   {{- end -}}
   {{- range $block := site.Data.menu.entries -}}
+  {{- $title := $block.title | lower -}}
+  {{- $cmd := "ls" -}}
+  {{- $arg := printf "/%s/" ($block.title | urlize) -}}
+  {{- if $block.post_list -}}
+    {{- $arg = "/posts/" -}}
+  {{- else if $block.tag_list -}}
+    {{- $arg = "/tags/" -}}
+  {{- else if $block.url -}}
+    {{- $cmd = "cat" -}}
+    {{- $arg = $block.url -}}
+  {{- end -}}
   <section class="home-section" aria-labelledby="section-{{ $block.title | urlize }}">
-    <h2 class="section-head" id="section-{{ $block.title | urlize }}">{{ $block.title | lower }}</h2>
+    {{ partial "section_cmd.html" (dict
+        "title" $title
+        "cmd" $cmd
+        "arg" $arg
+        "level" "h2"
+        "id" (printf "section-%s" ($block.title | urlize))) }}
     <hr class="zine-rule">
     {{- if $block.url -}}
       <ul class="menu-list">

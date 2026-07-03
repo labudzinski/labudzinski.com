@@ -1,12 +1,5 @@
 {{ define "main" }}
-  <div class="terminal-cmd-group terminal-cmd-group--lead">
-    <div class="terminal-cmd-block">
-      <p class="terminal-cmd" aria-hidden="true">
-        <span class="terminal-cmd__prompt" aria-hidden="true"></span>
-        ls <h1 class="terminal-cmd__output">{{ .Title | lower }}</h1>
-      </p>
-    </div>
-  </div>
+  {{ partial "section_cmd.html" (dict "title" (.Title | lower) "cmd" "ls" "arg" (printf "/%s/" (.Title | urlize)) "level" "h1") }}
   <hr class="zine-rule zine-rule--solid">
   <ul class="menu-list">
     {{- range .Pages -}}

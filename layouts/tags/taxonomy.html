@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1 class="section-head">tags</h1>
+  {{ partial "section_cmd.html" (dict "title" "tags" "cmd" "ls" "arg" "/tags/" "level" "h1") }}
   <hr class="zine-rule zine-rule--solid">
   {{ partial "tag_list.html" (dict) }}
   {{ partial "page_footer.html" . }}
