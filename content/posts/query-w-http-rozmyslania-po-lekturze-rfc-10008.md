@@ -5,19 +5,19 @@ pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
 pgp_signature: |
   -----BEGIN PGP SIGNATURE-----
 
-  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpM2+sACgkQXN6UakFg
-  wiluvg//cmRjwLsw3eSinvDoxGfV4GURTz2meUzhBE8hVQKWND5VvuY/gnXFClpu
-  zVAfts7G0lJy/Grz9DdFOT0Cn+dol0lwrLmSwWPLGv9xSILhkkJAkIzB9FUq6Rws
-  k/cDI47O4NCIbpLWgyuaR8iLcsMZrfdnH7OsMHgoOJHAUZlCJsC9RzMz269C+aOx
-  hP5WUZ/ZWiUZOx9gPvnWOuWeyU5lFb2iQXJ5QB/Vlhu1b5XKL6nGwLSGm/ptl/hY
-  MbEuNw5+o66x4TksA/SXAOd0WGsEEdUuMjZdpic2TtHS990x8oQLaIw60CExrHxY
-  dcjEeZCQV8l4y5KC2DhEHGSOubMZqLcaHkh8nEcaa66Q8KTdPjRe9ghLRvdK3jN3
-  M2fSWIu6P/jL50GI0Wo/f4iCvx5ltJmSE3YrYH2+nihNkwZlTDEflOUN23hK9VxQ
-  bPKrztOzJFDeB709rS21cAeC0JwuIlYaok9DAku3Njh0EnsvJPlOK+IYueVD9Wr3
-  j7V+8KL9KMPBB5ahpJ/5obepn/MzQK38XH2smEIdXF1zdk3exRQxFVG+Tx4g+r0U
-  dxrz2gMG9o//4jvfcNqBM4NYQk1ARbaU7Gfs3wqvSskr3RYsuMgcwcG6o/FB8joQ
-  aRQHygL1ICjMOuGZMHc64EMrdnXLAxkvwilg/I3z9XjVXqFtZhs=
-  =bxFO
+  iQIzBAABCAAdFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmpM3P8ACgkQXN6UakFg
+  wikZdRAArhLSd40KGMblAYh058cVqsEZdzD1toLk7uCJ5N8J5+ul8KTMX/GE6kHo
+  JcGZTaYnwRqjJKVqaiaTCvzWTlQcnd8sps+YikDGOhvSzP+jkIg4xwFLsJRM0VHH
+  WMpnIURmtP/FSTlUubZTI1o88c/JZXPcRLKongYXRot9yxQnGKt9JVDJkXdwS0Zt
+  1qzdimoREhobvSFILdokHrHgn4kiPkh3WSgQWbVgkfq5TwtgbFaXOnAq+0hLTLX1
+  FulmX4jXC8zrH49mUd+MU0DvS5UDMQg41AGz+HpkKBg4NC1gsmoUp3Gc3Mn+xpMs
+  vJBDupZeFcXi4Q4FIj9FcZjiWjDeN42ZDSCv/xWbz7M14yW51y8iGAwlCTzgY51P
+  QCZKHsRfhhc+qvF1Kl77xSJmbdPYvaDlivwWyJfqoD5Iuqbml8cyCaaFAnFuAUmM
+  7wQKh7g6c1vHGezfmCdaYAFTNAK25I5TXwgMJljyZOfR0LE1GI8tu+bp93rWNWds
+  BNvV0GNiJ5jRqQ8rmRKeqWEwAJJQXHL4pYI/wyxRjwUzvzmQvgpoTEnGeiqzR5lZ
+  jS7LGrO2aoD3fC48G5dKIdBZfllG/vlH4ThdPNtWbrS8XVafr6I0sWTrISQGC9w2
+  H4Qu8v5fqfRpGti++7096TZ9cBfwQZklW9P8qOYrjKe3xxoD/JQ=
+  =i8ww
   -----END PGP SIGNATURE-----
 tags:
   - HTTP
@@ -58,7 +58,7 @@ QUERY pozwala uniknąć tych pytań. Wystarczy przesłać więcej danych. I jesz
 
 Wady tego podejścia są zauważalne. Ukrywa złożoność zapytania, ponieważ szczegóły znikają z adresu URL, co utrudnia debugowanie i analizę logów. Zachęca do dalszego rozrastania się interfejsów. Wprowadza też wyzwania dla infrastruktury, ponieważ serwery proxy, mechanizmy ochrony aplikacji, sieci dystrybucji treści i narzędzia monitoringu nie zawsze są w pełni przygotowane na nową metodę. W efekcie maskuje problemy projektowe zamiast je rozwiązywać.
 
-Oczywiście istnieją konteksty, w których QUERY jest wartościowe. Bardzo złożone raporty, zaawansowane wyszukiwarki korporacyjne i systemy wymagające wysokiej dynamiczności zapytań mogą skorzystać na tym rozwiązaniu. W takich przypadkach metoda oferuje czystsze semantycznie podejście niż nadużywanie POST.
+Oczywiście istnieją konteksty, w których QUERY jest wartościowe. Bardzo złożone raporty, zaawansowane wyszukiwarki korporacyjne i systemy wymagające wysokiej dynamiczności zapytań mogą skorzystać na tym rozwiązaniu. W takich przypadkach metoda oferuje czystsze semantycznie podejście niż nadużywanie POST, natomiast nie wymusza optymalizacji jak przy GET.
 
 W typowych aplikacjach internetowych i interfejsach REST jednak odbieram to jako krok w niewłaściwym kierunku.
 
