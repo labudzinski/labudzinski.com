@@ -24,9 +24,6 @@ title = 'Dominik Labudzinski'
 disabled = true
 
 [services]
-  [services.disqus]
-    shortname = 'labudzinskicom'
-
   [services.googleAnalytics]
     id = 'G-2YG1GB25SM'
 
@@ -102,6 +99,19 @@ disabled = true
   site_type = 'Person'
   job_title = 'Software Architect'
   ai_training_allowed = false
+
+  [params.giscus]
+    repo = 'labudzinski/labudzinski.com'
+    repoId = 'MDEwOlJlcG9zaXRvcnkxNzYyOTE5MjQ='
+    category = 'Post'
+    categoryId = 'DIC_kwDOCoIAVM4DArv2'
+    mapping = 'pathname'
+    strict = '0'
+    reactionsEnabled = '1'
+    emitMetadata = '0'
+    inputPosition = 'bottom'
+    theme = 'dark'
+    lang = 'pl'
 
 [taxonomies]
   tag = 'tags'

@@ -27,7 +27,7 @@
     {{- if .Params.pgp_signature -}}
     {{ partial "pgp_signature.html" . }}
     {{- end -}}
-<!--     {{ partial "disqus.html" . }} -->
+    {{ partial "giscus.html" . }}
     <footer class="post-footer">
       {{ partial "back_link.html" . }}
     </footer>

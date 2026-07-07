@@ -1,0 +1,20 @@
+{{- $giscus := site.Params.giscus -}}
+<noscript>
+  <p class="comments__noscript">Enable JavaScript to view comments, or <a href="https://github.com/{{ $giscus.repo }}/discussions">discuss on GitHub</a>.</p>
+</noscript>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="{{ $giscus.repo }}"
+  data-repo-id="{{ $giscus.repoId }}"
+  data-category="{{ $giscus.category }}"
+  data-category-id="{{ $giscus.categoryId }}"
+  data-mapping="{{ $giscus.mapping | default "pathname" }}"
+  data-strict="{{ $giscus.strict | default "0" }}"
+  data-reactions-enabled="{{ $giscus.reactionsEnabled | default "1" }}"
+  data-emit-metadata="{{ $giscus.emitMetadata | default "0" }}"
+  data-input-position="{{ $giscus.inputPosition | default "bottom" }}"
+  data-theme="{{ $giscus.theme | default "dark" }}"
+  data-lang="{{ $giscus.lang | default "pl" }}"
+  crossorigin="anonymous"
+  async
+></script>

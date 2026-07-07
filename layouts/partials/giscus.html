@@ -1,0 +1,11 @@
+{{- $giscus := site.Params.giscus -}}
+{{- if and $giscus.repoId (not .Params.disableComments) (not hugo.IsServer) -}}
+<section class="comments" aria-label="Comments">
+  {{ partial "terminal_section.html" (dict
+      "cmd" "ls"
+      "arg" "/comments/"
+      "label" "comments"
+      "partial" "giscus_embed.html"
+      "ctx" .) }}
+</section>
+{{- end -}}
