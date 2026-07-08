@@ -1,0 +1,15 @@
+{{- $items := .items | default slice -}}
+{{- if gt (len $items) 0 -}}
+<ul class="link-list">
+  {{- range $item := $items -}}
+    <li class="link-list__item">
+      {{- with $item.url -}}
+        {{- $external := hasPrefix . "http" -}}
+        <a class="link-list__link" href="{{ $item.url | relURL }}"{{ if $external }} rel="noopener noreferrer" target="_blank"{{ end }}>{{ safeHTML $item.title }}</a>
+      {{- else -}}
+        <span class="link-list__text">{{ safeHTML $item.title }}</span>
+      {{- end -}}
+    </li>
+  {{- end -}}
+</ul>
+{{- end -}}

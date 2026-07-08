@@ -1,0 +1,23 @@
+{{- $page := .page -}}
+<li class="project-card">
+  <h2 class="project-card__title">
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+  </h2>
+  <p class="project-card__desc">{{ $page.Params.description | default $page.Summary }}</p>
+  {{- with $page.Params.tags -}}
+    <ul class="project-card__tags" aria-label="Technologie">
+      {{- range . -}}
+        <li class="project-card__tag">{{ . }}</li>
+      {{- end -}}
+    </ul>
+  {{- end -}}
+  <p class="project-card__cta">
+    <a class="shop-btn shop-btn--secondary" href="{{ $page.RelPermalink }}">szczegóły</a>
+    {{- with $page.Params.docs_url -}}
+      <a class="shop-btn shop-btn--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">dokumentacja</a>
+    {{- end -}}
+    {{- with $page.Params.github -}}
+      <a class="project-card__github" href="{{ . }}" rel="noopener noreferrer" target="_blank">github</a>
+    {{- end -}}
+  </p>
+</li>

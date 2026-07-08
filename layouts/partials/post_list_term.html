@@ -1,7 +1,6 @@
-<ul class="menu-list">
+{{- $dateFormat := site.Params.date_format | default "2006-01-02" -}}
+<div class="post-feed">
   {{- range .Pages.ByDate.Reverse -}}
-    <li>
-      <span class="post-date">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</span><a href="{{ .Permalink | relURL }}">{{ .Title }}</a>
-    </li>
+    {{ partial "post_feed_item.html" (dict "post" . "dateFormat" $dateFormat) }}
   {{- end -}}
-</ul>
+</div>

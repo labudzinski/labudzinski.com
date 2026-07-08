@@ -15,5 +15,11 @@
   {{- $desc = printf "Wszystkie tagi na blogu %s." .Site.Params.author -}}
 {{- else if eq .Section "posts" -}}
   {{- $desc = printf "Archiwum wpisów na blogu %s." .Site.Params.author -}}
+{{- else if eq .Section "sklep" -}}
+  {{- $desc = .Params.description | default (printf "Sklep %s — książki i materiały." .Site.Params.author) -}}
+{{- else if eq .Section "projekty" -}}
+  {{- $desc = .Params.description | default (printf "Projekty open source %s." .Site.Params.author) -}}
+{{- else if eq .Section "o-mnie" -}}
+  {{- $desc = .Params.description | default (printf "O autorze: %s." .Site.Params.author) -}}
 {{- end -}}
 {{- .Scratch.Set "seoDesc" $desc -}}

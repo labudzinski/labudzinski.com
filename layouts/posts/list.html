@@ -1,13 +1,11 @@
 {{ define "main" }}
   {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
   <h1 class="visually-hidden">{{ .Title | default "posts" }}</h1>
-  {{ partial "terminal_section.html" (dict
-      "cmd" "ls"
-      "arg" "/posts/"
-      "label" "posts"
-      "partial" "post_list_paginator.html"
-      "ctx" .) }}
-  <hr class="zine-rule zine-rule--solid">
+  <section class="page-section" aria-labelledby="section-posts">
+    {{ partial "section_head.html" (dict "title" "blog" "id" "section-posts") }}
+    {{ partial "post_list_paginator.html" . }}
+    <hr class="zine-rule zine-rule--solid">
+  </section>
   {{ partial "pagination.html" . }}
   {{ partial "page_footer.html" . }}
 {{ end }}

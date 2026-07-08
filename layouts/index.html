@@ -1,47 +1,27 @@
 {{ define "main" }}
-  {{ partial "lead_cmd.html" . }}
-  {{- with .Content -}}
-  <div class="lead">{{ . }}</div>
-  {{- end -}}
+  {{ partial "site_hero.html" . }}
   {{- range $block := site.Data.menu.entries -}}
-  {{- $cmd := "ls" -}}
-  {{- $arg := printf "/%s/" ($block.title | urlize) -}}
-  {{- $partial := "" -}}
-  {{- $ctx := dict -}}
-  {{- if $block.post_list -}}
-    {{- $arg = "/posts/" -}}
-    {{- $partial = "post_list.html" -}}
-    {{- $ctx = dict
-        "context" $
-        "section" $block.post_list.section
-        "limit" $block.post_list.limit
-        "show_more" $block.post_list.show_more
-        "show_more_text" $block.post_list.show_more_text
-        "show_more_url" $block.post_list.show_more_url -}}
-  {{- else if $block.tag_list -}}
-    {{- $arg = "/tags/" -}}
-    {{- $partial = "tag_list.html" -}}
-    {{- $ctx = dict
-        "limit" $block.tag_list.limit
-        "show_more" $block.tag_list.show_more
-        "show_more_text" $block.tag_list.show_more_text
-        "show_more_url" $block.tag_list.show_more_url -}}
-  {{- else if $block.url -}}
-    {{- $arg = "/rss/" -}}
-    {{- $partial = "rss_link.html" -}}
-    {{- $ctx = dict "url" $block.url "title" $block.url -}}
-  {{- else if $block.entries -}}
-    {{- $partial = "menu_item.html" -}}
-    {{- $ctx = dict "context" $ "collection" $block.entries -}}
-  {{- end -}}
-  <section class="home-section" aria-labelledby="section-{{ $block.title | urlize }}">
-    {{ partial "terminal_section.html" (dict
-        "cmd" $cmd
-        "arg" $arg
-        "id" (printf "section-%s" ($block.title | urlize))
-        "label" $block.title
-        "partial" $partial
-        "ctx" $ctx) }}
+  <section class="page-section" aria-labelledby="section-{{ $block.title | urlize }}">
+    {{ partial "section_head.html" (dict "title" $block.title "id" (printf "section-%s" ($block.title | urlize))) }}
+    {{- if $block.post_list -}}
+      {{ partial "post_list.html" (dict
+          "context" $
+          "section" $block.post_list.section
+          "limit" $block.post_list.limit
+          "show_more" $block.post_list.show_more
+          "show_more_text" $block.post_list.show_more_text
+          "show_more_url" $block.post_list.show_more_url) }}
+    {{- else if $block.tag_list -}}
+      {{ partial "tag_chips.html" (dict
+          "limit" $block.tag_list.limit
+          "show_more" $block.tag_list.show_more
+          "show_more_text" $block.tag_list.show_more_text
+          "show_more_url" $block.tag_list.show_more_url) }}
+    {{- else if $block.url -}}
+      <p class="rss-link">
+        <a href="{{ $block.url | relURL }}">{{ $block.url }}</a>
+      </p>
+    {{- end -}}
     <hr class="zine-rule">
   </section>
   {{- end -}}

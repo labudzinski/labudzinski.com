@@ -1,0 +1,21 @@
+<nav class="site-nav" aria-label="Główne menu">
+  <ul class="site-nav__list">
+    {{- range site.Data.nav.entries -}}
+      {{- $active := false -}}
+      {{- if eq .url "/" -}}
+        {{- $active = or $.IsHome (eq $.Section "posts") (eq $.Section "tags") -}}
+      {{- else -}}
+        {{- $target := strings.TrimSuffix "/" (relURL .url) -}}
+        {{- $current := strings.TrimSuffix "/" $.RelPermalink -}}
+        {{- $active = or (eq $current $target) (hasPrefix $current (printf "%s/" $target)) -}}
+      {{- end -}}
+      <li class="site-nav__item">
+        <a
+          class="site-nav__link{{ if $active }} site-nav__link--active{{ end }}"
+          href="{{ .url | relURL }}"
+          {{- if $active }} aria-current="page"{{ end -}}
+        >{{ .title }}</a>
+      </li>
+    {{- end -}}
+  </ul>
+</nav>

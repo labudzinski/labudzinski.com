@@ -1,11 +1,9 @@
 {{ define "main" }}
-  <h1 class="visually-hidden">tags</h1>
-  {{ partial "terminal_section.html" (dict
-      "cmd" "ls"
-      "arg" "/tags/"
-      "label" "tags"
-      "partial" "tag_list.html"
-      "ctx" dict) }}
-  <hr class="zine-rule zine-rule--solid">
+  <h1 class="visually-hidden">tagi</h1>
+  <section class="page-section" aria-labelledby="section-tagi">
+    {{ partial "section_head.html" (dict "title" "tagi" "id" "section-tagi") }}
+    {{ partial "tag_chips.html" dict }}
+    <hr class="zine-rule zine-rule--solid">
+  </section>
   {{ partial "page_footer.html" . }}
 {{ end }}

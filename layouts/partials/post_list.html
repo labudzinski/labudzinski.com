@@ -3,12 +3,13 @@
 
 {{- if .section -}}
   {{- $posts = where site.RegularPages "Section" .section -}}
+  {{- $posts = $posts.ByDate.Reverse -}}
 {{- else if eq .context.Kind "taxonomy" -}}
-  {{- $posts = .context.Pages -}}
+  {{- $posts = .context.Pages.ByDate.Reverse -}}
 {{- else if eq .context.Kind "term" -}}
-  {{- $posts = .context.Data.Pages -}}
+  {{- $posts = .context.Pages.ByDate.Reverse -}}
 {{- else -}}
-  {{- $posts = site.RegularPages -}}
+  {{- $posts = site.RegularPages.ByDate.Reverse -}}
 {{- end -}}
 
 {{- $limitExceeded := false -}}
@@ -20,14 +21,14 @@
   {{- if .limit -}}
     {{- $posts = first .limit $posts -}}
   {{- end -}}
-  <ul class="menu-list">
+  <div class="post-feed">
     {{- range $post := $posts -}}
-      <li>
-        <span class="post-date">{{ $post.Date | time.Format $dateFormat }}</span><a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
-      </li>
+      {{ partial "post_feed_item.html" (dict "post" $post "dateFormat" $dateFormat) }}
     {{- end -}}
     {{- if and .show_more $limitExceeded -}}
-      <li><a href="{{ .show_more_url | relURL }}">{{ .show_more_text | default "wiecej..." }}</a></li>
+      <p class="post-feed__more">
+        <a href="{{ .show_more_url | relURL }}">{{ .show_more_text | default "więcej..." }}</a>
+      </p>
     {{- end -}}
-  </ul>
+  </div>
 {{- end -}}

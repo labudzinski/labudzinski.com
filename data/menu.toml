@@ -9,21 +9,6 @@ title = "Blog"
   show_more_url = "posts"
 
 [[entries]]
-title = "about_me"
-
-  [[entries.entries]]
-  title = "github.com"
-  url = "https://github.com/lemric"
-
-  [[entries.entries]]
-  title = "github.com"
-  url = "https://github.com/labudzinski"
-
-  [[entries.entries]]
-  title = "linkedin"
-  url = "https://www.linkedin.com/in/dominik-l/"
-
-[[entries]]
 title = "Tags"
 
   [entries.tag_list]

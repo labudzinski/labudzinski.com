@@ -1,0 +1,22 @@
+{{- $post := .post -}}
+{{- $dateFormat := .dateFormat | default (.post.Site.Params.date_format | default "2006-01-02") -}}
+{{- $summary := $post.Summary | plainify | strings.TrimSpace -}}
+{{- $excerpt := $post.Params.description | default $summary -}}
+<article class="post-feed__item">
+  <time class="post-feed__date" datetime="{{ $post.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $post.Date | time.Format $dateFormat }}</time>
+  <div class="post-feed__body">
+    <h2 class="post-feed__title">
+      <a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
+    </h2>
+    {{- with $excerpt -}}
+      <p class="post-feed__excerpt">{{ . }}</p>
+    {{- end -}}
+    {{- with $post.Params.tags -}}
+      <ul class="post-feed__tags" aria-label="Tagi">
+        {{- range first 3 . -}}
+          <li class="post-feed__tag">{{ . }}</li>
+        {{- end -}}
+      </ul>
+    {{- end -}}
+  </div>
+</article>

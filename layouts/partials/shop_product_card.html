@@ -1,0 +1,28 @@
+{{- $page := .page -}}
+<li class="shop-card">
+  {{- with $page.Params.image -}}
+    <figure class="shop-card__cover">
+      <a href="{{ $page.RelPermalink }}">
+        <img src="{{ . | relURL }}" alt="{{ $page.Params.image_alt | default $page.Title }}" width="320" height="480" loading="lazy" decoding="async">
+      </a>
+    </figure>
+  {{- end -}}
+  <div class="shop-card__body">
+    {{- with $page.Params.tagline -}}
+      <p class="shop-card__tagline">{{ . }}</p>
+    {{- end -}}
+    <h2 class="shop-card__title">
+      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    </h2>
+    <p class="shop-card__desc">{{ $page.Params.description | default $page.Summary }}</p>
+    {{- with $page.Params.price -}}
+      <p class="shop-card__price">{{ . }}</p>
+    {{- end -}}
+    <p class="shop-card__cta">
+      <a class="shop-btn shop-btn--secondary" href="{{ $page.RelPermalink }}">szczegóły</a>
+      {{- with $page.Params.allegro_url -}}
+        <a class="shop-btn shop-btn--allegro" href="{{ . }}" rel="noopener noreferrer" target="_blank">Allegro</a>
+      {{- end -}}
+    </p>
+  </div>
+</li>

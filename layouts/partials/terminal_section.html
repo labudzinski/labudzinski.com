@@ -2,7 +2,8 @@
 {{- $arg := .arg | default "" -}}
 {{- $id := .id | default "" -}}
 {{- $label := .label | default "" -}}
-<div class="terminal-cmd-group terminal-cmd-group--section">
+{{- $group := .group | default "section" -}}
+<div class="terminal-cmd-group terminal-cmd-group--{{ $group }}">
   <div class="terminal-cmd-block">
     <p class="terminal-cmd" aria-hidden="true">
       <span class="terminal-cmd__prompt" aria-hidden="true"></span>

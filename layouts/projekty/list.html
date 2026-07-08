@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <h1 class="visually-hidden">{{ .Title }}</h1>
+  <section class="page-section" aria-labelledby="section-projekty">
+    {{ partial "section_head.html" (dict "title" "projekty" "id" "section-projekty") }}
+    {{ partial "project_list.html" (dict "pages" .Pages) }}
+    <hr class="zine-rule">
+  </section>
+  {{ partial "page_footer.html" . }}
+{{ end }}

@@ -1,0 +1,5 @@
+<ul class="project-list">
+  {{- range .pages.ByDate.Reverse -}}
+    {{ partial "project_card.html" (dict "page" .) }}
+  {{- end -}}
+</ul>

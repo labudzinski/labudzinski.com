@@ -1,11 +1,9 @@
 {{ define "main" }}
   <h1 class="visually-hidden">{{ .Title }}</h1>
-  {{ partial "terminal_section.html" (dict
-      "cmd" "ls"
-      "arg" (printf "/tags/%s/" (.Title | urlize))
-      "label" .Title
-      "partial" "post_list_term.html"
-      "ctx" .) }}
-  <hr class="zine-rule zine-rule--solid">
+  <section class="page-section" aria-labelledby="section-{{ .Title | urlize }}">
+    {{ partial "section_head.html" (dict "title" .Title "id" (printf "section-%s" (.Title | urlize))) }}
+    {{ partial "post_list_term.html" . }}
+    <hr class="zine-rule zine-rule--solid">
+  </section>
   {{ partial "page_footer.html" . }}
 {{ end }}

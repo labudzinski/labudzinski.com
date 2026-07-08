@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1 class="visually-hidden">{{ .Title }}</h1>
+  {{ partial "site_hero.html" . }}
+  {{- with .Content -}}
+    <div class="page-intro">{{ . }}</div>
+  {{- end -}}
+  <section class="page-section" aria-labelledby="section-linki">
+    {{ partial "section_head.html" (dict "title" "linki" "id" "section-linki") }}
+    {{ partial "link_list.html" (dict "items" site.Data.about.links) }}
+    <hr class="zine-rule zine-rule--solid">
+  </section>
+  {{ partial "page_footer.html" . }}
+{{ end }}

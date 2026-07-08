@@ -1,0 +1,5 @@
+<ul class="shop-list">
+  {{- range .pages.ByDate.Reverse -}}
+    {{ partial "shop_product_card.html" (dict "page" .) }}
+  {{- end -}}
+</ul>

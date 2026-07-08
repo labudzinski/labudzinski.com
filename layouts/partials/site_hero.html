@@ -1,0 +1,25 @@
+{{- $tagline := .Params.tagline | default .Site.Title -}}
+{{- $startYear := .Params.career_start | default 2002 -}}
+{{- $start := time (printf "%d-01-01T00:00:00Z" $startYear) -}}
+{{- $days := div (sub now.Unix $start.Unix) 86400 -}}
+{{- $years := div $days 365 -}}
+{{- $remDays := mod $days 365 -}}
+{{- $yearLabel := "lat" -}}
+{{- if eq $years 1 -}}
+  {{- $yearLabel = "rok" -}}
+{{- else if and (ge $years 2) (le $years 4) -}}
+  {{- $yearLabel = "lata" -}}
+{{- end -}}
+{{- $dayLabel := "dni" -}}
+{{- if eq $remDays 1 -}}
+  {{- $dayLabel = "dzień" -}}
+{{- else if and (ge $remDays 2) (le $remDays 4) -}}
+  {{- $dayLabel = "dni" -}}
+{{- end -}}
+<header class="site-hero">
+  <p class="site-hero__name">{{ $tagline }}</p>
+  <p class="site-hero__experience">
+    doświadczenie:
+    <span class="site-hero__experience-value">{{ $years }} {{ $yearLabel }}{{- if gt $remDays 0 -}}, {{ $remDays }} {{ $dayLabel }}{{- end -}}</span>
+  </p>
+</header>

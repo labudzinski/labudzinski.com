@@ -1,0 +1,36 @@
+{{- $limit := .limit -}}
+{{- $showMore := .show_more -}}
+{{- $showMoreText := .show_more_text | default "all tags..." -}}
+{{- $showMoreURL := .show_more_url | default "tags" -}}
+
+{{- $terms := slice -}}
+{{- with site.GetPage "/tags" -}}
+  {{- $terms = .Data.Terms.ByCount -}}
+{{- end -}}
+
+{{- $limitExceeded := false -}}
+{{- if and $limit (gt (len $terms) $limit) -}}
+  {{- $limitExceeded = true -}}
+{{- end -}}
+
+{{- if gt (len $terms) 0 -}}
+  {{- if $limit -}}
+    {{- $terms = first $limit $terms -}}
+  {{- end -}}
+  <ul class="tag-chips">
+    {{- range $terms -}}
+      <li class="tag-chips__item">
+        <a class="tag-chips__link" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span class="tag-chips__count">({{ .Count }})</span></a>
+      </li>
+    {{- end -}}
+    {{- if and $showMore $limitExceeded -}}
+      <li class="tag-chips__item tag-chips__item--more">
+        <a class="tag-chips__link" href="{{ $showMoreURL | relURL }}">{{ $showMoreText }}</a>
+      </li>
+    {{- else if and $showMore (not $limit) -}}
+      <li class="tag-chips__item tag-chips__item--more">
+        <a class="tag-chips__link" href="{{ $showMoreURL | relURL }}">{{ $showMoreText }}</a>
+      </li>
+    {{- end -}}
+  </ul>
+{{- end -}}

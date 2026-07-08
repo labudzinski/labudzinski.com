@@ -4,22 +4,19 @@
 {{- end -}}
 <details class="pgp-panel">
   <summary class="pgp-panel__toggle">
-    <span class="pgp-panel__cmd">
-      <span class="terminal-cmd__prompt" aria-hidden="true"></span>
-      gpg --verify
-      {{- with $asc -}}
-      <span class="terminal-cmd__arg"> {{ . }}</span>
-      {{- end -}}
-    </span>
+    <span class="pgp-panel__label"><span class="pgp-panel__marker" aria-hidden="true">::</span> podpis PGP</span>
     <span class="pgp-panel__indicator" aria-hidden="true"></span>
     <span class="pgp-panel__key">{{ .Params.pgp_key_fingerprint }}</span>
   </summary>
   <div class="pgp-panel__drawer">
     <div class="pgp-panel__inner">
       <p class="pgp-panel__out">
-        gpg: <span class="pgp-panel__good">Good signature</span> from &quot;{{ .Site.Params.pgp_author | default "Dominik Labudzinski" }}&quot;
+        <span class="pgp-panel__good">Podpis poprawny</span> — {{ .Site.Params.pgp_author | default "Dominik Labudzinski" }}
       </p>
-      <p class="pgp-panel__out pgp-panel__out--key">gpg: using RSA key {{ .Params.pgp_key_fingerprint }}</p>
+      <p class="pgp-panel__out pgp-panel__out--key">Klucz RSA {{ .Params.pgp_key_fingerprint }}</p>
+      {{- with $asc -}}
+        <p class="pgp-panel__out pgp-panel__out--file">{{ . }}</p>
+      {{- end -}}
       <pre class="pgp-panel__sig">{{ .Params.pgp_signature }}</pre>
     </div>
   </div>

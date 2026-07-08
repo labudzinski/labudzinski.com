@@ -2,32 +2,33 @@
   <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
     <meta itemprop="license" content="{{ "ai-policy.txt" | absURL }}">
     <meta itemprop="copyrightNotice" content="© {{ .Site.Params.author }}. AI training and TDM prohibited.">
-    {{ partial "terminal_cmd.html" . }}
+
     <header class="post-header">
-      <div class="post-meta">
-        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</time>
+      <p class="post-meta">
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</time>
         {{- if gt .ReadingTime 0 -}}
-        <span class="meta-sep" aria-hidden="true">·</span>
-        <span class="reading-time">{{ .ReadingTime }} min read</span>
+          <span class="meta-sep" aria-hidden="true">·</span>
+          <span class="reading-time">{{ .ReadingTime }} min</span>
         {{- end -}}
-      </div>
-      {{- if .Params.tags -}}
-      <div class="post-tags">
-        {{- range $i, $term := (.GetTerms "tags") -}}
-          {{- if $i }}, {{ end -}}<a class="tag" href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
-        {{- end -}}
-      </div>
+      </p>
+      <h1 class="post-title" itemprop="headline">{{ .Title }}</h1>
+      {{- with .GetTerms "tags" -}}
+        {{ partial "post_tags.html" . }}
       {{- end -}}
-      <h1 class="post-title">{{ .Title }}</h1>
     </header>
+
     {{- if .Params.toc -}}
-    <aside class="toc" aria-label="Table of contents">{{ .TableOfContents }}</aside>
+      <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
     {{- end -}}
+
     <div class="content post-body" data-nosnippet translate="no" itemprop="articleBody">{{ .Content }}</div>
+
     {{- if .Params.pgp_signature -}}
-    {{ partial "pgp_signature.html" . }}
+      {{ partial "pgp_signature.html" . }}
     {{- end -}}
+
     {{ partial "giscus.html" . }}
+
     <footer class="post-footer">
       {{ partial "back_link.html" . }}
     </footer>
