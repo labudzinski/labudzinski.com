@@ -303,6 +303,11 @@ main {
 }
 
 .section-head__marker {
+  white-space: nowrap;
+}
+
+.section-head__marker::before {
+  content: "::";
   color: var(--term-green);
 }
 
@@ -1206,18 +1211,23 @@ i {
   margin: var(--space-4) 0 0;
 }
 
-.giscus {
-  color: var(--fg);
-  font-family: var(--font-plain);
-  min-height: 4rem;
+.comments__embed {
+  margin-top: var(--space-2);
+  contain: layout style;
 }
 
-.giscus a,
-.giscus a:visited,
-.giscus a:hover {
-  color: var(--term-cyan) !important;
-  background: transparent !important;
-  text-decoration: none !important;
+.giscus {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+}
+
+.giscus-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  color-scheme: dark;
+  vertical-align: top;
 }
 
 hr {
