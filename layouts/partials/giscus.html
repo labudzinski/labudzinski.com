@@ -1,7 +1,6 @@
 {{- $giscus := site.Params.giscus -}}
 {{- if and $giscus.repoId (not .Params.disableComments) (not hugo.IsServer) -}}
 <section class="comments" aria-labelledby="section-komentarze">
-  <h2 class="comments__title" id="section-komentarze">komentarze</h2>
   {{ partial "giscus_embed.html" . }}
 </section>
 {{- end -}}
