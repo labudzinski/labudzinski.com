@@ -302,6 +302,13 @@ main {
   color: var(--term-yellow);
 }
 
+h2.section-head {
+  margin: 0 0 var(--space-4);
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--term-yellow);
+}
+
 .section-head__marker {
   white-space: nowrap;
 }
@@ -1033,6 +1040,18 @@ h4 {
   color: var(--term-cyan);
 }
 
+.post-body h2::before {
+  content: "## ";
+  color: var(--link);
+  font-weight: 700;
+}
+
+.post-body h3::before {
+  content: "### ";
+  color: var(--dim);
+  font-weight: 700;
+}
+
 p {
   margin: var(--space-4) 0;
 }
@@ -1106,6 +1125,13 @@ i {
   color: var(--term-gray);
 }
 
+h2.comments__title {
+  margin: 0 0 var(--space-4);
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--term-yellow);
+}
+
 .post {
   --content-max: 100%;
 }
@@ -1118,19 +1144,19 @@ i {
 .post-header {
   margin: 0 0 var(--space-6);
   padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--link);
 }
 
 .post-title {
-  margin: 0 0 var(--space-3);
-  font-size: 1.125rem;
+  margin: var(--space-3) 0 0;
+  font-size: inherit;
   font-weight: 700;
-  letter-spacing: 0.01em;
   line-height: 1.35;
   overflow-wrap: anywhere;
   word-break: break-word;
   text-wrap: pretty;
-  color: var(--term-cyan);
+  color: var(--fg);
+  text-align: center;
 }
 
 .post-meta {
@@ -1140,7 +1166,7 @@ i {
   gap: var(--space-2);
   margin: 0 0 var(--space-3);
   color: var(--term-gray);
-  font-size: 0.8125rem;
+  font-size: inherit;
 }
 
 .meta-sep {
@@ -1153,12 +1179,21 @@ i {
 }
 
 .post-tags {
-  margin: 0;
+  margin: 0 0 var(--space-3);
+  color: var(--term-gray);
+  font-size: inherit;
+  text-align: center;
 }
 
-.post-tags .tag,
-.meta a.tag {
+.post-tags .tag {
+  color: var(--term-cyan);
   white-space: nowrap;
+}
+
+.post-tags .tag:hover,
+.post-tags .tag:focus-visible {
+  color: var(--link);
+  opacity: 1;
 }
 
 .post-body {
@@ -1201,8 +1236,17 @@ i {
 .comments {
   margin-top: var(--space-8);
   padding-top: var(--space-5);
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--link);
   max-width: var(--content-max);
+}
+
+.comments__title {
+  margin: 0 0 var(--space-4);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--term-yellow);
 }
 
 .comments__noscript {
@@ -1211,20 +1255,11 @@ i {
   margin: var(--space-4) 0 0;
 }
 
-.comments__embed {
-  margin-top: var(--space-2);
-  contain: layout style;
-}
-
-.giscus {
-  display: block;
-  width: 100%;
-  min-height: 9rem;
-}
-
+.giscus,
 .giscus-frame {
   display: block;
   width: 100%;
+  min-height: 9rem;
   border: 0;
   color-scheme: dark;
   vertical-align: top;
@@ -1364,11 +1399,7 @@ pre code {
   text-transform: lowercase;
   line-height: 1.45;
   color: var(--term-yellow);
-  overflow-wrap: anywhere;
-}
-
-.pgp-panel__marker {
-  color: var(--term-green);
+  white-space: nowrap;
 }
 
 .pgp-panel__key {
