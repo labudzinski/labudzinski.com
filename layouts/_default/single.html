@@ -1,6 +1,11 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  <hr class="zine-rule">
-  {{ partial "back_link.html" . }}
+  <article class="article">
+    <header class="article__header">
+      <h1 class="article__title">{{ .Title }}</h1>
+    </header>
+    <div class="article__body content">{{ .Content }}</div>
+    <footer class="article__footer">
+      {{ partial "back_link.html" . }}
+    </footer>
+  </article>
 {{ end }}

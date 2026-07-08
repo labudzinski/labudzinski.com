@@ -5,11 +5,7 @@
   </h2>
   <p class="project-card__desc">{{ $page.Params.description | default $page.Summary }}</p>
   {{- with $page.Params.tags -}}
-    <ul class="project-card__tags" aria-label="Technologie">
-      {{- range . -}}
-        <li class="project-card__tag">{{ . }}</li>
-      {{- end -}}
-    </ul>
+    {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
   {{- end -}}
   <p class="project-card__cta">
     <a class="shop-btn shop-btn--secondary" href="{{ $page.RelPermalink }}">szczegóły</a>

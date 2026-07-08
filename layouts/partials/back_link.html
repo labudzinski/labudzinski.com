@@ -1,1 +1,9 @@
-<a class="back" href="{{ "" | relURL }}">{{ .Site.Params.back_home_text | default "back" }}</a>
+{{- $href := "/" -}}
+{{- $label := "← blog" -}}
+{{- if .Site -}}
+  {{- $label = .Site.Params.back_home_text | default "← blog" -}}
+{{- else -}}
+  {{- $href = index . "href" | default "/" -}}
+  {{- $label = index . "label" | default "← blog" -}}
+{{- end -}}
+<a class="back" href="{{ $href | relURL }}">{{ $label }}</a>

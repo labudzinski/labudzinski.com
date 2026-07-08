@@ -11,12 +11,10 @@
     {{- with $excerpt -}}
       <p class="post-feed__excerpt">{{ . }}</p>
     {{- end -}}
-    {{- with $post.Params.tags -}}
-      <ul class="post-feed__tags" aria-label="Tagi">
-        {{- range first 3 . -}}
-          <li class="post-feed__tag">{{ . }}</li>
-        {{- end -}}
-      </ul>
+    {{- with $post.GetTerms "tags" -}}
+      <div class="post-feed__tags">
+        {{ partial "article_tags.html" (first 3 .) }}
+      </div>
     {{- end -}}
   </div>
 </article>

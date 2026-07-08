@@ -1,0 +1,7 @@
+<ul class="tag-chips tag-chips--static article__tags" aria-label="{{ .label | default "Tagi" }}">
+  {{- range .tags -}}
+    <li class="tag-chips__item">
+      <span class="tag-chips__label">{{ . }}</span>
+    </li>
+  {{- end -}}
+</ul>

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="shop-product" itemscope itemtype="https://schema.org/Book">
+  <article class="article shop-product" itemscope itemtype="https://schema.org/Book">
     <meta itemprop="author" content="{{ .Site.Params.author }}">
     {{- with .Params.image -}}
       <meta itemprop="image" content="{{ . | absURL }}">
@@ -8,7 +8,7 @@
       <meta itemprop="isPartOf" content="{{ . }}">
     {{- end -}}
 
-    <header class="shop-product__hero">
+    <header class="article__header shop-product__hero">
       {{- with .Params.image -}}
         <figure class="shop-product__cover">
           <img src="{{ . | relURL }}" alt="{{ $.Params.image_alt | default $.Title }}" width="320" height="480" loading="eager" decoding="async" itemprop="image">
@@ -18,15 +18,15 @@
         {{- with .Params.tagline -}}
           <p class="shop-product__tagline">{{ . }}</p>
         {{- end -}}
-        <h1 class="shop-product__title" itemprop="name">{{ .Title }}</h1>
+        <h1 class="article__title" itemprop="name">{{ .Title }}</h1>
         {{- with .Params.subtitle -}}
-          <p class="shop-product__subtitle">{{ . }}</p>
+          <p class="article__summary article__summary--accent">{{ . }}</p>
         {{- end -}}
         {{- with .Params.series_note -}}
-          <p class="shop-product__series">{{ . }}</p>
+          <p class="article__summary">{{ . }}</p>
         {{- end -}}
         {{- with .Params.hook -}}
-          <p class="shop-product__hook">{{ . }}</p>
+          <p class="article__summary">{{ . }}</p>
         {{- end -}}
         {{- with .Params.price -}}
           <p class="shop-product__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -40,9 +40,9 @@
           </p>
         {{- end -}}
         {{- with .Params.payment_note -}}
-          <p class="shop-product__note">{{ . }}</p>
+          <p class="article__summary article__summary--note">{{ . }}</p>
         {{- end -}}
-        <ul class="shop-product__links">
+        <ul class="article__links">
           {{- with .Params.publisher_url -}}
             <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Strona wydawnictwa</a></li>
           {{- end -}}
@@ -53,13 +53,10 @@
       </div>
     </header>
 
-    <div class="shop-product__body content" itemprop="description">
-      {{ .Content }}
-    </div>
+    <div class="article__body content" itemprop="description">{{ .Content }}</div>
 
-    <footer class="shop-product__footer">
-      <a class="back" href="{{ "/sklep/" | relURL }}">← sklep</a>
+    <footer class="article__footer">
+      {{ partial "back_link.html" (dict "href" "/sklep/" "label" "← sklep") }}
     </footer>
   </article>
-  <hr class="zine-rule zine-rule--solid">
 {{ end }}

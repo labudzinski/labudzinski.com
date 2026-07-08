@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+  <article class="article project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
     <meta itemprop="author" content="{{ .Site.Params.author }}">
     {{- with .Params.license -}}
       <meta itemprop="license" content="{{ . }}">
@@ -8,47 +8,38 @@
       <meta itemprop="codeRepository" content="{{ . }}">
     {{- end -}}
 
-    <header class="project-page__hero">
-      <div class="project-page__intro">
-        <h1 class="project-page__title" itemprop="name">{{ .Title }}</h1>
-        {{- with .Params.description -}}
-          <p class="project-page__summary">{{ . }}</p>
+    <header class="article__header">
+      <h1 class="article__title" itemprop="name">{{ .Title }}</h1>
+      {{- with .Params.description -}}
+        <p class="article__summary">{{ . }}</p>
+      {{- end -}}
+      {{- with .Params.tags -}}
+        {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
+      {{- end -}}
+      <ul class="article__links">
+        {{- with .Params.docs_url -}}
+          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">dokumentacja</a></li>
         {{- end -}}
-        {{- with .Params.tags -}}
-          <ul class="project-card__tags" aria-label="Technologie">
-            {{- range . -}}
-              <li class="project-card__tag" itemprop="programmingLanguage">{{ . }}</li>
-            {{- end -}}
-          </ul>
+        {{- with .Params.github -}}
+          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">github</a></li>
         {{- end -}}
-        <ul class="project-page__links">
-          {{- with .Params.docs_url -}}
-            <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Dokumentacja</a></li>
-          {{- end -}}
-          {{- with .Params.github -}}
-            <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">GitHub</a></li>
-          {{- end -}}
-          {{- with .Params.composer -}}
-            <li><code>composer require {{ . }}</code></li>
-          {{- end -}}
-          {{- with .Params.go_module -}}
-            <li><code>go get {{ . }}</code></li>
-          {{- end -}}
-        </ul>
-      </div>
+        {{- with .Params.composer -}}
+          <li><code>composer require {{ . }}</code></li>
+        {{- end -}}
+        {{- with .Params.go_module -}}
+          <li><code>go get {{ . }}</code></li>
+        {{- end -}}
+      </ul>
     </header>
 
     {{- if .Params.toc -}}
       <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
     {{- end -}}
 
-    <div class="project-page__body content" itemprop="description">
-      {{ .Content }}
-    </div>
+    <div class="article__body content" itemprop="description">{{ .Content }}</div>
 
-    <footer class="project-page__footer">
-      <a class="back" href="{{ "/projekty/" | relURL }}">← projekty</a>
+    <footer class="article__footer">
+      {{ partial "back_link.html" (dict "href" "/projekty/" "label" "← projekty") }}
     </footer>
   </article>
-  <hr class="zine-rule zine-rule--solid">
 {{ end }}
