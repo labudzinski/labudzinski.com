@@ -2,10 +2,23 @@
   <article class="article">
     <header class="article__header">
       <h1 class="article__title">{{ .Title }}</h1>
+      {{- with .Params.description -}}
+        <p class="article__summary">{{ . }}</p>
+      {{- end -}}
     </header>
+
+    {{- if .Params.toc -}}
+      <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
+    {{- end -}}
+
     <div class="article__body content">{{ .Content }}</div>
+
     <footer class="article__footer">
-      {{ partial "back_link.html" . }}
+      {{- with .Parent -}}
+        {{ partial "back_link.html" (dict "href" .RelPermalink "label" (printf "← %s" .Title)) }}
+      {{- else -}}
+        {{ partial "back_link.html" . }}
+      {{- end -}}
     </footer>
   </article>
 {{ end }}
