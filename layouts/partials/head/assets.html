@@ -5,7 +5,8 @@
   {{- end -}}
 {{- end -}}
 
-<link rel="stylesheet" href="/css/main.css">
+{{- $cssV := substr (md5 (readFile "static/css/main.css")) 0 10 -}}
+<link rel="stylesheet" href="/css/main.css?v={{ $cssV }}">
 {{- if $needsChroma -}}
-<link rel="stylesheet" href="/css/chroma.css">
+<link rel="stylesheet" href="/css/chroma.css?v={{ $cssV }}">
 {{- end -}}
