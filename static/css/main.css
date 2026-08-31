@@ -281,6 +281,8 @@ main {
   font-weight: 700;
   color: var(--term-cyan);
   letter-spacing: 0.02em;
+  font-family: inherit;
+  line-height: inherit;
 }
 
 .site-hero__experience {

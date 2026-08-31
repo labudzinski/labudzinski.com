@@ -1,5 +1,4 @@
 /*
-  X-Robots-Tag: noai, noimageai, noarchive
   Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://giscus.app; style-src 'self' https://giscus.app; img-src 'self' data:; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://giscus.app; frame-src https://giscus.app; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), microphone=(), interest-cohort=()

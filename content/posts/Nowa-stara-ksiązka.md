@@ -25,6 +25,10 @@ tags:
   - Książka
 title: Nowa-stara książka - zobaczymy co z tego wyjdzie
 toc: false
+slug: nowa-stara-ksiazka
+aliases:
+  - /posts/nowa-stara-ksiązka/
+description: "Opowieść z 2008 wróciła z dysku. Nowa-stara książka, tym razem z myślą o starszych czytelnikach."
 ---
 
 Może tym razem coś dla starszych czytelników?

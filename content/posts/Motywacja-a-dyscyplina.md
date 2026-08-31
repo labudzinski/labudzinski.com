@@ -28,6 +28,7 @@ tags:
   - dyscyplina
 title: Motywacja a dyscyplina
 toc: false
+description: "Rower po dziesięciu latach. Motywacja przychodzi i znika; zostaje tylko dyscyplina, która utrzymuje trening."
 ---
 
 Zacząłem znowu jeździć na rowerze po ponad dziesięciu latach przerwy. Kiedy patrzę wstecz, widzę, jak bardzo się zmieniłem. Dawniej potrzebowałem silnego impulsu, ekscytacji, wielkich planów. Teraz tego prawie nie ma. Jest za to zdrowie i codzienne postanowienie.

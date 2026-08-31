@@ -27,6 +27,7 @@ tags:
   - hetzner
 title: Mój backup
 toc: false
+description: "Backup na MacBooku: Restic, storage Hetznera, szyfrowanie i launchd. Jeden skrypt, logi i powiadomienie, gdy kopia padnie."
 ---
 
 Od dłuższego czasu miałem wrażenie, że temat kopii zapasowych odkładam na później bardziej niż powinienem. Pracuję na MacBooku, mam dużo projektów, trochę prywatnych plików, trochę rzeczy rozrzuconych po różnych katalogach i zawsze zakładałem, że „jakoś to będzie”. W praktyce oznaczało to brak spójnego systemu i poleganie na tym, że nic się nie stanie.

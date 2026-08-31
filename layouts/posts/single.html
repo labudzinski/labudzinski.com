@@ -21,7 +21,7 @@
       <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
     {{- end -}}
 
-    <div class="article__body content" data-nosnippet translate="no" itemprop="articleBody">{{ .Content }}</div>
+    <div class="article__body content" itemprop="articleBody">{{ .Content }}</div>
 
     {{- if .Params.pgp_signature -}}
       {{ partial "pgp_block.html" . }}

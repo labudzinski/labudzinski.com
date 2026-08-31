@@ -28,6 +28,10 @@ tags:
   - pliki
 title: Szyfrowanie plików w trakcie przesyłania do aplikacji Effiana DAM+
 toc: false
+slug: szyfrowanie-plikow-w-trakcie-przesylania
+aliases:
+  - /posts/szyfrowanie-plików-w-trakcie-przesyłania/
+description: "Szyfrowanie plików w Effiana DAM+: plik trafia na serwer już zaszyfrowany, a dostęp nie wymaga ponownego szyfrowania."
 ---
 
 Dzisiaj skupimy się na sposobach przesyłania i przechowywania wrażliwych plików. Dlaczego? Każdego dnia BrandOriented, wdrażając system Effiana, ułatwia pracę zespołom komercyjnym w ich codziennych obowiązkach, m.in. wspierając decyzje, integrując dane w środowisku rozproszonym, jak i wspierając procesy wewnątrz organizacji. Effiana w odczuwalny sposób zmienia niemal każdy aspekt pracy zespołów oraz ich wyniki.

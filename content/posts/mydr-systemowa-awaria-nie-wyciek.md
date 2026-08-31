@@ -27,6 +27,7 @@ tags:
   - dane osobowe
 title: MyDr. Systemowa awaria, nie wyciek
 toc: false
+description: "MyDr to nie „wyciek”, tylko zapaść architektury: 19 mln rekordów, dane medyczne, XXE, RCE i klucze obok danych."
 ---
 
 Kiedy dziś patrzę na to, co wyszło z MyDr, przechodzi mnie dokładnie ten sam dreszcz, co wtedy, gdy otwieram raporty z testów. Tylko że tym razem skala jest zupełnie inna. Prawie 19 milionów rekordów. Ponad 2 terabajty, w tym dane medyczne i osobowe, które z łatwością mogły trafić w ręce osób, które zapewnie wiedzą jak je spieniężyć. To już nie jest tylko zwykły wyciek danych.

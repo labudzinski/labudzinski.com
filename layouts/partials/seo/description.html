@@ -4,10 +4,10 @@
 {{- else if .Description -}}
   {{- $desc = .Description -}}
 {{- else if and .IsPage (ne .Summary "") -}}
-  {{- $desc = .Summary | plainify | strings.TrimSpace | truncate 160 -}}
+  {{- $desc = .Summary | plainify | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 -}}
 {{- else if .IsHome -}}
   {{- with .Content -}}
-    {{- $desc = . | plainify | strings.TrimSpace | truncate 160 -}}
+    {{- $desc = . | plainify | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 -}}
   {{- end -}}
 {{- else if eq .Kind "term" -}}
   {{- $desc = printf "Artykuły oznaczone tagiem „%s” na blogu %s." .Title .Site.Params.author -}}
@@ -22,4 +22,5 @@
 {{- else if eq .Section "o-mnie" -}}
   {{- $desc = .Params.description | default (printf "O autorze: %s." .Site.Params.author) -}}
 {{- end -}}
+{{- $desc = $desc | replaceRE `\s+` " " | strings.TrimSpace -}}
 {{- .Scratch.Set "seoDesc" $desc -}}

@@ -16,6 +16,9 @@
 {{- end -}}
 <meta name="author" content="{{ $author }}">
 {{- partial "seo/robots.html" . -}}
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{{ .Permalink }}">
 {{- partial "seo/hreflang.html" . -}}
 {{- partial "seo/pagination.html" . -}}

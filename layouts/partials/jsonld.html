@@ -11,7 +11,7 @@
     "name" $author
     "url" .Site.BaseURL
     "jobTitle" (.Site.Params.job_title | default "Software Engineer")
-    "description" .Site.Params.description
+    "description" (.Site.Params.bio | default .Site.Params.description)
 -}}
 {{- with .Site.Params.github -}}
   {{- $person = merge $person (dict "sameAs" (slice .)) -}}

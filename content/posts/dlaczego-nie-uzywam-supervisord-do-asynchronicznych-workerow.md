@@ -26,6 +26,7 @@ tags:
   - workery
 title: Dlaczego nie używam supervisord do asynchronicznych workerów
 toc: false
+description: "Zamiast supervisord w PHP ubijam poda co godzinę. Długie workery puchną w RAM-ie, a restart resetuje stan."
 ---
 
 W projektach PHP, w których ostatnio pracuję, asynchroniczne workery obsługuję w sposób, który na papierze może wydać się dziwny. Zamiast supervisord lub podobnych narzędzi do zarządzania procesami wewnątrz kontenera - co godzinę po prostu ubijam cały pod. Nowy startuje automatycznie i kontynuuje pracę.

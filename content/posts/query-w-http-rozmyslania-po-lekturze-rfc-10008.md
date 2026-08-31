@@ -25,6 +25,7 @@ tags:
   - REST
 title: QUERY w HTTP. Rozmyślania po lekturze RFC 10008
 toc: false
+description: "RFC 10008 i metoda QUERY w HTTP. Idempotentny GET z ciałem POST wygląda wygodnie, ale psuje model zasobów."
 ---
 
 Dziś mój znajomy przysłał mi link do [RFC 10008](https://www.rfc-editor.org/rfc/rfc10008.html), specyfikacji zatytułowanej *The HTTP QUERY Method*. Przeczytałem dokument i od kilku godzin wracam do niego myślami. Na pierwszy rzut oka rozwiązanie wydaje się rozsądne i eleganckie. Wprowadza metodę, która łączy zalety GET, czyli bezpieczeństwo, idempotencję i możliwość buforowania, z możliwością przesłania większej ilości danych w treści żądania, podobnie jak w przypadku POST.

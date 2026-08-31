@@ -65,3 +65,19 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         timeout-minutes: 5
+
+  indexnow:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: |
+          sleep 30
+          chmod +x scripts/indexnow.sh
+          scripts/indexnow.sh

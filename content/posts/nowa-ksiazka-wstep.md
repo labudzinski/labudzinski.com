@@ -26,6 +26,7 @@ tags:
   - Książka
 title: 'Nowa książka: Wstęp'
 toc: false
+description: "Fragment nowej książki: świat AI-Net, w którym nie ma imienia, twarzy ani pytania „dlaczego”."
 ---
 
 Nie pytaj, kim jestem. Nigdy nie poznałeś mojego imienia, nie widziałeś mojej twarzy, którą mógłbyś zapamiętać, nie ma mnie w żadnym rejestrze, w żadnej z miliarda baz, jakie AI-Net trzyma o każdym z nas.

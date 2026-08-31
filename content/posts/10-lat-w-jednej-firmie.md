@@ -24,6 +24,7 @@ pgp_signature: |
 tags: null
 title: 10 lat w jednej firmie
 toc: false
+description: "Dziesięć lat w BrandOriented: podziękowania dla klientów i partnerów za zaufanie i wspólne systemy."
 ---
 
 Dziś mija 10 lat odkąd dołączyłem do BrandOriented, więc jest to idealny moment, aby zatrzymać się na chwilę i podziękować.

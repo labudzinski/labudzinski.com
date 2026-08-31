@@ -76,9 +76,6 @@ Disallow: /
 User-agent: webzio-extended
 Disallow: /
 
-User-agent: PetalBot
-Disallow: /
-
 User-agent: img2dataset
 Disallow: /
 
@@ -103,9 +100,6 @@ Disallow: /
 User-agent: VelenPublicWebCrawler
 Disallow: /
 
-User-agent: DataForSeoBot
-Disallow: /
-
 User-agent: SeekrBot
 Disallow: /
 
@@ -113,18 +107,6 @@ User-agent: AwarioRssBot
 Disallow: /
 
 User-agent: AwarioSmartBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: dotbot
 Disallow: /
 
 # Search indexing (not AI training) — allowed

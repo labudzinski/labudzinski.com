@@ -28,6 +28,7 @@ tags:
   - PSD2
 title: Refleksje o wyzwaniach w projektowaniu rozwiązań fintech
 toc: false
+description: "Z B2B do fintechu: PSD2, agregacja kont i alerty o wydatkach wymagają innej architektury niż korporacyjne SLA."
 ---
 
 Jako osoba z wieloletnim doświadczeniem w projektach B2B, od pewnego czasu zajmuję się systemami, które bezpośrednio wpływają na codzienne finanse ludzi. Przejście od typowych rozwiązań biznesowych do obszaru osobistych finansów pokazało mi, jak bardzo różnią się wymagania i pułapki w tym środowisku.

@@ -27,6 +27,7 @@ tags:
   - cyfryzacja
 title: Merytometr Forum Merytokracji — spostrzeżenia o Polsce
 toc: false
+description: "Meritometro 2019–2024: Polska cyfryzuje administrację, a instytucje stoją w miejscu niedokończonej transformacji."
 ---
 
 W ostatnim czasie trafiłem na „merytometr” przygotowany przez włoskie stowarzyszenie „Forum Merytokracji” — ciekawa lektura, więc mogę polecić. Poniżej moje spostrzeżenia co do tego, że jako kraj w zasadzie stoimy w miejscu pomimo tak zaawansowanej cyfryzacji administracji publicznej, która na tle krajów UE wypada zdecydowanie najlepiej.

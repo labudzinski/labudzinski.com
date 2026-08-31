@@ -7,6 +7,9 @@ enableRobotsTXT = true
 enableGitInfo = true
 summaryLength = 55
 
+[frontmatter]
+  lastmod = ['lastmod', 'date']
+
 [languages.pl]
 languageCode = 'pl-PL'
 languageName = 'Polski'
@@ -89,16 +92,19 @@ disabled = true
   author = 'Dominik Labudzinski'
   pgp_author = 'Dominik Labudzinski'
   copyright_start = 2019
-  description = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
+  description = 'Blog o architekturze oprogramowania, bezpieczeństwie, DevOps i bazach danych.'
+  home_title = 'Dominik Labudzinski — architektura, bezpieczeństwo, DevOps'
+  bio = 'DevOps / Software Architect / Software Engineer / Database Architect / Security Engineer'
   date_format = '2006-01-02'
   back_home_text = '← blog'
   github = 'https://github.com/labudzinski'
   linkedin = 'https://www.linkedin.com/in/dominik-l/'
   twitter = '@labudzinski'
-  og_image = '/images/og-default.svg'
+  og_image = '/images/og-default.png'
   site_type = 'Person'
   job_title = 'Software Architect'
   ai_training_allowed = false
+  indexnow_key = '8f4c2a91e6b07d3f5c1a9e8b4d6f0c2a'
 
   [params.giscus]
     repo = 'labudzinski/labudzinski.com'
@@ -120,6 +126,37 @@ disabled = true
   changefreq = 'weekly'
   filename = 'sitemap.xml'
   priority = 0.5
+
+[[cascade]]
+  [cascade.params]
+    noindex = true
+  [cascade.sitemap]
+    disable = true
+  [cascade.target]
+    kind = 'term'
+
+[[cascade]]
+  [cascade.params]
+    noindex = true
+  [cascade.sitemap]
+    disable = true
+  [cascade.target]
+    kind = 'taxonomy'
+
+[[cascade]]
+  [cascade.sitemap]
+    changefreq = 'monthly'
+    priority = 0.8
+  [cascade.target]
+    kind = 'page'
+    path = '/posts/**'
+
+[[cascade]]
+  [cascade.sitemap]
+    changefreq = 'weekly'
+    priority = 1.0
+  [cascade.target]
+    kind = 'home'
 
 [pagination]
   pagerSize = 20

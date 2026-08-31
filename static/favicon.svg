@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="labudzinski.com">
+  <rect width="48" height="48" fill="#000000"/>
+  <rect x="2" y="2" width="44" height="44" fill="none" stroke="#33ff33" stroke-width="2"/>
+  <text x="10" y="36" fill="#33ff33" font-family="ui-monospace, monospace" font-size="32" font-weight="700">L</text>
+</svg>

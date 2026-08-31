@@ -28,6 +28,7 @@ tags:
   - vibe coding
 title: Od script kiddie do prompt kiddie. Technologia się zmieniła, pajac został ten sam
 toc: false
+description: "Script kiddie wrócił jako prompt kiddie. Te same gotowce, tylko że dziś wkleja się je do czata zamiast do terminala."
 ---
 
 Kiedyś przynajmniej trzeba było umieć rozpakować ZIP-a.

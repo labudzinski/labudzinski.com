@@ -28,6 +28,10 @@ tags:
   - argon2
 title: Przechowywanie haseł w bazie
 toc: false
+slug: przechowywanie-hasel-w-bazie
+aliases:
+  - /posts/przechowywanie-haseł-w-bazie/
+description: "Wycieki haseł to kwestia czasu. Problem w tym, że większość baz nadal trzyma je tak, jakby tego czasu miało nie być."
 ---
 
 Od kilku lat obserwuje ciągłe wycieki haseł z baz danych różnych podmiotów, w tym tych największych. Nie ma w tym niczego dziwnego, bowiem złamanie zabezpieczeń w IT to tylko kwestia czasu i pieniędzy. 

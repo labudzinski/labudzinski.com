@@ -26,6 +26,10 @@ tags:
   - trening
 title: Programowanie własnego organizmu
 toc: false
+slug: programowanie-wlasnego-organizmu
+aliases:
+  - /posts/programowanie-własnego-organizmu/
+description: "Wróciłem na rower i zacząłem traktować organizm jak system do zaprogramowania od zera."
 ---
 
 Po długiej przerwie wróciłem na rower.

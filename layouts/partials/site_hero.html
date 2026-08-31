@@ -17,7 +17,7 @@
   {{- $dayLabel = "dni" -}}
 {{- end -}}
 <header class="site-hero">
-  <p class="site-hero__name">{{ $tagline }}</p>
+  <h1 class="site-hero__name">{{ $tagline }}</h1>
   <p class="site-hero__experience">
     doświadczenie:
     <span class="site-hero__experience-value">{{ $years }} {{ $yearLabel }}{{- if gt $remDays 0 -}}, {{ $remDays }} {{ $dayLabel }}{{- end -}}</span>

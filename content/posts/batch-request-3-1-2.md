@@ -29,6 +29,7 @@ tags:
   - BatchRequests
 title: batch-request 3.1.2
 toc: false
+description: "batch-request 3.1.2: jedna ramka HTTP, wiele wywołań API w PHP, operacje niezależne i przetwarzane równolegle."
 ---
 
 I just released version 3.1.2 of [lemric/batch-request](https://github.com/lemric/batch-request), a PHP library that lets you send a single HTTP request containing multiple API calls, with independent operations processed in parallel.

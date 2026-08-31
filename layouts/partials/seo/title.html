@@ -1,5 +1,6 @@
 {{- $title := .Site.Title -}}
 {{- if .IsHome -}}
+  {{- $title = .Site.Params.home_title | default .Site.Title -}}
 {{- else if eq .Kind "term" -}}
   {{- $title = printf "Tag: %s" .Title -}}
 {{- else if eq .Kind "taxonomy" -}}
@@ -10,7 +11,7 @@
   {{- $title = .Title -}}
 {{- end -}}
 {{- if .IsHome -}}
-  {{- .Scratch.Set "seoTitle" .Site.Title -}}
+  {{- .Scratch.Set "seoTitle" $title -}}
 {{- else -}}
   {{- .Scratch.Set "seoTitle" (printf "%s :: %s" $title .Site.Title) -}}
 {{- end -}}

@@ -26,6 +26,7 @@ tags:
   - zarządzanie projektami
 title: Czy Agile nadal ma sens?
 toc: false
+description: "Czy Scrum nadal jest najlepszym sposobem prowadzenia projektów IT, czy tylko ramą, która przestała odpowiadać na złożoność?"
 ---
 
 Im dłużej pracuję przy projektach IT, tym częściej zamiast szukać gotowych odpowiedzi zadaję sobie kolejne pytania. Jedno z nich wraca regularnie: czy Agile, a właściwie Scrum, nadal pozostaje najlepszym sposobem prowadzenia projektów?

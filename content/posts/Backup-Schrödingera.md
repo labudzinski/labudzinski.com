@@ -28,6 +28,10 @@ tags:
   - awaria
 title: Backup Schrödingera
 toc: false
+slug: backup-schrodingera
+aliases:
+  - /posts/backup-schrödingera/
+description: "Backup, którego nie odtwarzasz, jest i nie jest jednocześnie. O kopii zapasowej, która istnieje tylko na papierze."
 ---
 
 Wyobraźmy sobie, że każdy robi regularnie kopię zapasową najważniejszych danych i przechowuje je w bezpiecznym miejscu.
