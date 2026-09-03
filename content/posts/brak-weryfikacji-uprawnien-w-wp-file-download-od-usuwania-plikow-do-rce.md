@@ -1,6 +1,7 @@
 ---
 title: "Brak weryfikacji uprawnień w WP File Download: od usuwania plików do RCE"
 date: 2026-03-30T10:00:00+02:00
+draft: false
 description: "Wtyczka WP File Download posiada krytyczną podatność typu Arbitrary File Deletion. Użytkownik o uprawnieniach Subscriber może usunąć dowolny plik z serwera, w tym wp-config.php."
 tags:
   - wordpress
