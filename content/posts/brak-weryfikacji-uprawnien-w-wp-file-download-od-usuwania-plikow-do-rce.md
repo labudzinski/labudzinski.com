@@ -1,5 +1,5 @@
 ---
-date: 2026-03-30T10:00:00+02:00
+date: 2026-09-03T10:00:00+02:00
 description: Wtyczka WP File Download posiada krytyczną podatność typu Arbitrary File Deletion. Użytkownik o uprawnieniach Subscriber może usunąć dowolny plik z serwera, w tym wp-config.php.
 draft: false
 pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
