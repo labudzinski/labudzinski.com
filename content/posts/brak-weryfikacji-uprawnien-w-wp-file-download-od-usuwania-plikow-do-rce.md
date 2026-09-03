@@ -1,14 +1,33 @@
 ---
-title: "Brak weryfikacji uprawnień w WP File Download: od usuwania plików do RCE"
 date: 2026-03-30T10:00:00+02:00
+description: Wtyczka WP File Download posiada krytyczną podatność typu Arbitrary File Deletion. Użytkownik o uprawnieniach Subscriber może usunąć dowolny plik z serwera, w tym wp-config.php.
 draft: false
-description: "Wtyczka WP File Download posiada krytyczną podatność typu Arbitrary File Deletion. Użytkownik o uprawnieniach Subscriber może usunąć dowolny plik z serwera, w tym wp-config.php."
+pgp_key_fingerprint: 9670 B378 988E 18A5 B30E 75D7 5CDE 946A 4160 C229
+pgp_signature: |
+  -----BEGIN PGP SIGNATURE-----
+
+  iQJoBAABCABSFiEElnCzeJiOGKWzDnXXXN6UakFgwikFAmqZiXwbFIAAAAAABAAO
+  bWFudTIsMi41KzEuMTIsMCwzGBxkb21pbmlrQGxhYnVkemluc2tpLmNvbQAKCRBc
+  3pRqQWDCKfT3D/9sWWloX+zdLjA6bCfzN07apn930AbyvlzR84BdzUVNsDTYY24N
+  Yhizr6woYRAAsvmA6MDnrVurAskKrA/D0/ohwMhRJKG+gZuSfmAQ6fivP7MNKYLv
+  RCfVGnG5bLYIAGs4rL7ZDUVLLsDHnMk54jFvf0UgqvHkuDR8zaPpPoxLHe0YmmTO
+  BAmJmCJbVhUjK5tXFEBci2TsPM0dVUjNhqZizszAMEjcdUUNZkjlgtcJYhXrlh+g
+  8pVw5CMuxxylWhvhiL4ChmXz49EMkBtReYZcNCbTu+saZ1jiTf9FM7aeLBQtyEBL
+  dI87dv+vI9ORQ9GAfl35cFOpxML4bwZUXoX/IVOFdm8H4d3sslwDEfSuhb+zZnp1
+  ThkbLaysDsFP70ot6fH0YGgNZuG3DxSN6YEH0XidDwJpZ87GS0rEwAId9bahecZ1
+  KE/XfmkoWrc30tpZYHnwLVMuRbisSMYAXx8PQQGk0QO3VH4FIkhi9GnAe4QU5iCW
+  0WqeK16/QyOjGbxrp7/sGNi1/EXV2b4HLgaleTulL/z2aC0XQbeMQrLIuBqK6Yaa
+  3UfY4uTEr55Fh8pKZf5eji236yPK11whKYREHnj3yrFSkVemxii68ao1gH090E+4
+  gYvw0TsUry7nnoy3sHs3E50O7e6/zYqsYqw9zQzIEVeOMDKMOhq3Tblt3A==
+  =Ztti
+  -----END PGP SIGNATURE-----
 tags:
   - wordpress
   - cve
   - bezpieczeństwo
   - rce
   - wtyczki
+title: 'Brak weryfikacji uprawnień w WP File Download: od usuwania plików do RCE'
 toc: false
 ---
 
