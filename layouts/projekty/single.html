@@ -17,6 +17,9 @@
         {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
       {{- end -}}
       <ul class="article__links">
+        {{- with .Params.homepage -}}
+          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">portal</a></li>
+        {{- end -}}
         {{- with .Params.docs_url -}}
           <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">dokumentacja</a></li>
         {{- end -}}

@@ -9,6 +9,9 @@
   {{- end -}}
   <p class="project-card__cta">
     <a class="shop-btn shop-btn--secondary" href="{{ $page.RelPermalink }}">szczegóły</a>
+    {{- with $page.Params.homepage -}}
+      <a class="shop-btn shop-btn--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">portal</a>
+    {{- end -}}
     {{- with $page.Params.docs_url -}}
       <a class="shop-btn shop-btn--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">dokumentacja</a>
     {{- end -}}
