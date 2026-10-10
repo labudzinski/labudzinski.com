@@ -233,6 +233,16 @@ main { flex: 1; min-width: 0; }
 .project-page .article__links { gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-soft); }
 .project-page__resources .button { gap: 8px; font-size: 13px; padding: 8px 14px; border-radius: 8px; }
 .project-page__resources .icon { width: 16px; height: 16px; }
+.project-page .project-page__resources { align-items: center; gap: 4px 22px; padding-top: 8px; }
+.platform-badge { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 66px; padding: 11px 0; border-radius: 8px; line-height: 1; }
+.platform-badge__store { display: block; width: auto; height: 44px; max-width: none; }
+.platform-badge--googleplay { padding-block: 4px; }
+.platform-badge--googleplay .platform-badge__store { height: 58px; }
+.platform-badge__github { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 6px 12px; border: 1px solid #858585; border-radius: 7px; background: #000; color: #fff; }
+.platform-badge__github > img { display: block; width: 24px; height: 24px; filter: invert(1); }
+.platform-badge__github small { display: block; font: 500 10px/1 var(--font); }
+.platform-badge__github strong { display: block; margin-top: 1px; font: 650 19px/1 var(--font); letter-spacing: -.02em; }
+.platform-badge--github:hover .platform-badge__github { border-color: #fff; }
 .project-install { margin-top: 16px; }
 .project-install > p { margin-bottom: 8px; color: var(--text-tertiary); font-size: 12px; }
 .project-install pre { margin: 0; padding: 12px 16px; font-size: 13px; }
@@ -307,7 +317,7 @@ hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-soft); }
 .project-card .tag-chips__label { padding: 3px 9px; font-size: 12px; background: var(--surface); border-color: var(--border-soft); border-radius: 6px; }
 .project-card__cta { min-height: 84px; display: flex; align-items: flex-start; flex-direction: column; gap: 16px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-soft); }
 .project-card__details { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
-.project-card__resources { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.project-card__resources { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; }
 .project-card__resources:empty { display: none; }
 .project-card__resources a { display: inline-flex; align-items: center; gap: 5px; color: var(--text-secondary); font-size: 12px; }
 .project-card__resources a:hover { color: var(--accent); }

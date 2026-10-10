@@ -1,6 +1,7 @@
 {{ define "main" }}
   {{ partial "article_breadcrumb.html" (dict "page" . "href" "/projekty/" "label" "Projekty") }}
   {{- $identity := partial "project_identity.html" . -}}
+  {{- $platforms := partial "project_platforms.html" . -}}
   <article class="article detail-page project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
     <meta itemprop="author" content="{{ .Site.Params.author }}">
     {{- with .Params.license -}}
@@ -21,16 +22,16 @@
       {{- with .Params.tags -}}
         {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
       {{- end -}}
-      {{- if or .Params.homepage .Params.docs_url .Params.github .RegularPages -}}
+      {{- if or .Params.homepage .Params.docs_url $platforms .RegularPages -}}
       <ul class="article__links project-page__resources">
+        {{- range $platforms -}}
+          <li>{{ partial "platform_badge.html" (dict "platform" .platform "url" .url "title" $.Title) }}</li>
+        {{- end -}}
         {{- with .Params.homepage -}}
           <li><a class="button button--primary" href="{{ . }}" rel="noopener noreferrer" target="_blank">Otwórz portal {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
         {{- end -}}
         {{- with .Params.docs_url -}}
           <li><a class="button button--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">Dokumentacja {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
-        {{- end -}}
-        {{- with .Params.github -}}
-          <li><a class="button button--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">GitHub {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
         {{- end -}}
         {{- range .RegularPages -}}
           <li><a class="button button--secondary" href="{{ .RelPermalink }}">{{ .LinkTitle }} {{ partial "icon.html" (dict "name" "arrow") }}</a></li>

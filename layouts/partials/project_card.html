@@ -1,5 +1,6 @@
 {{- $page := .page -}}
 {{- $identity := partial "project_identity.html" $page -}}
+{{- $platforms := partial "project_platforms.html" $page -}}
 <li class="project-card">
   <div class="project-card__top"><span class="project-card__symbol">{{ partial "icon.html" (dict "name" $identity.icon) }}</span><span class="project-card__kind">{{ $identity.kind }}</span></div>
   <h2 class="project-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
@@ -8,9 +9,9 @@
   <div class="project-card__cta">
     <a class="project-card__details" href="{{ $page.RelPermalink }}" aria-label="Poznaj projekt {{ $page.Title }}">Poznaj projekt {{ partial "icon.html" (dict "name" "arrow") }}</a>
     <div class="project-card__resources">
+      {{ range $platforms }}{{ partial "platform_badge.html" (dict "platform" .platform "url" .url "title" $page.Title) }}{{ end }}
       {{ with $page.Params.homepage }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">Portal {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a>{{ end }}
       {{ with $page.Params.docs_url }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">Dokumentacja {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a>{{ end }}
-      {{ with $page.Params.github }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">GitHub {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a>{{ end }}
     </div>
   </div>
 </li>

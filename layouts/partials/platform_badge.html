@@ -1,0 +1,18 @@
+{{- $label := "" -}}
+{{- if eq .platform "appstore" -}}{{- $label = printf "Pobierz %s z App Store" .title -}}
+{{- else if eq .platform "googleplay" -}}{{- $label = printf "Pobierz %s z Google Play" .title -}}
+{{- else if eq .platform "github" -}}{{- $label = printf "Zobacz kod %s na GitHubie" .title -}}{{- end -}}
+{{- if $label -}}
+<a class="platform-badge platform-badge--{{ .platform }}" href="{{ .url }}" rel="noopener noreferrer" target="_blank" aria-label="{{ $label }} (nowa karta)">
+  {{- if eq .platform "appstore" -}}
+    <img class="platform-badge__store" src="{{ "/images/platforms/app-store-pl.svg" | relURL }}" width="120" height="40" alt="" aria-hidden="true" decoding="async">
+  {{- else if eq .platform "googleplay" -}}
+    <img class="platform-badge__store" src="{{ "/images/platforms/google-play-pl.png" | relURL }}" width="646" height="250" alt="" aria-hidden="true" decoding="async">
+  {{- else if eq .platform "github" -}}
+    <span class="platform-badge__github" aria-hidden="true">
+      <img src="{{ "/images/platforms/github-mark.svg" | relURL }}" width="24" height="24" alt="" decoding="async">
+      <span><small>Zobacz kod</small><strong>GitHub</strong></span>
+    </span>
+  {{- end -}}
+</a>
+{{- end -}}

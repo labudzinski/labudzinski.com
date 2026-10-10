@@ -1,0 +1,11 @@
+{{- $links := slice -}}
+{{- with .Params.appstore | default .Params.app_store -}}
+  {{- $links = $links | append (dict "platform" "appstore" "url" .) -}}
+{{- end -}}
+{{- with .Params.googleplay | default .Params.google_play | default .Params.playstore -}}
+  {{- $links = $links | append (dict "platform" "googleplay" "url" .) -}}
+{{- end -}}
+{{- with .Params.github -}}
+  {{- $links = $links | append (dict "platform" "github" "url" .) -}}
+{{- end -}}
+{{- return $links -}}
