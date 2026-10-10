@@ -6,6 +6,9 @@
   {{- $directives = $directives | append "index" -}}
 {{- end -}}
 {{- $directives = $directives | append "follow" -}}
+{{- if not $noindex -}}
+  {{- $directives = $directives | append "max-image-preview:large" "max-snippet:-1" "max-video-preview:-1" -}}
+{{- end -}}
 {{- if .Params.noarchive -}}
   {{- $directives = $directives | append "noarchive" -}}
 {{- end -}}

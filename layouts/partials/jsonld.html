@@ -34,6 +34,10 @@
 {{- $graph = $graph | append $website -}}
 
 {{- if .IsHome -}}
+  {{- $homeMod := .Lastmod -}}
+  {{- range where .Site.RegularPages "Section" "posts" -}}
+    {{- if gt .Lastmod $homeMod -}}{{- $homeMod = .Lastmod -}}{{- end -}}
+  {{- end -}}
   {{- $graph = $graph | append (dict
       "@type" "ProfilePage"
       "@id" (printf "%s#profile" .Permalink)
@@ -42,8 +46,10 @@
       "description" $desc
       "mainEntity" (dict "@id" (printf "%s#person" .Site.BaseURL))
       "inLanguage" .Site.Language.Lang
+      "dateModified" ($homeMod.Format "2006-01-02T15:04:05Z07:00")
   ) -}}
 {{- end -}}
+
 
 {{- if and .IsPage (eq .Section "posts") -}}
   {{- $keywords := slice -}}
