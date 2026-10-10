@@ -4,7 +4,8 @@ description = "Prywatna aplikacja fitness: dane zostają na moim telefonie, bo n
 date = 2026-07-17T12:00:00+02:00
 draft = false
 layout = "single"
-tags = ["iOS", "Android", "fitness", "local first"]
+homepage = "https://apps.apple.com/pl/app/lemricfit/id6791898733"
+tags = ["iOS", "fitness", "local first"]
 toc = false
 +++
 
