@@ -1,36 +1,31 @@
 {{ define "main" }}
-  <article class="article post" itemscope itemtype="https://schema.org/BlogPosting">
+  <progress class="reading-progress" value="0" max="100" aria-label="Postęp czytania"></progress>
+  {{ partial "article_breadcrumb.html" (dict "page" . "href" "/" "label" "Blog") }}
+  <article class="article detail-page post{{ if .Params.toc }} article--with-toc{{ end }}" itemscope itemtype="https://schema.org/BlogPosting">
     <meta itemprop="license" content="{{ "ai-policy.txt" | absURL }}">
     <meta itemprop="copyrightNotice" content="© {{ .Site.Params.author }}. AI training and TDM prohibited.">
-
-    <header class="article__header">
-      <p class="article__meta">
-        <time class="article__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</time>
-        {{- if gt .ReadingTime 0 -}}
-          <span class="article__meta-sep" aria-hidden="true">·</span>
-          <span class="article__reading-time">{{ .ReadingTime }} min</span>
-        {{- end -}}
-      </p>
-      <h1 class="article__title" itemprop="headline">{{ .Title }}</h1>
-      {{- with .GetTerms "tags" -}}
-        {{ partial "article_tags.html" . }}
-      {{- end -}}
-    </header>
-
-    {{- if .Params.toc -}}
-      <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
-    {{- end -}}
-
-    <div class="article__body content" itemprop="articleBody">{{ .Content }}</div>
-
-    {{- if .Params.pgp_signature -}}
-      {{ partial "pgp_block.html" . }}
-    {{- end -}}
-
-    {{ partial "giscus.html" . }}
-
-    <footer class="article__footer">
-      {{ partial "back_link.html" . }}
-    </footer>
+    <div class="article__main">
+      <header class="article__header detail-header">
+        {{ with .GetTerms "tags" }}{{ with index . 0 }}<a class="article__category" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ end }}
+        <h1 class="article__title" itemprop="headline">{{ .Title }}</h1>
+        {{ with .Params.description }}<p class="article__summary">{{ . }}</p>{{ end }}
+        <div class="article__byline">
+          <a class="article__author" href="{{ "/o-mnie/" | relURL }}"><span class="author-monogram" aria-hidden="true">DL</span><span>{{ .Site.Params.author }}<small>Software Architect &amp; Engineer</small></span></a>
+          <p class="article__meta"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">{{ .Date | time.Format (.Site.Params.date_format | default "2006-01-02") }}</time><span aria-hidden="true">·</span><span>{{ partial "icon.html" (dict "name" "clock") }} {{ .ReadingTime }} min czytania</span></p>
+        </div>
+        {{ with .GetTerms "tags" }}{{ partial "article_tags.html" . }}{{ end }}
+      </header>
+      <div class="detail-body"><div class="article__body content" itemprop="articleBody" data-reading-content>{{ .Content }}</div></div>
+      {{ if .Params.pgp_signature }}{{ partial "pgp_block.html" . }}{{ end }}
+      {{ partial "giscus.html" . }}
+      <footer class="article__footer">
+        {{ partial "back_link.html" . }}
+        <nav class="article-neighbours" aria-label="Inne wpisy">
+          {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Nowszy wpis</span><strong>{{ .Title }}</strong>{{ partial "icon.html" (dict "name" "arrow") }}</a>{{ end }}
+          {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Poprzedni wpis</span><strong>{{ .Title }}</strong>{{ partial "icon.html" (dict "name" "arrow") }}</a>{{ end }}
+        </nav>
+      </footer>
+    </div>
+    {{ if .Params.toc }}<aside class="toc" aria-label="Spis treści"><p class="eyebrow">Spis treści</p>{{ .TableOfContents }}</aside>{{ end }}
   </article>
 {{ end }}

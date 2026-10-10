@@ -3,7 +3,7 @@ BLOGPOST ?= go run ./cmd/blogpost
 SIGNPOSTS ?= go run ./cmd/signposts
 VERIFYPOSTS ?= go run ./cmd/verifyposts
 
-.PHONY: dev build preview clean install-cli cli post sign-posts verify-posts
+.PHONY: dev build preview clean install-cli cli post sign-posts verify-posts check-frontend
 
 dev:
 	@echo "Open: http://localhost:1313/  (use http, not https)"
@@ -35,3 +35,6 @@ sign-posts:
 
 verify-posts:
 	$(VERIFYPOSTS) --repo .
+
+check-frontend:
+	node --test scripts/check-frontend.mjs

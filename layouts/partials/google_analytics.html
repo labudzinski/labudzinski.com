@@ -6,8 +6,6 @@
 {{- end -}}
 
 {{- if and $id (not hugo.IsServer) -}}
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $id }}"></script>
-<script defer src="/js/gtag-init.js"></script>
 <meta name="ga-id" content="{{ $id }}">
+<script defer src="/js/gtag-init.js?v={{ substr (md5 (readFile "static/js/gtag-init.js")) 0 10 }}"></script>
 {{- end -}}

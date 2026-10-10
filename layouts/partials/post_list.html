@@ -21,9 +21,9 @@
   {{- if .limit -}}
     {{- $posts = first .limit $posts -}}
   {{- end -}}
-  <div class="post-feed">
-    {{- range $post := $posts -}}
-      {{ partial "post_feed_item.html" (dict "post" $post "dateFormat" $dateFormat) }}
+  <div class="post-feed{{ if .feature_first }} post-feed--featured{{ end }}">
+    {{- range $index, $post := $posts -}}
+      {{ partial "post_feed_item.html" (dict "post" $post "dateFormat" $dateFormat "featured" (and $.feature_first (eq $index 0))) }}
     {{- end -}}
     {{- if and .show_more $limitExceeded -}}
       <p class="post-feed__more">

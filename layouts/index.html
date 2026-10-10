@@ -1,28 +1,14 @@
 {{ define "main" }}
   {{ partial "site_hero.html" . }}
-  {{- range $block := site.Data.menu.entries -}}
-  <section class="page-section" aria-labelledby="section-{{ $block.title | urlize }}">
-    {{ partial "section_head.html" (dict "title" $block.title "id" (printf "section-%s" ($block.title | urlize))) }}
-    {{- if $block.post_list -}}
-      {{ partial "post_list.html" (dict
-          "context" $
-          "section" $block.post_list.section
-          "limit" $block.post_list.limit
-          "show_more" $block.post_list.show_more
-          "show_more_text" $block.post_list.show_more_text
-          "show_more_url" $block.post_list.show_more_url) }}
-    {{- else if $block.tag_list -}}
-      {{ partial "tag_chips.html" (dict
-          "limit" $block.tag_list.limit
-          "show_more" $block.tag_list.show_more
-          "show_more_text" $block.tag_list.show_more_text
-          "show_more_url" $block.tag_list.show_more_url) }}
-    {{- else if $block.url -}}
-      <p class="rss-link">
-        <a href="{{ $block.url | relURL }}">{{ $block.url }}</a>
-      </p>
-    {{- end -}}
-    <hr class="zine-rule">
+  <section class="page-section home-posts" id="wpisy" aria-labelledby="section-blog">
+    <div class="section-heading">
+      {{ partial "section_head.html" (dict "title" "Najnowsze wpisy" "id" "section-blog") }}
+      <a class="text-link" href="{{ "/posts/" | relURL }}">Archiwum <span aria-hidden="true">→</span></a>
+    </div>
+    {{ partial "post_list.html" (dict "context" . "section" "posts" "limit" 7 "feature_first" true "show_more" true "show_more_text" "Wszystkie wpisy →" "show_more_url" "/posts/") }}
   </section>
-  {{- end -}}
+  <section class="page-section topics-section" aria-labelledby="section-tematy">
+    <p class="eyebrow" id="section-tematy">Przeglądaj według tematu</p>
+    {{ partial "tag_chips.html" (dict "limit" 8 "show_more" true "show_more_text" "Wszystkie tematy →" "show_more_url" "/tags/") }}
+  </section>
 {{ end }}

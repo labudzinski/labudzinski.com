@@ -1,8 +1,8 @@
 {{ define "main" }}
   <section class="page-section" aria-labelledby="section-404">
-    {{ partial "section_head.html" (dict "title" "404" "id" "section-404") }}
-    <p class="error-code" role="alert">tekst nie istnieje</p>
-    <p>Adres <code>{{ .Permalink }}</code> nie występuje w tym wydaniu.</p>
+    <p class="eyebrow">Błąd 404</p>
+    <h1 class="article__title" id="section-404">Nie znaleziono strony</h1>
+    <p>Ta strona nie istnieje. Wróć do bloga, aby przejrzeć najnowsze wpisy.</p>
     {{ partial "back_link.html" . }}
   </section>
 {{ end }}

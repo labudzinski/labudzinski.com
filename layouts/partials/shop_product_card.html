@@ -1,28 +1,22 @@
 {{- $page := .page -}}
 <li class="shop-card">
-  {{- with $page.Params.image -}}
-    <figure class="shop-card__cover">
-      <a href="{{ $page.RelPermalink }}">
-        <img src="{{ . | relURL }}" alt="{{ $page.Params.image_alt | default $page.Title }}" width="320" height="480" loading="lazy" decoding="async">
-      </a>
-    </figure>
-  {{- end -}}
+  {{ with $page.Params.image }}
+  <div class="shop-card__artwork"><figure class="shop-card__cover"><a href="{{ $page.RelPermalink }}"><img src="{{ . | relURL }}" alt="{{ $page.Params.image_alt | default $page.Title }}" width="320" height="480" loading="lazy" decoding="async"></a></figure></div>
+  {{ end }}
   <div class="shop-card__body">
-    {{- with $page.Params.tagline -}}
-      <p class="shop-card__tagline">{{ . }}</p>
-    {{- end -}}
-    <h2 class="shop-card__title">
-      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-    </h2>
-    <p class="shop-card__desc">{{ $page.Params.description | default $page.Summary }}</p>
-    {{- with $page.Params.price -}}
-      <p class="shop-card__price">{{ . }}</p>
-    {{- end -}}
-    <p class="shop-card__cta">
-      <a class="shop-btn shop-btn--secondary" href="{{ $page.RelPermalink }}">szczegóły</a>
-      {{- with $page.Params.allegro_url -}}
-        <a class="shop-btn shop-btn--allegro" href="{{ . }}" rel="noopener noreferrer" target="_blank">Allegro</a>
-      {{- end -}}
-    </p>
+    <p class="shop-card__format">{{ partial "icon.html" (dict "name" "book") }} Książka · {{ site.Params.author }}</p>
+    {{ with $page.Params.tagline }}<p class="shop-card__tagline">{{ . }}</p>{{ end }}
+    <h2 class="shop-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Params.series | default $page.Title }}</a></h2>
+    {{ with $page.Params.subtitle }}<p class="shop-card__subtitle">{{ . }}</p>{{ end }}
+    <p class="shop-card__desc">{{ $page.Params.description | default ($page.Summary | plainify) }}</p>
+    {{ with $page.Params.series_note }}<p class="shop-card__series">{{ . }}</p>{{ end }}
+    <div class="shop-card__purchase">
+      {{ with $page.Params.price }}<p class="shop-card__price"><span>Cena książki</span>{{ . }}</p>{{ end }}
+      <div class="shop-card__cta">
+        {{ with $page.Params.allegro_url }}<a class="shop-btn shop-btn--allegro" href="{{ . }}" rel="noopener noreferrer" target="_blank">Kup na Allegro {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a>{{ end }}
+        <a class="shop-card__details" href="{{ $page.RelPermalink }}">Poznaj książkę {{ partial "icon.html" (dict "name" "arrow") }}</a>
+      </div>
+    </div>
+    {{ with $page.Params.payment_note }}<p class="shop-card__note">{{ . }}</p>{{ end }}
   </div>
 </li>

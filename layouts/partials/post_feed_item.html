@@ -1,20 +1,18 @@
 {{- $post := .post -}}
-{{- $dateFormat := .dateFormat | default (.post.Site.Params.date_format | default "2006-01-02") -}}
-{{- $summary := $post.Summary | plainify | strings.TrimSpace -}}
-{{- $excerpt := $post.Params.description | default $summary -}}
-<article class="post-feed__item">
-  <time class="post-feed__date" datetime="{{ $post.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $post.Date | time.Format $dateFormat }}</time>
-  <div class="post-feed__body">
-    <h2 class="post-feed__title">
-      <a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
-    </h2>
-    {{- with $excerpt -}}
-      <p class="post-feed__excerpt">{{ . }}</p>
-    {{- end -}}
-    {{- with $post.GetTerms "tags" -}}
-      <div class="post-feed__tags">
-        {{ partial "article_tags.html" (first 3 .) }}
-      </div>
-    {{- end -}}
+{{- $dateFormat := .dateFormat | default ($post.Site.Params.date_format | default "2006-01-02") -}}
+{{- $excerpt := $post.Params.description | default ($post.Summary | plainify | strings.TrimSpace) -}}
+{{- $featured := .featured | default false -}}
+<article class="post-feed__item{{ if $featured }} post-feed__item--featured{{ end }}">
+  <div class="post-card__top">
+    {{- if $featured -}}<span class="post-card__label">Najnowszy wpis</span>
+    {{- else -}}{{ with $post.GetTerms "tags" }}{{ with index . 0 }}<a class="post-card__category" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ else }}<span class="post-card__category">Notatki</span>{{ end }}{{- end -}}
+    <time class="post-card__date" datetime="{{ $post.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $post.Date | time.Format $dateFormat }}</time>
+  </div>
+  <h2 class="post-feed__title"><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h2>
+  {{- with $excerpt -}}<p class="post-feed__excerpt">{{ . }}</p>{{- end -}}
+  {{- if $featured -}}{{ with $post.GetTerms "tags" }}<div class="post-feed__tags">{{ partial "article_tags.html" (first 3 .) }}</div>{{ end }}{{- end -}}
+  <div class="post-card__footer">
+    <span class="post-card__reading">{{ partial "icon.html" (dict "name" "clock") }} {{ $post.ReadingTime }} min czytania</span>
+    <a class="post-card__read" href="{{ $post.RelPermalink }}" aria-label="Czytaj: {{ $post.Title }}">Czytaj artykuł {{ partial "icon.html" (dict "name" "arrow") }}</a>
   </div>
 </article>

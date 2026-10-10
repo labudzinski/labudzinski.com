@@ -1,20 +1,19 @@
-<footer class="site-footer" role="contentinfo">
-  <p class="site-footer__copy">
-    &copy; {{ .Site.Params.copyright_start | default 2019 }}&ndash;{{ now.Year }}
-    {{ .Site.Params.author | default .Site.Title }}.
-    Wszelkie prawa zastrzeżone.
-  </p>
-  <p class="site-footer__legal">
-    Treści niniejszej strony internetowej stanowią utwory chronione na podstawie
-    ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych
-    oraz art. 4 ust. 3 dyrektywy (UE) 2019/790 (TDM).
-    Zabronione jest szkolenie modeli AI, ekstrakcja datasetów, embeddingi i TDM
-    bez pisemnej zgody autora.
-    <a href="{{ "ai-policy.txt" | relURL }}">Polityka AI</a>
-    &middot;
-    <a href="{{ "tdm-policy.json" | relURL }}">TDMRep</a>.
-  </p>
-  <p class="site-footer__pgp">
-    <a href="{{ "public-key.asc" | relURL }}">PGP Public Key</a>
-  </p>
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <p class="site-footer__copy">&copy; {{ .Site.Params.copyright_start | default 2019 }}–{{ now.Year }} {{ .Site.Params.author | default .Site.Title }}. Wszelkie prawa zastrzeżone.</p>
+    <div class="theme-switcher" role="group" aria-label="Motyw strony">
+      <button type="button" data-theme-choice="light" aria-pressed="false">Jasny</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false">Ciemny</button>
+      <button type="button" data-theme-choice="auto" aria-pressed="true">Auto</button>
+    </div>
+  </div>
+  <nav class="site-footer__links" aria-label="Stopka">
+    <a href="{{ "index.xml" | relURL }}">RSS</a>
+    {{ with .Site.Params.github }}<a href="{{ . }}">GitHub</a>{{ end }}
+    {{ with .Site.Params.linkedin }}<a href="{{ . }}">LinkedIn</a>{{ end }}
+    <a href="{{ "public-key.asc" | relURL }}">Klucz PGP</a>
+    <a href="{{ "/prywatnosc/" | relURL }}">Prywatność i cookies</a>
+    <button type="button" class="text-button" data-cookie-settings hidden>Ustawienia cookies</button>
+  </nav>
+  <p class="site-footer__legal">Treści chronione prawem autorskim. Szkolenie modeli AI, ekstrakcja datasetów, embeddingi i TDM wymagają pisemnej zgody autora. <a href="{{ "ai-policy.txt" | relURL }}">Polityka AI</a> · <a href="{{ "tdm-policy.json" | relURL }}">TDMRep</a>.</p>
 </footer>

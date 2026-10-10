@@ -1,13 +1,59 @@
 {{ define "main" }}
-  <h1 class="visually-hidden">{{ .Title }}</h1>
-  {{ partial "site_hero.html" . }}
-  {{- with .Content -}}
-    <div class="page-intro">{{ . }}</div>
-  {{- end -}}
-  <section class="page-section" aria-labelledby="section-linki">
-    {{ partial "section_head.html" (dict "title" "linki" "id" "section-linki") }}
-    {{ partial "link_list.html" (dict "items" site.Data.about.links) }}
-    <hr class="zine-rule">
-  </section>
+  {{- $startYear := .Params.career_start | default 2002 -}}
+  {{- $years := sub now.Year $startYear -}}
+  {{- $yearLabel := "lat" -}}
+  {{- if eq $years 1 -}}{{- $yearLabel = "rok" -}}
+  {{- else if and (ge (mod $years 10) 2) (le (mod $years 10) 4) (or (lt (mod $years 100) 12) (gt (mod $years 100) 14)) -}}{{- $yearLabel = "lata" -}}{{- end -}}
+  <article class="about-page" aria-labelledby="about-name">
+    <header class="about-hero detail-header">
+      <div class="about-hero__intro">
+        <p class="eyebrow">O mnie</p>
+        <div class="about-identity">
+          <span class="about-identity__mark" aria-hidden="true">DL</span>
+          <div><h1 id="about-name">{{ .Params.tagline | default .Site.Params.author }}</h1><p class="about-hero__role">{{ .Params.role | default "Software Architect & Engineer" }}</p></div>
+        </div>
+        <div class="about-hero__actions">
+          <a class="button button--primary" href="{{ "/projekty/" | relURL }}">Zobacz projekty {{ partial "icon.html" (dict "name" "arrow") }}</a>
+          <a class="button button--quiet" href="{{ "/" | relURL }}">Czytaj blog {{ partial "icon.html" (dict "name" "arrow") }}</a>
+        </div>
+      </div>
+      <div class="about-experience">
+        <p class="about-experience__number">{{ $years }} <span>{{ $yearLabel }}</span></p>
+        <p class="about-experience__label">doświadczenia w inżynierii oprogramowania</p>
+        <p class="about-experience__since">Od {{ $startYear }} roku</p>
+      </div>
+    </header>
+    <div class="about-layout">
+      <div class="about-body detail-body">
+        <div class="content">{{ .Content }}</div>
+        {{ with .Params.technologies }}
+          <section class="about-stack" aria-labelledby="about-stack-title">
+            <h2 id="about-stack-title">Technologie, z którymi pracuję</h2>
+            {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
+          </section>
+        {{ end }}
+      </div>
+      <aside class="about-sidebar" aria-label="Profile i obszary pracy">
+        <section class="about-links" aria-labelledby="about-links-title">
+        <h2 id="about-links-title">W sieci</h2>
+        <ul class="about-links__list">
+          {{ range hugo.Data.about.links }}
+            <li><a class="about-link" href="{{ .url }}" rel="noopener noreferrer" target="_blank">
+              <span class="about-link__mark" aria-hidden="true">{{ .mark }}</span>
+              <span class="about-link__text"><strong>{{ .title }}</strong><span>{{ .description }}</span></span>
+              {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span>
+            </a></li>
+          {{ end }}
+        </ul>
+        </section>
+        {{ with hugo.Data.about.areas }}
+          <section class="about-focus" aria-labelledby="about-focus-title">
+            <h2 id="about-focus-title">Obszary pracy</h2>
+            <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+          </section>
+        {{ end }}
+      </aside>
+    </div>
+  </article>
   {{ partial "page_footer.html" . }}
 {{ end }}

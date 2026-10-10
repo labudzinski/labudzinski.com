@@ -1,11 +1,19 @@
+areas = ["Architektura systemów", "Backend", "Architektura danych", "DevOps i infrastruktura", "Bezpieczeństwo"]
+
 [[links]]
-title = "github.com"
+title = "GitHub · Lemric"
+description = "Repozytoria Lemric"
+mark = "GH"
 url = "https://github.com/lemric"
 
 [[links]]
-title = "github.com"
+title = "GitHub · labudzinski"
+description = "Moje repozytoria"
+mark = "GH"
 url = "https://github.com/labudzinski"
 
 [[links]]
-title = "linkedin"
+title = "LinkedIn"
+description = "Profil zawodowy"
+mark = "in"
 url = "https://www.linkedin.com/in/dominik-l/"

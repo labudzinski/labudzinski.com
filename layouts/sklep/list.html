@@ -1,12 +1,8 @@
 {{ define "main" }}
-  <h1 class="visually-hidden">{{ .Title }}</h1>
-  <section class="page-section" aria-labelledby="section-sklep">
-    {{ partial "section_head.html" (dict "title" "sklep" "id" "section-sklep") }}
-    {{- with .Content -}}
-      <div class="shop-intro">{{ . }}</div>
-    {{- end -}}
-    {{ partial "shop_products.html" (dict "pages" .Pages) }}
-    <hr class="zine-rule">
-  </section>
-  {{ partial "page_footer.html" . }}
+<section class="page-section" aria-labelledby="section-sklep">
+  <header class="collection-heading"><p class="eyebrow">Po drugiej stronie ekranu</p><h1 class="page-title" id="section-sklep">Sklep</h1><p>Moje książki. Historie, w których technologia spotyka przygodę.</p></header>
+  {{ with .Content }}<div class="shop-intro content">{{ . }}</div>{{ end }}
+  {{ partial "shop_products.html" (dict "pages" .Pages) }}
+</section>
+{{ partial "page_footer.html" . }}
 {{ end }}

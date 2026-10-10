@@ -1,0 +1,6 @@
+{{- $kind := "Projekt" -}}{{- $icon := "layers" -}}
+{{- if .Params.homepage -}}{{- $kind = "Portal" -}}{{- $icon = "shield" -}}
+{{- else if .Params.go_module -}}{{- $kind = "Biblioteka Go" -}}{{- $icon = "layers" -}}
+{{- else if .Params.composer -}}{{- $kind = "Biblioteka PHP" -}}{{- $icon = "code" -}}
+{{- else if .IsSection -}}{{- $kind = "Aplikacja" -}}{{- $icon = "mobile" -}}{{- end -}}
+{{- return (dict "kind" $kind "icon" $icon) -}}

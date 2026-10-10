@@ -1,6 +1,7 @@
 {{ define "main" }}
-  <article class="article">
-    <header class="article__header">
+  {{ with .Parent }}{{ partial "article_breadcrumb.html" (dict "page" $ "href" .RelPermalink "label" .Title) }}{{ end }}
+  <article class="article detail-page">
+    <header class="article__header detail-header">
       <h1 class="article__title">{{ .Title }}</h1>
       {{- with .Params.description -}}
         <p class="article__summary">{{ . }}</p>
@@ -11,7 +12,7 @@
       <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
     {{- end -}}
 
-    <div class="article__body content">{{ .Content }}</div>
+    <div class="detail-body"><div class="article__body content">{{ .Content }}</div></div>
 
     <footer class="article__footer">
       {{- with .Parent -}}

@@ -1,25 +1,21 @@
-{{- $tagline := .Params.tagline | default .Site.Title -}}
 {{- $startYear := .Params.career_start | default 2002 -}}
-{{- $start := time (printf "%d-01-01T00:00:00Z" $startYear) -}}
-{{- $days := div (sub now.Unix $start.Unix) 86400 -}}
-{{- $years := div $days 365 -}}
-{{- $remDays := mod $days 365 -}}
+{{- $years := sub now.Year $startYear -}}
 {{- $yearLabel := "lat" -}}
-{{- if eq $years 1 -}}
-  {{- $yearLabel = "rok" -}}
-{{- else if and (ge $years 2) (le $years 4) -}}
-  {{- $yearLabel = "lata" -}}
-{{- end -}}
-{{- $dayLabel := "dni" -}}
-{{- if eq $remDays 1 -}}
-  {{- $dayLabel = "dzień" -}}
-{{- else if and (ge $remDays 2) (le $remDays 4) -}}
-  {{- $dayLabel = "dni" -}}
-{{- end -}}
+{{- if eq $years 1 -}}{{- $yearLabel = "rok" -}}
+{{- else if and (ge (mod $years 10) 2) (le (mod $years 10) 4) (or (lt (mod $years 100) 12) (gt (mod $years 100) 14)) -}}{{- $yearLabel = "lata" -}}{{- end -}}
 <header class="site-hero">
-  <h1 class="site-hero__name">{{ $tagline }}</h1>
-  <p class="site-hero__experience">
-    doświadczenie:
-    <span class="site-hero__experience-value">{{ $years }} {{ $yearLabel }}{{- if gt $remDays 0 -}}, {{ $remDays }} {{ $dayLabel }}{{- end -}}</span>
-  </p>
+  {{- if .IsHome -}}
+  <p class="eyebrow">Blog · {{ .Site.Params.author }}</p>
+  <h1 class="site-hero__name">Architektura, bezpieczeństwo <span class="accent-text">i kod.</span></h1>
+  <p class="site-hero__lead">{{ .Site.Params.description }}</p>
+  <div class="site-hero__actions">
+    <a class="button button--primary" href="#wpisy">Czytaj wpisy <span aria-hidden="true">↓</span></a>
+    <a class="button button--quiet" href="{{ "/o-mnie/" | relURL }}">O mnie <span aria-hidden="true">→</span></a>
+  </div>
+  {{- else -}}
+  <p class="eyebrow">O mnie</p>
+  <h1 class="site-hero__name">{{ .Params.tagline | default .Site.Title }}</h1>
+  <p class="site-hero__lead">{{ .Site.Params.bio }}</p>
+  {{- end -}}
+  <p class="site-hero__experience">{{ $years }} {{ $yearLabel }} doświadczenia · Software Architect &amp; Engineer</p>
 </header>

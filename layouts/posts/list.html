@@ -1,8 +1,7 @@
 {{ define "main" }}
   {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
-  <h1 class="visually-hidden">{{ .Title | default "posts" }}</h1>
   <section class="page-section" aria-labelledby="section-posts">
-    {{ partial "section_head.html" (dict "title" "blog" "id" "section-posts") }}
+    <header class="collection-heading"><p class="eyebrow">Notatki z praktyki</p><h1 class="page-title" id="section-posts">Archiwum bloga</h1><p>Architektura, bezpieczeństwo, programowanie i wszystko, co pomiędzy.</p></header>
     {{ partial "post_list_paginator.html" . }}
     <hr class="zine-rule zine-rule--solid">
   </section>

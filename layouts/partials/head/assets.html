@@ -1,12 +1,14 @@
 {{- $needsChroma := false -}}
 {{- if .IsPage -}}
-  {{- if findRE `<pre class="chroma">` .Content -}}
+  {{- if findRE `<pre[^>]*\bclass="[^"]*\bchroma\b` .Content -}}
     {{- $needsChroma = true -}}
   {{- end -}}
 {{- end -}}
 
 {{- $cssV := substr (md5 (readFile "static/css/main.css")) 0 10 -}}
 <link rel="stylesheet" href="/css/main.css?v={{ $cssV }}">
+<link rel="preload" href="/fonts/Onest-Latin.woff2" as="font" type="font/woff2" crossorigin>
+<script defer src="/js/site.js?v={{ substr (md5 (readFile "static/js/site.js")) 0 10 }}"></script>
 {{- if $needsChroma -}}
-<link rel="stylesheet" href="/css/chroma.css?v={{ $cssV }}">
+<link rel="stylesheet" href="/css/chroma.css?v={{ substr (md5 (readFile "static/css/chroma.css")) 0 10 }}">
 {{- end -}}

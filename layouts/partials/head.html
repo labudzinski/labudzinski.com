@@ -8,8 +8,9 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f3f0">
+<script src="/js/theme-init.js?v={{ substr (md5 (readFile "static/js/theme-init.js")) 0 10 }}"></script>
 <title>{{ $title }}</title>
 {{- with $desc -}}
 <meta name="description" content="{{ . }}">

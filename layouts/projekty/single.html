@@ -1,5 +1,7 @@
 {{ define "main" }}
-  <article class="article project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+  {{ partial "article_breadcrumb.html" (dict "page" . "href" "/projekty/" "label" "Projekty") }}
+  {{- $identity := partial "project_identity.html" . -}}
+  <article class="article detail-page project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
     <meta itemprop="author" content="{{ .Site.Params.author }}">
     {{- with .Params.license -}}
       <meta itemprop="license" content="{{ . }}">
@@ -8,41 +10,46 @@
       <meta itemprop="codeRepository" content="{{ . }}">
     {{- end -}}
 
-    <header class="article__header">
-      <h1 class="article__title" itemprop="name">{{ .Title }}</h1>
+    <header class="article__header detail-header">
+      <div class="project-page__identity">
+        <span class="project-card__symbol">{{ partial "icon.html" (dict "name" $identity.icon) }}</span>
+        <div><p class="eyebrow">{{ $identity.kind }}</p><h1 class="article__title" itemprop="name">{{ .Title }}</h1></div>
+      </div>
       {{- with .Params.description -}}
         <p class="article__summary">{{ . }}</p>
       {{- end -}}
       {{- with .Params.tags -}}
         {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
       {{- end -}}
-      <ul class="article__links">
+      {{- if or .Params.homepage .Params.docs_url .Params.github .RegularPages -}}
+      <ul class="article__links project-page__resources">
         {{- with .Params.homepage -}}
-          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">portal</a></li>
+          <li><a class="button button--primary" href="{{ . }}" rel="noopener noreferrer" target="_blank">Otwórz portal {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
         {{- end -}}
         {{- with .Params.docs_url -}}
-          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">dokumentacja</a></li>
+          <li><a class="button button--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">Dokumentacja {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
         {{- end -}}
         {{- with .Params.github -}}
-          <li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">github</a></li>
-        {{- end -}}
-        {{- with .Params.composer -}}
-          <li><code>composer require {{ . }}</code></li>
-        {{- end -}}
-        {{- with .Params.go_module -}}
-          <li><code>go get {{ . }}</code></li>
+          <li><a class="button button--secondary" href="{{ . }}" rel="noopener noreferrer" target="_blank">GitHub {{ partial "icon.html" (dict "name" "external") }}<span class="visually-hidden"> (nowa karta)</span></a></li>
         {{- end -}}
         {{- range .RegularPages -}}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          <li><a class="button button--secondary" href="{{ .RelPermalink }}">{{ .LinkTitle }} {{ partial "icon.html" (dict "name" "arrow") }}</a></li>
         {{- end -}}
       </ul>
+      {{- end -}}
+      {{- with .Params.composer -}}
+        <div class="project-install"><p>Instalacja przez Composer</p><pre tabindex="0" aria-label="Polecenie instalacji"><code>composer require {{ . }}</code></pre></div>
+      {{- end -}}
+      {{- with .Params.go_module -}}
+        <div class="project-install"><p>Dodaj do projektu Go</p><pre tabindex="0" aria-label="Polecenie instalacji"><code>go get {{ . }}</code></pre></div>
+      {{- end -}}
     </header>
 
     {{- if .Params.toc -}}
       <aside class="toc" aria-label="Spis treści">{{ .TableOfContents }}</aside>
     {{- end -}}
 
-    <div class="article__body content" itemprop="description">{{ .Content }}</div>
+    <div class="detail-body"><div class="article__body content" itemprop="description">{{ .Content }}</div></div>
 
     <footer class="article__footer">
       {{ partial "back_link.html" (dict "href" "/projekty/" "label" "← projekty") }}
