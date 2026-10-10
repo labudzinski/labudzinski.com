@@ -1,0 +1,9 @@
+{{- $page := .page -}}
+{{- $identity := partial "project_identity.html" $page -}}
+{{- with $page.Params.logo -}}
+  <span class="project-brand{{ if $.large }} project-brand--large{{ end }}">
+    <img src="{{ . | relURL }}" alt="{{ $page.Params.logo_alt | default (printf "Logo %s" $page.Title) }}" width="96" height="96" decoding="async"{{ if not $.large }} loading="lazy"{{ end }}>
+  </span>
+{{- else -}}
+  <span class="project-card__symbol">{{ partial "icon.html" (dict "name" $identity.icon) }}</span>
+{{- end -}}

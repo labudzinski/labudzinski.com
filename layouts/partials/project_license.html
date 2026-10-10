@@ -1,0 +1,5 @@
+{{- with .Params.license -}}
+  <dl class="project-license">
+    <div><dt>Licencja</dt><dd>{{ with $.Params.license_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Licencja {{ $.Params.license }} projektu {{ $.Title }} (nowa karta)">{{ $.Params.license }} {{ partial "icon.html" (dict "name" "external") }}</a>{{ else }}{{ . }}{{ end }}</dd></div>
+  </dl>
+{{- end -}}

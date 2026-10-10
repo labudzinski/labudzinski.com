@@ -226,9 +226,21 @@ main { flex: 1; min-width: 0; }
 .article-neighbours strong { font-size: 17px; line-height: 1.4; font-weight: 600; }
 .article-neighbours .icon { color: var(--accent); margin-top: auto; }
 .project-page__identity { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-.project-page__identity .project-card__symbol { flex-shrink: 0; }
+.project-page__identity > div { min-width: 0; }
+.project-brand { display: grid; place-items: center; flex-shrink: 0; width: 56px; height: 56px; border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; background: var(--surface-raised); }
+.project-brand--large { width: 88px; height: 88px; border-radius: 16px; }
+.project-brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.project-license { margin: 0 0 16px; font-size: 13px; }
+.project-license > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; }
+.project-license dt { color: var(--text-tertiary); }
+.project-license dd { margin: 0; color: var(--text); font-weight: 600; }
+.project-license a { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 5px; color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.project-license a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.project-license .icon { width: 13px; height: 13px; }
+.project-page__identity .project-card__symbol { flex-shrink: 0; width: 88px; height: 88px; border-radius: 16px; }
+.project-page__identity .project-card__symbol .icon { width: 32px; height: 32px; }
 .project-page__identity .eyebrow { margin-bottom: 4px; font-size: 11px; }
-.project-page__identity .article__title { margin: 0; font-size: 34px; line-height: 1.15; }
+.project-page__identity .article__title { margin: 0; font-size: 34px; line-height: 1.15; overflow-wrap: anywhere; }
 .project-page .article__summary { font-size: 17px; line-height: 1.6; margin-bottom: 16px; text-wrap: pretty; }
 .project-page .article__links { gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-soft); }
 .project-page__resources .button { gap: 8px; font-size: 13px; padding: 8px 14px; border-radius: 8px; }
@@ -306,6 +318,7 @@ hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-soft); }
 .project-card__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
 .project-card__symbol { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 12px; color: var(--accent); background: var(--accent-tint); }
 .project-card__symbol .icon { width: 24px; height: 24px; }
+.project-card .project-card__symbol { width: 56px; height: 56px; }
 .project-card__kind { color: var(--text-tertiary); font: 500 12px/1.4 var(--font); }
 .project-card__title { font: 650 25px/1.25 var(--font); letter-spacing: -.025em; margin: 0 0 12px; }
 .project-card__title a, .shop-card__title a { color: var(--text); }
@@ -470,7 +483,8 @@ hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-soft); }
   .content h3 { font-size: 19px; }
   .article__byline { align-items: flex-start; flex-direction: column; gap: 12px; }
   .project-page__identity { gap: 12px; }
-  .project-page__identity .article__title { font-size: 28px; }
+  .project-brand--large, .project-page__identity .project-card__symbol { width: 64px; height: 64px; border-radius: 12px; }
+  .project-page__identity .article__title { font-size: clamp(24px, 7vw, 28px); }
   .shop-product__hero { padding: 0; gap: 0; }
   .shop-product__intro { padding: 20px; }
   .shop-product__hero .shop-card__artwork { padding: 24px; }

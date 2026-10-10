@@ -18,6 +18,31 @@ Obsługiwane pola:
 | `googleplay` (również `google_play` lub `playstore`) | Oficjalna polska odznaka Google Play |
 | `github` | Przycisk „Zobacz kod / GitHub” z oficjalnym znakiem GitHuba |
 
+## Logo i licencja
+
+```toml
+logo = "/images/projects/batch-request.webp"
+logo_alt = "Logo BatchRequest"
+license = "MIT"
+license_url = "https://github.com/Lemric/BatchRequest/blob/main/LICENSE"
+docs_url = "https://github.com/Lemric/BatchRequest#readme"
+```
+
+Logo pojawia się na liście projektów oraz w nagłówku strony projektu.
+Grafika zachowuje proporcje i kolory w obu motywach. Używaj lokalnego
+pliku z oficjalnych materiałów projektu. Bez pola `logo` pozostaje ikona
+rodzaju projektu.
+
+Pole `license` wyświetla nazwę licencji w obu widokach. Opcjonalne
+`license_url` dodaje odnośnik do jej pełnego tekstu i jest również używane
+w metadanych strony. Bez adresu nazwa jest zwykłym tekstem. Nie przypisuj
+licencji tylko na podstawie publicznej dostępności repozytorium.
+`docs_url` dodaje odnośnik do dokumentacji, a `composer` i `go_module`
+wyświetlają polecenia instalacji na stronie projektu.
+
+Wspólne szablony `project_brand.html` i `project_license.html` zapewniają
+taki sam sposób prezentacji na kartach i stronach projektów.
+
 Odznaki sklepów zachowują oryginalną grafikę, proporcje, czarne tło
 i odstępy ochronne. Są przechowywane lokalnie; samo wyświetlenie przycisku
 nie wysyła zapytania do sklepu. App Store jest pierwszy w kolejności.

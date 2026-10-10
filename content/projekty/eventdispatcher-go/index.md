@@ -5,6 +5,7 @@ date = 2026-07-08T12:00:00+02:00
 draft = false
 docs_url = "https://docs.lemric.com/eventdispatcher-go/"
 go_module = "github.com/lemric/eventdispatcher-go"
+license = "Własnościowa"
 tags = ["Go", "events", "concurrency"]
 toc = false
 +++

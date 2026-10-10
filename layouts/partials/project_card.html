@@ -2,9 +2,10 @@
 {{- $identity := partial "project_identity.html" $page -}}
 {{- $platforms := partial "project_platforms.html" $page -}}
 <li class="project-card">
-  <div class="project-card__top"><span class="project-card__symbol">{{ partial "icon.html" (dict "name" $identity.icon) }}</span><span class="project-card__kind">{{ $identity.kind }}</span></div>
+  <div class="project-card__top">{{ partial "project_brand.html" (dict "page" $page) }}<span class="project-card__kind">{{ $identity.kind }}</span></div>
   <h2 class="project-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
   <p class="project-card__desc">{{ $page.Params.description | default ($page.Summary | plainify) }}</p>
+  {{ partial "project_license.html" $page }}
   {{ with $page.Params.tags }}{{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}{{ end }}
   <div class="project-card__cta">
     <a class="project-card__details" href="{{ $page.RelPermalink }}" aria-label="Poznaj projekt {{ $page.Title }}">Poznaj projekt {{ partial "icon.html" (dict "name" "arrow") }}</a>

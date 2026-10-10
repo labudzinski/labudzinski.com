@@ -5,7 +5,10 @@
   <article class="article detail-page project-page" itemscope itemtype="https://schema.org/SoftwareSourceCode">
     <meta itemprop="author" content="{{ .Site.Params.author }}">
     {{- with .Params.license -}}
-      <meta itemprop="license" content="{{ . }}">
+      <meta itemprop="license" content="{{ $.Params.license_url | default . }}">
+    {{- end -}}
+    {{- with .Params.logo -}}
+      <meta itemprop="image" content="{{ . | absURL }}">
     {{- end -}}
     {{- with .Params.github -}}
       <meta itemprop="codeRepository" content="{{ . }}">
@@ -13,12 +16,13 @@
 
     <header class="article__header detail-header">
       <div class="project-page__identity">
-        <span class="project-card__symbol">{{ partial "icon.html" (dict "name" $identity.icon) }}</span>
+        {{ partial "project_brand.html" (dict "page" . "large" true) }}
         <div><p class="eyebrow">{{ $identity.kind }}</p><h1 class="article__title" itemprop="name">{{ .Title }}</h1></div>
       </div>
       {{- with .Params.description -}}
         <p class="article__summary">{{ . }}</p>
       {{- end -}}
+      {{ partial "project_license.html" . }}
       {{- with .Params.tags -}}
         {{ partial "tag_labels.html" (dict "tags" . "label" "Technologie") }}
       {{- end -}}
