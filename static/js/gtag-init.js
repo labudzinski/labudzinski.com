@@ -96,16 +96,35 @@
     document.head.appendChild(script);
   }
 
+  /* WCAG 2.4.11: keep keyboard focus on page content clear of the fixed banner. */
+  function reserveBannerSpace() {
+    if (!document.body || !document.body.style) return;
+    document.body.style.paddingBottom = banner.hidden ? '' : (banner.offsetHeight + 16) + 'px';
+    /* Smooth focus scrolling would override the correction in revealFocus. */
+    document.documentElement.style.scrollBehavior = banner.hidden ? '' : 'auto';
+  }
+
+  function revealFocus(event) {
+    var target = event.target;
+    if (banner.hidden || banner.contains(target) || !target.getBoundingClientRect) return;
+    window.requestAnimationFrame(function () {
+      var overlap = target.getBoundingClientRect().bottom - banner.getBoundingClientRect().top + 8;
+      if (overlap > 0) window.scrollBy({ top: overlap, behavior: 'instant' });
+    });
+  }
+
   function showBanner(choice, focus) {
     banner.hidden = false;
     closeButton.hidden = !choice;
     status.textContent = choice ? 'Aktualny wybór: analityka ' + (choice === 'granted' ? 'włączona.' : 'wyłączona.') : '';
+    reserveBannerSpace();
     if (focus) banner.querySelector('[data-cookie-choice="denied"]').focus();
   }
 
   function hideBanner() {
     var returnFocus = banner.contains(document.activeElement);
     banner.hidden = true;
+    reserveBannerSpace();
     if (returnFocus) {
       var target = opener || document.querySelector('[data-cookie-settings]');
       if (target) target.focus({ preventScroll: true });
@@ -150,6 +169,8 @@
       refreshChoice();
     }
   });
+  window.addEventListener('resize', reserveBannerSpace);
+  document.addEventListener('focusin', revealFocus);
   window.addEventListener('pageshow', refreshChoice);
   window.addEventListener('focus', refreshChoice);
   document.addEventListener('visibilitychange', function () {

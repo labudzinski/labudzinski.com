@@ -1,5 +1,5 @@
 <nav class="article-breadcrumb" aria-label="Ścieżka nawigacji">
-  <a href="{{ .href | relURL }}">{{ .label }}</a>
+  <a href="{{ .href | relURL }}">{{ .label | default "Blog" }}</a>
   <span aria-hidden="true">/</span>
   <span>{{ .page.Title }}</span>
 </nav>

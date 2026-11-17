@@ -394,6 +394,12 @@ hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-soft); }
 .site-footer__links a { color: var(--text-secondary); padding: 4px 0; }
 .site-footer__links a:hover { color: var(--accent); }
 .site-footer__legal { max-width: 100%; margin: 0; color: var(--text-tertiary); }
+/* WCAG 2.5.8: grow small hit areas to 24px; negative margins keep the layout unchanged. */
+.post-card__category, .post-card__read, .project-card__details, .project-card__resources a:not(.platform-badge), .shop-card__details,
+.text-link, .back, .article-breadcrumb a, .pgp-panel__toggle { padding-block: 3px; margin-block: -3px; }
+.toc a { padding-block: 4px; }
+/* WCAG 1.4.1: links inside running text need a cue beyond colour. */
+.site-footer__legal a, .comments__noscript a { text-decoration: underline; text-underline-offset: 2px; }
 .theme-switcher { display: none; align-items: center; gap: 2px; padding: 2px; border: 1px solid var(--border); border-radius: var(--radius-full); }
 .js .theme-switcher { display: inline-flex; }
 .theme-switcher button { padding: 4px 12px; border: 0; border-radius: var(--radius-full); color: var(--accent); background: transparent; font: 400 12px/1.4 var(--font); }
