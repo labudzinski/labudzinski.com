@@ -181,3 +181,32 @@ test('the theme is restored before rendering, including storage errors', () => {
   vm.runInNewContext(source, {document: {documentElement: root}, localStorage: {getItem() {throw Error('blocked');}}});
   assert.equal(root.dataset.theme, 'auto');
 });
+
+// WCAG 2 AAA (1.4.6): every text token keeps 7:1 on each surface it can sit on, in all three theme blocks.
+test('colour tokens meet the AAA contrast ratio in both themes', () => {
+  const css = readFileSync(new URL('../static/css/main.css', import.meta.url), 'utf8');
+  const rgb = hex => (hex.length === 4 ? [...hex.slice(1)].map(c => c + c) : hex.slice(1).match(/../g)).map(c => parseInt(c, 16));
+  const luminance = colour => colour
+    .map(v => v / 255).map(v => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
+    .reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0);
+  const ratio = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
+  // Light, explicit dark and system dark; the print block that follows has its own fixed palette.
+  const blocks = [...css.matchAll(/^\s*:root[^{]*\{([^}]*--surface:[^}]*)\}/gm)].map(m => m[1]).slice(0, 3);
+  assert.equal(blocks.length, 3);
+  let tokens = {};
+  for (const block of blocks) {
+    tokens = {...tokens, ...Object.fromEntries([...block.matchAll(/(--[\w-]+):\s*([^;]+);/g)].map(m => [m[1], m[2].trim()]))};
+    const colour = name => rgb(tokens[name]);
+    const [, r, g, b, alpha] = tokens['--accent-tint'].match(/rgb\((\d+) (\d+) (\d+) \/ (\d+)%\)/).map(Number);
+    const tinted = name => colour(name).map((v, i) => [r, g, b][i] * alpha / 100 + v * (1 - alpha / 100));
+    const surfaces = [colour('--surface'), colour('--surface-raised'), colour('--surface-sunken'), tinted('--surface'), tinted('--surface-raised')];
+    const inks = ['--text', '--text-secondary', '--text-tertiary', '--accent', '--accent-hover',
+      '--code-comment', '--code-keyword', '--code-string', '--code-number', '--code-function'];
+    for (const ink of inks) for (const surface of surfaces) {
+      assert.ok(ratio(colour(ink), surface) >= 7, `${ink} ${tokens[ink]}: ${ratio(colour(ink), surface).toFixed(2)}`);
+    }
+    for (const [ink, fill] of [['--accent-contrast', '--accent-fill'], ['--accent-contrast', '--accent-fill-hover'], ['--segment-ink', '--segment-fill']]) {
+      assert.ok(ratio(colour(ink), colour(fill)) >= 7, `${ink} on ${fill}: ${ratio(colour(ink), colour(fill)).toFixed(2)}`);
+    }
+  }
+});
